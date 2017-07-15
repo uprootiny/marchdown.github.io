@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+## Hello world!
+This is my Github Pages repo. 
 
-You can use the [editor on GitHub](https://github.com/marchdown/marchdown.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+I've been keeping notes in emacs and then in markdown files for several years now and I've been meaning to put them online but you know how these things are... Anyhow I'm taking a leap. I'll be keeping a diary here and hopefully publish some essays and software projects as well.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+
+I'm not sure if I'm gonna use [the GitHub editor](https://github.com/marchdown/marchdown.github.io/edit/master/index.md) or just edit the files locally and push them to github, but it's nice to have the option.
+
+I'm told that GitHub Pages run [Jekyll](https://jekyllrb.com/); I wonder if I could use Hakyll instead or this thing from plan9/cat-v/suckless crowd.
 
 ### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Markdown, [Gruber](daringfireball.net)'s brainchild, is great and [the Bear app](http://www.bear-writer.com) I've been using for writing lately is built around. There's nice synergy with [Emacs & Org-mode](http://orgmode.org/worg/org-blog-wiki.html).
 
 ```markdown
-Syntax highlighted code block
+We can do syntax highlighting! I wonder if GitHub (or is it Jekyll?) recognizes Agda and Idris?
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+record Monoid c ℓ : Set (suc (c ⊔ ℓ)) where
+  infixl 7 _∙_
+  infix  4 _≈_
+  field
+    Carrier  : Set c
+    _≈_      : Rel Carrier ℓ
+    _∙_      : Op₂ Carrier
+    ε        : Carrier
+    isMonoid : IsMonoid _≈_ _∙_ ε
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Github niceties
+Apparently Github has [its own flavour of markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+Jekyll has themes and there's a GUI to change them in [repository settings](https://github.com/marchdown/marchdown.github.io/settings). They are stored in `_config.yml`.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/marchdown/marchdown.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+There is extensive [documentation](https://help.github.com/categories/github-pages-basics/) also [humans](https://github.com/contact).
