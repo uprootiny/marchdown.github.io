@@ -1,0 +1,3 @@
+* Electrum bitcoin address. Key seed is on my desktop, the earlier one.
+1JizsEgV6sifogDYz9je4vDnVTeiwdkRP7
+* 

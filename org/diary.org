@@ -1,0 +1,458 @@
+* <2017-03-02 Thu 20:54>
+I've slept some. Woke up, made tea and toast. Did a Hebrew typing practice session. 
+
+I should keep my budget. I've decided on using google spreadsheets so far. I'll move on to something better -- YNAB, probably, once I've got income.
+* <2017-03-02 Thu 21:17> Plan for now
+** Walk. Maybe even run. Come back home or sit at some cafe. (now I wish I had taken my trashy sweatshirt with me.) Meditate. Work through some articles
+https://akshatm.svbtle.com/consistent-hash-rings-theory-and-implementation 
+seem nice. Consider getting on Mokum or Tumblr. That would be a good habit to get into. Think. Write. Maybe find a gathering a go there. Sleep. Try again tomorrow.
+
+In general i should take care of feeling good about myself and from that state work on things. Now I have ideas of what to do at my computer: find startups, trawl lesswrong, avva.lj.ru, twitter, okc, classifieds, but I am getting crummy and should really get out and walk or run and meditate and just get in better touch with myself.
+** TODO make my shoes not smelly
+** DONE try running and meditating and see whether it works for me.
+Did work nicely, but I'm still wired. That means that caffeine's out and Remotiv's in for now.
+** <2017-03-04 Sat 14:04>
+I am becoming the thing I hate.
+I spend hours at my computer feeling sorry for myself and not lifting a finger to make things better.
+
+OK, so the plan for now. Have breakfast and read some. Charge my phone. Then go to Aroma or someplace else, take a Chai Latte, sit down and focus. List my resources. Whom to contact Where to seek employment - help, advice, suggestions, anything. Study. Duolingo, HR, Coursera. Write down absorption busywork checklist.
+
+
+Resources:
+LW (avva, benjamin, forums)
+Mokum (kukutz, linorg?)
+Maya Geller.
+Various Startup events, social outings, cocktail parties, public lectures.
+Kanel: U of Haifa prolly.
+Meeyersohn.
+EA?
+Ashka. Kirvas. Olya fix. Mike Nazarov. Polonsky.
+** <2017-03-04 Sat 17:24>
+I walked for a while, sat on the beach, and have now settled in a nice place called "Olive Korner" on טבריה street. 
+
+I woke up at around 13 hours with a stuffy head. Everything feels unbearably rough, sharp and heavy. I went for a run first thing
+
+I wonder if its possible to relegate the Halting Problem to the realm of theoretical curiosa by drawing guidelines of how algorithms should be implemented so that their termination is almost always feasibly provable.
+** Formal proofs
+- Hoare triples
+
+- pre-streghtening axiom
+- post-weakening axiom
+- baggage lemma
+
+- iteration axiom
+- composition axiom
+* <2017-03-04 Sat 21:36> I'm a tiny little bit better. 
+I'm a fever but I'm not as miserable as I was.
+
+I'm poised to make something out of my tomorrow.
+- Call Misrad haKlita. Contact my representative/guide/social worker.
+- Visit ministry of interior and register at the address.
+- Open a bank account.
+* Other things to do.
+ [ ] Research Yiddish community. Maybe old people's homes. Maybe I could be a social worked for russophone demended old people.
+ [ ] Find a kibbutz that would accept me.
+* Expenses <2017-03-06 Mon 16:35>
+  100	Zahar
+  18    3xbus
+  16
+    Intercity bus
+  45	Ethiopian place
+  40	Maketplace
+  - 12 lemons, bell peppers, aubergine  
+  -    batat
+  -    squash
+  -    pitas
+  -    avocado
+  - 4  greens
+  - 6  Potatoes
+  - 10 Tahini
+
+* Expenses 
+bus: 16, sweets: 3, mango juice: 8
+
+* <2017-03-08 Wed 00:18>
+Things I need to know in the morning:
+Address of Misrad hapnim, working hours (14:30-17:30), bank addresses and opening hours.
+
+I would also delve into the francophone community here. Some heavy googling is  in order.
+
+
+Sunday party ! benyehuda 23 2013, fourth floor on the left. <19:30 Sunday>
+
+* 
+** Tami Tel Aviv, South Tel Aviv.
+Eric P Dollard. History and theory of Electricity.
+* <2017-03-09 Thu 20:20>
+I finally opened a bank account today. I feel a little bit /raped/. Everything was extremely slow and confusing and in the end I've gotten the opposite of what I wanted /except/ that I /do/ finally have an account so that's a good thing I guess.
+* <2017-03-11 Sat 23:32>
+What I want to keep happening to me
+- solving math problems
+- meeting awesome people
+- writing. a lot.
+* <2017-03-12 Sun 20:22> I'm on Google Campus.
+ It is good. Not scary at all. There are people here conversing in Hebrew. Tables. Power outlets. Everything looks cosy and *smart*. 
+My phone won't charge so I can't call my contact in Jerusalem and ask if I should be coming to the party.
+** I should organaze a hands-on bigartm workshop here.
+** Also come here on Sundays. Why not? Coffee, internet, people working.
+* <2017-03-13 Mon 18:39> I've had coffee today and I'm feeling great. I've finally gotten to looking closely at the map and there are some companies I should contact sooner rather than later:
+https://classic.mapme.com/mappedinisrael/place/dfadd03a-0b4a-4be8-83d5-d3e2f974c095/info
+https://classic.mapme.com/mappedinisrael/place/097d31db-eb5c-4530-9177-667f919e2a5c/info
+https://classic.mapme.com/mappedinisrael/place/081a6eb2-450e-4257-992b-82bd34be997a/info <-- TechnoArt thing.
+https://mappedinisrael.com/company/UpWest_Labs/
+Sarah suggests that I could do a generative art piece to raise money.
+** TODO https://www.trendiguru.com/contact/
+they have a Machine Learning developer position open. I should play around with ML a bit, do some Kaggle challenges and apply.
+** TODO Mind the AWS loft: https://aws.amazon.com/start-ups/loft/tlv-loft/ from <2017-03-20 Mon>
+** Also, Wednesday is the TAMI open day, every other Wednesday is open day at Google Campus, as is every Sunday.
+** Quora is nice that way 
+https://www.quora.com/Are-there-any-up-and-coming-startups-worth-watching-in-Tel-Aviv
+https://www.quora.com/Where-are-the-best-shared-workspaces-for-startups-in-Tel-Aviv
+https://www.quora.com/Why-should-I-prefer-startup-scenes-such-as-London-Tel-Aviv-Vancouver-etc-over-Silicon-Valley
+** More events:
+ - https://www.secrettelaviv.com/tickets/
+ - https://www.meetup.com/topics/hackathons/il/tel_aviv-yafo/events/
+** University
+ - https://english.tau.ac.il/libraries
+ - http://english.tau.ac.il/academic_calendar
+
+* Books:
+https://www.youtube.com/watch?v=fi1B8RN89Rs
+
+* <2017-03-18 Sat 13:17> 
+recap: I've been to my father's, I've spoken w/G about her visiting me soon-ish and her mother seems to object which makes us both sad, I've been offered a job but then they sorta kinda disappeared.
+
+** Things on my mind now: G, kids, job search, DuoLingo, Sports, Dances, AWS something-or-another, Ethereum, meetups, meeting J & D.
+
+** By the way of learning hebrew, there are some phrases I'm grasping for. Such as:
+ - Do You mind if I...
+ - Do you happen to know whether...
+ - How much; כמה
+ - I do not understand
+ - Could you repeat that slowly please
+ - How do you say...
+ - What does ... mean?
+ - I would like to...
+ - Would you help me out with..
+ - Do you need a hand with that?
+ - Do you need help with...?
+ - Do you want some...?
+ - May I offer you...?
+ - Have you seen...?
+ - Do you know...?
+
+
+
+Plus there are things that I might want to say but I don't know yet that I want to say them. Something that would build up towards positive and efficient communication. Compliments. Offers.
+
+** Other things that might help.
+- writing out scripts. I've had several nice conversations with bus drivers. There are pretty typical things I would ask and tell. I might compose them in advance and then practice.
+- Practice scripts from the textbooks: at a cafe, in a bank. Dance classes. Job interview.
+- Practice /typing/ from a list of common words and frases until they become ingrained in my muscle memory.
+http://play.typeracer.com/?universe=lang_he
+
+** Today
+Call up Rina. Dinah, too. Check up on that AWS thing. Look for more events online. 
+Study. Do some more DuoLingo. Study Ethereum. Research jobs. Consider sending someone a resume, tentatively. Play HackerRank. get back on Interviewing.io.
+
+*** Think about Bicycle skills. Getting a job. Making a portfolio. Going public.
+https://www.johndcook.com/blog/2012/08/01/bicycle-skills/
+* I /so/ want to host G here. 
+Roomy and Modernist, 1600+ https://www.airbnb.com/rooms/17577866?guests=2&adults=2&check_in=2017-03-26&check_out=2017-04-02
+
+the vegan place https://www.airbnb.com/rooms/12802300?guests=2&adults=2&s=7X5tRUvP&check_in=2017-03-26&check_out=2017-04-02
+
+https://www.airbnb.com/rooms/11360036?checkin=03%2F26%2F2017&checkout=04%2F03%2F2017&guests=2&adults=2&children=0&infants=0
+* Today <2017-03-19 Sun 15:29>
+? bank
+misrad ha-clita
+google campus
+rina
+J
+* <2017-03-20 Mon 19:04>
+I didn't accomplish anything yesterday. 
+Wait, that's not right. I made motions to go to the bank and the ministry but I was too spaced out. I forgot my passport and went back to fetch it, by the time I've got it it was too late. But that's not the most important thing. I only need that for the money and I still have some. There are more things that happened:
+
+I went to the AWS gathering. 
+I've introduced myself to several people there. I've made some useful connections. I saw that it's not as scary as I felt it would be.
+I've met with J. That was nice. We went for a long walk and made fascinating conversation. I'm staying at her place as I type. I feel somewhat better.
+** Things I want to do or, as they might be called in the relation to each other, /distractions/
+- The most high-impact thing I could do right now:
+-- write and begin sending out my resume
+-- call Katz. Talk about our gripes, differences and the common vision.
+-- prep for meetings
+- pick a new name. Get passport. Make myself a website, a new email address. It would be easier to connect with people. My public identity would be /stickier/, shinier and easier to handle.
+- study Hebrew.
+- Study math.
+- Study history, yiddish poetry & all that jazz.
+- Go for walks. Run. Bike. Visit museums.
+- Get on CouchSurfing. Write people on OKC.
+** Software projects
+- ICE
+- learn Ethereum
+- learn AWS
+- contest ethereum bounty
+- play around on hackerrank
+- study Zack's oracles
+- 
+
+ben yeshua, bet yeshua 9:--9:53 26min.
+** <2017-03-22 Wed 17:31> I'm bored and afraid, distracted and anxious. 
+I don't want to do anything. I don't want to interact with people. I just want to curl up with a book. I feel that I should go do somethign. Alright. How about leaving in the morning together with Julia. 
+*** What were all these things I wanted to do but didn't? Hebrew. Books. OKC. CouchSurfing. Code! A lot of code. Music. People. Getting a psychiatrist.
+*** <2017-03-22 Wed 18:06> Damn everything. I'm going for a walk. With an iPad. I'll huddle up somewhere and read, like, forever.
+
+So I'm afraid of everyone and otherwise am not managing my life well. 
+Things that might help.
+Get a job, any job.
+Go live in the desert. On a farm. Join the army. Work construction. Anything with a strict schedule imposed from the outside, exhausting physical work, lots of nature. 
+* <2017-03-23 Thu 00:58> I am not willing to take antidepressants again because I feel that they would close some door in my mind. A door behind which there is something precious. Or ugly, but necessary to accept.
+
+I hereby commit to meditating on that thing, on my unwellness, and then going to a doctor.
+* today
+walk
+chekk aws 
+call rina
+research intentional communities
+rtudy eth
+buy some
+* <2017-03-23 Thu 18:07> Okay, so G is visiting me for the Spring break. I feel elated and I feel awful because I have been slacking off and I have to money nor moral, uh, fortitude to deal with myself much less someone else. So, money. 
+** TODO I should check if my card is usable.
+** TODO Rent Airbnb apartment. That vegan place. Consider Jerusalem.
+** 
+* Events for the week
+** AWS Loft gathering.
+** Dead Sea Hike
+* <2017-03-23 Thu 19:59>
+** Magical realism
+Magical realism is... fitting. Appropriate. A sign of times you might say. People make up metaphors to explain their lives. Sometimes they stick. Sometimes people begin living out metaphors for their own sake.
+
+Every night I purge myself. I barf out everything I've consumed during the day. I expel pieces of my identity that have stuck to the tender core of my being. I remain no one. Sometimes the pieces stick. They burden me, the /burn/ me from the inside. Sometimes, at the end of the day I am someone. It makes everything so heavy. Every move, every possible action blooms with considerations and consequences and I'm so light that I can't just stand my ground and take it like a champ that I ain't.
+* TODO (!) Seek a sublet. Maybe I could stay with G at some place that would /remain/ mine once she leaves.
+* TODO Research consumer psychiatry here. Contact @aalien. Inquire at the health insurance office.
+* TODO Reading list
+** Philosophy of consciousness
+*** Chalmers
+*** Dennet
+*** Parfit
+
+* <2017-03-26 Sun 01:57> What's on my mind.
+I'm feeling /stuffed/ with ideas and untied threads and have trouble falling asleep.
+
+** Projects:
+
+*** Heatmap of travel times.
+
+*** 
+*** personal journey. projects. growth. accomplishments & accomplices.
+*** Journalism. What's it like here and what's it like from the inside.
+*** Volunteering in a hospice
+*** Work on a farm
+*** statewide kibbutz volunteer program
+*** /maybe/ start a PhD program /and/ go work on a farm? 
+*** work in the city but spend all the free time outside hiking or living in a tent.
+*** Dead sea, lively people
+*** Festivals!
+** People
+*** Dance class: Urban Planning girl
+*** Dance class: Thursdays and the new class
+*** Baby talk guy from AWS
+*** How To Talk With My Mother guy in Haifa, Yiddish
+*** Sascha Ellenberg, Friday School
+*** Zhenya, hiking
+*** Olya Fix, connections in high places
+*** Dascha, inquire about a tent
+*** Yascha Polonitscky, facebook.
+*** Ori, music
+*** Julien, norsk, arabic music
+*** Gili, poetry
+*** Nir, music & physics & teaching kids & conservatory (Sophia)
+*** Rips, logic & philosophy of math
+** Errands
+*** Misrad HaClita in Jerusalem. 
+*** Bank.
+*** Ministry of Interior: change the name. Does Yossi Benatar sound like anything?
+*** Clean clothes
+*** write down my expenses
+
+** Packing for a trip
+*** Sleeping bags
+*** A tent
+*** Clean clothes
+*** Warm clothes
+*** Plastic bags to save the computers from an occasional rain
+*** Food
+*** Water
+*** First Aid Kit
+*** Money 
+*** A map and a bus schedule
+*** Working phone
+* <2017-03-26 Sun 02:06> What's on my mind
+** Doctor. Mental health. Dwelling on hurt. Katz. Not being able to configure messenger apps on my phone, address book, glitchy hardware is tiresome.
+** Learning hebrew. Meditaion. Study sessions.
+** Job. Projects. Hackathon. Studying blockchain.
+** Expenses!
+200 Sheckels at the marketplace & elsewhere. 
+24 juice
+34 frozen fruit
+10 falafel
+* <2017-03-27 Mon 19:52>
+** Expenses
+30 USD, 50 EUR -> ~320 NIS
+
+32	buse Jeruralem -> TLV Arlozoroff
+67	fruit shakes
+55	Omelette @ Anastasia
+41	tahini & bananas
+49	cake & garlic bread
+12	bus Diesenhoff -> Holon
+12	bus Holon <-> TLSE
+
+** What's on my mind
+
+** Hackathon.
+I want to be on top of things and in my best shape, meet everyone, know the technologies by the time I get there.
+
+*** Ethereum. Set time aside for study. Evening looks nice.
+*** Prepare clean wallets for the hackathon. I may need them for sending stuff around.
+*** Google blockchain tutorials, read code on github, play around.
+*** Do the bounty
+** Fitting things together
+***  We might study for a couple of hours in the morning, then walk all day, then rest and study some more in the evening.
+*** Going north. We need sleeping bags and a place to stay. Research our options beforehand. Ask Kirvas, check CouchSurfing.
+
+* <2017-03-27 Mon 21:14> Blockchain hackathon intro.
+
+* People
+
+** Yaniv Hevron
+
+** Daniel
+KYC -- Know Your Customer.
+World Economic Forum the future of financial industry.
+iOS app.
+** Victor
+
+** Tomer, the organizer
+
+** Yaron, math PhD
+
+** Remove Viewing guy
+
+** 
+
+* <2017-03-28 Tue 20:22> Fear. Uncertainty. Selling myself short.
+
+* <2017-03-29 Wed 10:38> The hackathon.
+** Ethereum: a public ledger
+** Our value proposal: accessible stock trading. Banking for the unbanked masses, as Zack puts it.
+** 
+** 
+https://www.facebook.com/groups/HackathonsIL/ Plenty of hackathons I've missed already this March
+** What /are/ we actually doing right now?
+*** Set up Ethereum toolchain. Geth, Truffle, ... what else? Deploy a contract. Change it. Deploy a new contract. ScaleItUp.
+* Studying Ethereum
+** What /is/ Ethereum Virtual Machine? 
+Is it being run by the nodes? 
+** How do I tell Truffle which blockchain to deploy onto? 
+by default it seems to be using /development/ blockchain. Which is probably kept by testrpc.
+
+** NOTE:
+testrpc starts an ethereum node. does evm?
+geth starts an ethereum node.
+
+when they start, they print a list of 10 'accessible addresses' on the console.
+
+they comprise accounts[]
+accounts[0] is used unless otherwise specified
+re
+
+** TODO make a contract that creates a coin
+
+** TODO make a contract that uses a coin *loudly*.
+how to make things loud?
+how to monitor the state of the blockchain
+* Solidity
+http://solidity.readthedocs.io/en/latest/
+** Remix runtime environment
+
+
+
+* <2017-03-30 Thu 11:55> Today I got up four hours later than I expected.
+I felt scared and tense. It was very hard to get out of bed. Once I was outside and, especially, at the table with a cup of coffee, things felt much better. They would have been better still if I had been there early. I may have miscalculated how much energy -- and attention -- I had to burn at night and run a deficit. I might have fallen asleep at 2 or even 3 AM. Which both leaves me little time to sleep and overloads me with all the information consumed in the four hours since I've left the hackathon.
+
+* Post hackathon. 
+
+** Read Bancor whitepaper
+
+** Go through contact details and contact these people
+
+** Whip up a CV and a page about myself
+
+** Do a tumblr with algorithmic art
+
+** Get a real phone and a facebook page.
+
+
+* <2017-04-04 Tue 19:09>
+I'm sitting in an Ethiopian cafe next to the train station in Tel Aviv. Shalma road. Where the dances are. I came in because they had a pyramid with an eye graffitied on a wall.
+
+The week was hectic. Now is the time to reckon where things stand. While on a train I've read something that reminded me of GTD's concept of open loops. And the importance of keeping them out of mind. Thus I want to make a list of those and work from there.
+
+** Open loops
+
+*** Staying sane.
+ - I almost always have less energy and clarity than I want and expect of myself.
+ - I get overwhelmed easily. I don't have a good coping strategy. How /do/ I react though? This might be a good starting point.
+ - I have tried medication and it went horribly. I'm almost ready to try again though.
+ - I have tried lifestyle interventions and they worked. I feel that I haven't been consistent enought though. I don't expect them to suffice even if I adhere to them perfectly. I just feel sick. I need more than rest.
+ - 
+*** Money.
+ - earning
+ - investments
+ - loans
+ - taxes
+*** Languages
+*** Math
+*** Hacking, open source contributions
+*** Dance
+*** Art
+*** Socializing
+*** Writing
+*** Presense
+*** Winding down. Meditation. Taking care of myself. Sports. Health checkups. Hygiene. 
+* <2017-04-04 Tue 20:18>
+I'm still at the Ethiopian place. I feel rushed. I wanted to go sit on a hill somewhere and meditate. Also find places to meditate inside.
+** Plan for tomorrow.
+** Get up early. Before noon. At sunrise, preferably. Go get my card from a bank. Get a phone contract. Go to Google Campus. Work. Work on exploring my options here. Make a mind map. Make a list of people I want to work with, talk with, places and opportunities to research further. Make a CV geared to them. Contact them. Make appointments. Write a review of the Bancor Whitepaper. Get more involved with blockchain.
+* <2017-04-05 Wed 14:10> AWS Loft.
+* <2017-04-05 Wed 15:53> Dinah Shiffer 13.
+* <2017-04-05 Wed 17:02> Dave
+strange machines, internet attack surface, cloud services
+homomorphic cryptography, applications
+tools to invest in learning.
+* <2017-04-09 Sun 00:15> I've lost my red scarf. Hadn't seen it for several days. It was on me at the airport, on Tuesday. I went for a long walk and slept at Asya's place. I left around 12. Went to the bank, then AWS Loft. I don't remember having the scarf on me then. Although I might have had it.
+* <2017-04-09 Sun 11:06> Google campus.
+Went to see a doctor. Was ten minutes late. The doctor was held up with another patient. My appointment slot was too short. I was charged 26 shekels. We've rescheduled for April 23rd.
+** Things to do right now. 
+*** Calendar
+*** Textbook
+*** Make a list of people to conctact
+*** New email acct
+*** Philosophical meditation.
+** If I had more time
+*** HackerRank exercises
+*** Solidity
+*** Some random coding tutorial 
+*** CouchSurfing
+*** Pick a name, make new email acct. mail people. Make passport. A photo!
+*** Make a calendar. Sync with my phone.
+*** Tumblr!
+*** Meetup.com
+*** Intentional communities https://www.workaway.info/845351487484-en.html
+https://www.google.co.il/search?q=intentional+communities+israel&oq=intentional+commu&aqs=chrome.2.0j69i57j69i59j0l3.4471j0j1&sourceid=chrome&ie=UTF-8
+* <2017-04-10 Mon 13:12> Z Birtdhday party. Brigadier costume.
+
+* Stillness and time
+
+

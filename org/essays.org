@@ -1,0 +1,16 @@
+* Scarcity and Abundance.
+This is the right place to begin. This is where we started. This was my offer, my vision. Acknowledge. Make a choice. Live it. We acknowledge that people live in scarcity. In need, in hunger, in fear of not having enough, not allowing themselves to relax, not willing to let go. Not ever knowing what freedom and leisure feel like. Playfulness, methodically eradicated. Squeezed out of their lives by economic vicegrip, washed out as starched hospital linen.
+Scarcity. People may not know what it is they need, but they're willing to go to great lenghts to have it.
+On the other hand, there's sharing, abundance. I'm not going to fight you, you can have everything you care to take. I don't care for property.
+Abundance means not worrying to keep something because you can always have more. Abundance means not having to struggle to adapt, no lousy compromises, because if something doesn't sit well with you -- there's always more where it came from.
+* 
+* Managing assets vs earning to live.
+There is a specific rate of return on efforts spent researching investment opportunities. When my greatest -- highest earning potential -- asset is my own manual work, or employment, or plying a trate, then this is what I should do. But there are times when my time and attention are better spent researching other venues and pursuing them. Until I have capital to invest I can only invest effort. I can either borrow money with uncertain prospects, or I can invest my time working a menial job and then invest the money earned.
+* New crop of textbooks
+There have been significant strides in the educational materials. There's Distill.pub iwth its manifesto, there's the Textbook manifesto from green tea press, the people who gave us the Think Stats and Think Like A Computer Scientist books, there are new editions of SICP with interactive exercises, there's the interavtive linear algebra book, there are bold new experiments in form of exercism.io and repl.it.
+This is progress and is to be applauded, bute there's a deeper trend behind it. I want to investigate it and provide some pointers. I also want to collect the best attempts at imprvoving the status quo -- that is, the best that I'm currently aware of. Please let me know if I'm missing somehhing. T
+* Fintech
+** parity
+** blockchain
+** aeternity
+** algorithmic trading
