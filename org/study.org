@@ -1,0 +1,47 @@
+# This is a map of the topics I'm studying. #
+
+* Math & Computer Science
+** Category theory
+*** TODO Keep a reading list
+*** TODO Listen to a talk
+*** TODO Listen to Voyevodski
+*** Get back to HoTT
+
+** Logic
+*** TODO Keep a reading list
+*** TODO Get some problem sets
+*** TODO Complete Coq Tutorial
+
+** Algorithms
+*** Keep up with the Coursera class /this time over/
+*** Keep a notebook with questions and deltas
+
+** Applied probability
+** Programming Languages
+** 
+
+* Functional Programming
+** FPComplete tutorials
+*** TODO Hard and Fast
+*** Software Foundations
+*** TDD
+**** TODO Progress to the next chapter
+* The practice of pragramming
+** TODO Pragmatic Programmer
+* Interviews
+** CodeFights
+** 
+
+
+
+* everything else
+
+** music
+
+** policy
+
+** sociology
+
+** linguistics
+
+** construction
