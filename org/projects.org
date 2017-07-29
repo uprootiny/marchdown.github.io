@@ -1,3 +1,4 @@
+* TODO META: Integrate various maps and todos together. Mostly for the links
 * Stay sane, happy and productive
 ** Go through with the assimilation process
    [x] call misrad haklita and ask for a representative
@@ -29,3 +30,43 @@
 * Study all the languages I'm fascinated with.
  - Chinese
  - Yiddish
+
+* Fundamental math, Logic and Programming
+
+** Philosophy and History of math
+
+*** TODO Seek out that old Coursera class on philosophy of math
+
+*** TODO make a reading list
+** Formal proofs
+*** TODO Bibliography 
+*** Coq
+**** Official Tutorials
+***** Coq in a Hurry
+https://duckduckgo.com/?q=Coq+in+a+hurry&t=osx&ia=web
+https://cel.archives-ouvertes.fr/file/index/docid/459139/filename/coq-hurry.pdf
+***** https://www.cs.princeton.edu/courses/archive/fall10/cos441/sf/Logic.html
+***** https://www.cs.princeton.edu/courses/archive/spring15/cos510/sf/MoreLogic.html
+https://news.ycombinator.com/item?id=13177116
+**** TODO Hoare Logic paper
+https://softwarefoundations.cis.upenn.edu/current/HoareAsLogic.html
+**** Software Foundations
+https://softwarefoundations.cis.upenn.edu/current/deps.html
+**** http://adam.chlipala.net/cpdt/
+
+*** TLAPS
+*** Agda
+*** LEAN
+https://leanprover.github.io/publications/
+
+
+** Practical languages
+*** Python
+*** C, C++, Go, Assembly
+**** https://learn-anything.xyz/programming/programming-languages/go
+*** Clojure
+*** Haskell, Idris, Agda
+
+** Algorithms
+*** algs4
+*** HackerRank problemset on algorithms
