@@ -42,8 +42,8 @@
 		var usersInput; /* username испытуемого */
 		var userData; /* анкетные данные испытуемого */
 		var fileText = ""; /* текст файла с результатами */
-		var attempts = 0; /* число тренировочных попыток угадать слово */
-		var training = true;
+		var training = true; /* тренировка ли сейчас*/
+		var wordsLeftCounter = 0; /*сколько осталось слов*/
 
 
 		$(function(){
@@ -53,7 +53,9 @@
 					document.getElementById('trainingText').innerText = "Cлово проиграно до конца. Прочитайте инструкцию снова." /* изменить текст */
 					document.getElementById('trainingPage').style.cssText="display: none"; /* скрыть consentPage */
 					document.getElementById('instructionPage').style.cssText="display: block"; /* показать instructionPage */
-				};
+					wordsSolvedCounter = 0;
+			};
+
 			var experimentFunctionAudioFinished = function(){ /* когда аудио заканчивается */
 					if (audioFinished) return;
 					audioFinished = true; /* аудио закончилось */
@@ -71,11 +73,13 @@
 			    audioFinished = false;
 				if (training == false){ /* экспериментальные задания */
 					if (wordsSolvedCounter < fileSrcArray.length){ /* если решено слов меньше длины списка слов */
+						wordsLeftCounter = fileSrcArray.length - wordsSolvedCounter; /* обновить значение числа оставшихся слов */
 						wordsSolvedCounter += 1; /* прибавить 1 к числу решённых слов */
+						document.getElementById("wordsLeftCounterText").innerText = "Слов осталось: " + wordsLeftCounter;
 						currentLength = 0.250 /* сбросить текущую длину проигрывания до начальной */
 						document.getElementById('sample').src = fileSrcArray[wordsSolvedCounter - 1]; /* положить в переменную audio следующий файл из спика адресов файлов */
 						var source = decodeURI(document.getElementById('sample').src); /* обновить правильный ответ: адрес файла кладётся в текстовую переменную */
-						rightAnswer = source.match( /_\d+_(.*)\./i )[1].toLowerCase(); /* положить эту текстовую переменную в правильный ответ */
+						rightAnswer = source.match( /_\d+_(.*)\./i )[1].replace(/ё/gi, "е").toLowerCase(); /* положить эту текстовую переменную в правильный ответ */
 					} else { /* если решено слов столько же или больше длины списка слов */
 						document.getElementById('wordInputDiv').style.cssText="display: none"; /* скрыть инпут слов */
 						$('#text').html("Эксперимент окончен, спасибо за участие! Пожалуйста, не рассказывайте никому о содержании эксперимента до его завершения."); /* изменить текст */
@@ -94,7 +98,9 @@
 					};
 				} else { /* тренировочные задания */
 					if (wordsSolvedCounter < fileTrainingSrcArray.length){ /* если решено слов меньше длины списка слов */
+						wordsLeftCounter = fileTrainingSrcArray.length - wordsSolvedCounter; /* обновить значение числа оставшихся слов */
 						wordsSolvedCounter += 1; /* прибавить 1 к числу решённых слов */
+						document.getElementById("trainingWordsLeftCounterText").innerText = "Слов осталось: " + wordsLeftCounter;
 						currentLength = 0.250; /* сбросить текущую длину проигрывания до начальной */
 						document.getElementById('sample').src = fileTrainingSrcArray[wordsSolvedCounter - 1]; /* положить в переменную audio следующий файл из спика адресов файлов */
 						var source = decodeURI(document.getElementById('sample').src); /* обновить правильный ответ: адрес файла кладётся в текстовую переменную */
@@ -220,7 +226,9 @@
 	<div class="container">
 		<div id="inqueryPage" > <!-- страница с анкетой -->
 			<div>
-			<span>Сначала, пожалуйста, заполните демографический блок, чтобы нам было, где искать интересные корреляции. Мы знаем, что он очень длинный и скучный и заранее говорим вам спасибо за долготерпение. </span>
+			<span>
+			Эксперимент довольно продолжительный - занимает около получаса, будьте готовы. Вы можете прерываться, но, пожалуйста, пройдите его до конца. (До предъявления надписи "эксперимент окончен".)<br>
+			Сначала, пожалуйста, заполните демографический блок, чтобы нам было, где искать интересные корреляции. Мы знаем, что он очень длинный и скучный и заранее говорим вам спасибо за долготерпение. </span>
 			</div>
 			 <hr />
 		<form id="inqueryForm">
@@ -345,7 +353,8 @@
 		В эксперименте Вам по нажатию на Play будут предъявляться на слух части слов. Если вам кажется что вы знаете проигрываемое слово — вы должны напечатать его на экране. Если не знаете — нажать Play, в этом случае повторно будет проиграна уже бо́льшая часть слова. <br>
 		Когда слово проиграно полностью (если до этого вы его не угадали) — вы обязаны вписать ту догадку, которая у вас есть. <br>
 		Среди предъявляемых слов могут быть слова во множественном числе, не в именительном падеже и жаргонные слова. Все слова — существительные. Ваша задача — угадать звучащее слово, которое является продолжением для "Там был(-а,-о) ... / Я заметил(а)...". <br>
-		Если вы не знаете слова, снова нажмите на Play. После того, как вы угадаете слово, по нажатию на Play, Вам будет предъявлено следующее слово. <br>
+		Если вы не знаете слова, снова нажмите на Play и будет проиграна немного бо́льшая часть слова. После того, как вы угадаете слово, по нажатию на Play, Вам будет предъявлено следующее слово. Если вы не угадаете слово, следующее слово начнёт проигрываться автоматически.<br>
+		Сейчас будет проиграно несколько тренировочных слов. Если вы не сможете ответить правильно, вы автоматически попадёте на эту страницу. <br>
 		<form id="instructionForm" class="form-group">
 			<button id="instructionCheck" type="submit" class="btn btn-primary">Я понял инструкцию</button> <!-- кнопочочка подтверждения понимания инструкции -->
 		</form>
@@ -358,11 +367,14 @@
 		<div id="trainingText"> <!-- текстовый блок -->
 			Для проигривания слова нажмите на Play.
 		</div>
+		<div id="trainingWordsLeftCounterText"> <!-- текстовый блок - сколько слов ещё нужно прослушать в тренировочном задании. -->
+			Здесь будет выводиться, сколько слов вам ещё нужно прослушать в тренировочном задании.
+		</div>
 
 			<form id="trainingForm" class="form-group"> <!-- Форма с инпутом для глаголов-->
 				<div id="trainingInputDiv"> <!-- невидимый блок с инпутом и кнопкой go -->
 					<input type="text" class="form-control"         id="trainingInput"           name="in" value=""/>
-					<button type="submit" class="btn btn-primary">Go</button>
+					<button type="submit" class="btn btn-primary" style="display: none">Go</button>
 				</div>
 			</form>
 		</div>
@@ -393,12 +405,15 @@
 			<div id="text"> <!-- текстовый блок -->
 				Для проигривания слова нажмите на Play.
 			</div>
+			<div id="wordsLeftCounterText"> <!-- текстовый блок - сколько слов ещё нужно прослушать -->
+				Здесь будет выводиться, сколько слов вам ещё нужно прослушать.
+			</div>
 
 			<form id="verbForm" class="form-group"> <!-- Форма с инпутом для глаголов-->
 				<div id="wordInputDiv"> <!-- невидимый блок с инпутом и кнопкой go -->
 					<input type="text" class="form-control"         id="input"           name="in" value=""/>
 					<br />
-					<button type="submit" class="btn btn-primary">Go</button>
+					<button type="submit" class="btn btn-primary" style="display: none">Go</button>
 				</div>
 			</form>
 		</div>
