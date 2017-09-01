@@ -78,8 +78,8 @@
 						document.getElementById("wordsLeftCounterText").innerText = "Слов осталось: " + wordsLeftCounter;
 						currentLength = 0.250 /* сбросить текущую длину проигрывания до начальной */
 						document.getElementById('sample').src = fileSrcArray[wordsSolvedCounter - 1]; /* положить в переменную audio следующий файл из спика адресов файлов */
-						var source = decodeURI(document.getElementById('sample').src); /* обновить правильный ответ: адрес файла кладётся в текстовую переменную */
-						rightAnswer = source.match( /_\d+_(.*)\./i )[1].replace("ё", "е").toLowerCase(); /* положить эту текстовую переменную в правильный ответ */
+						var source = decodeURI(document.getElementById('sample').src)); /* обновить правильный ответ: адрес файла кладётся в текстовую переменную */
+						rightAnswer = source.match( /_\d+_(.*)\./i )[1].toLowerCase(); /* положить эту текстовую переменную в правильный ответ */
 					} else { /* если решено слов столько же или больше длины списка слов */
 						document.getElementById('wordInputDiv').style.cssText="display: none"; /* скрыть инпут слов */
 						$('#text').html("Эксперимент окончен, спасибо за участие! Пожалуйста, не рассказывайте никому о содержании эксперимента до его завершения."); /* изменить текст */
@@ -120,7 +120,7 @@
 			$("#verbForm").on("submit", function() { /* обработать введённое пользователем слово */
 				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
 				var currentInput = document.getElementById('input').value.toLowerCase(); /* положить в переменную текущий инпут */
-				if (currentInput == rightAnswer) { /* если верный ответ */
+				if (currentInput == rightAnswer.replace("ё", "е")) { /* если верный ответ */
 					inputArray.push([userData.userName, rightAnswer, currentLength, currentInput, "true"]); /* сложить значения в массив ответов */
 					document.getElementById('text').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
 					getToTheNextWord() /* перейти к следующему слову */
