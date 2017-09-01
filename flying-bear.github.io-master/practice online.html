@@ -24,10 +24,10 @@
 	<![endif]-->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+	<script type="text/javascript" src="training filenames list.js"></script>
 
 	<script type="text/javascript" src="experiment filenames list.js"></script>
 
-	<script type="text/javascript" src="training filenames list.js"></script>
 
 	<script>
 "use strict"
@@ -51,13 +51,13 @@
 			var trainingFunctionAudioFinished = function(){ /* когда аудио заканчивается */
 				audioFinished = true; /* аудио закончилось */
 					document.getElementById('trainingText').innerText = "Cлово проиграно до конца. Прочитайте инструкцию снова." /* изменить текст */
-					document.getElementById('trainingPage').style="display: none"; /* скрыть consentPage */
-					document.getElementById('instructionPage').style="display: block"; /* показать instructionPage */
+					document.getElementById('trainingPage').style.cssText="display: none"; /* скрыть consentPage */
+					document.getElementById('instructionPage').style.cssText="display: block"; /* показать instructionPage */
 				};
 			var experimentFunctionAudioFinished = function(){ /* когда аудио заканчивается */
 					if (audioFinished) return;
 					audioFinished = true; /* аудио закончилось */
-					document.getElementById('text').innerText = "Слово проиграно до конца." /* изменить текст */
+					document.getElementById('text').innerText = "Слово проиграно до конца."; /* изменить текст */
 					getToTheNextWord();
 					audio.play();
 				};
@@ -77,7 +77,7 @@
 						var source = decodeURI(document.getElementById('sample').src); /* обновить правильный ответ: адрес файла кладётся в текстовую переменную */
 						rightAnswer = source.match( /_\d+_(.*)\./i )[1].toLowerCase(); /* положить эту текстовую переменную в правильный ответ */
 					} else { /* если решено слов столько же или больше длины списка слов */
-						document.getElementById('wordInputDiv').style="display: none"; /* скрыть инпут слов */
+						document.getElementById('wordInputDiv').style.cssText="display: none"; /* скрыть инпут слов */
 						$('#text').html("Эксперимент окончен, спасибо за участие! Пожалуйста, не рассказывайте никому о содержании эксперимента до его завершения."); /* изменить текст */
 						$('#playButton').hide(); /* скрыть кнопку Play */
 						audio.removeEventListener("ended", experimentFunctionAudioFinished);
@@ -101,7 +101,7 @@
 						rightAnswer = source.match( /_\d+_(.*)\./i )[1].toLowerCase(); /* положить эту текстовую переменную в правильный ответ */
 					} else { /* если решено слов столько же или больше длины списка слов */
 						$('#trainingPage').hide(); /* скрыть trainingPage */
-						document.getElementById('consentPage').style="display: block"; /* скрыть кнопку Play */
+						document.getElementById('consentPage').style.cssText="display: block"; /* скрыть кнопку Play */
 						training = false;
 						audio.removeEventListener("ended", trainingFunctionAudioFinished);
 						wordsSolvedCounter = 0; /* сбросить число решённых слов */
@@ -218,14 +218,14 @@
 
 
 	<div class="container">
-		<div id="inqueryPage" class="form-group"> <!-- страница с анкетой -->
+		<div id="inqueryPage" > <!-- страница с анкетой -->
 			<div>
 			<span>Сначала, пожалуйста, заполните демографический блок, чтобы нам было, где искать интересные корреляции. Мы знаем, что он очень длинный и скучный и заранее говорим вам спасибо за долготерпение. </span>
 			</div>
 			 <hr />
 		<form id="inqueryForm">
 			<div class="form-group">
-				<label for="userNameInput">Имя и фамилия: </label><br> <input type="text" class="form-control"         id="userNameInput" name="userName"           required><!-- Имя и фамилия -->
+				<label for="userNameInput">Имя и фамилия: (любой уникальный псевдоним)</label><br> <input type="text" class="form-control"         id="userNameInput" name="userName"           required><!-- Имя и фамилия -->
 			</div>
 
 			<div class="form-group">
@@ -395,7 +395,7 @@
 			</div>
 
 			<form id="verbForm" class="form-group"> <!-- Форма с инпутом для глаголов-->
-				<div id="wordInputDiv" > <!-- невидимый блок с инпутом и кнопкой go -->
+				<div id="wordInputDiv"> <!-- невидимый блок с инпутом и кнопкой go -->
 					<input type="text" class="form-control"         id="input"           name="in" value=""/>
 					<br />
 					<button type="submit" class="btn btn-primary">Go</button>
