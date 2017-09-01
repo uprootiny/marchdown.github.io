@@ -187,15 +187,15 @@
 					obj[item.name] = obj[item.name]||item.value; /* username = userData[userName] - не работает */
 					return obj;
 				}, {});
-				document.getElementById('inqueryPage').style.cssText="display: none"; /* скрыть inqueryPage */
+				document.getElementById('inqueryPage').style.cssText="id:inqueryPage; display: none"; /* скрыть inqueryPage */
 				document.getElementById('instructionPage').style.cssText="display: block"; /* показать instructionPage */
 			});
 
 
 			$('#consentForm').on("submit", function() {
 				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
-				document.getElementById('consentPage').style.cssText="display: none"; /* скрыть consentPage */
-				document.getElementById('experimentPage').style.cssText="display: block"; /* показать experimentPage */
+				document.getElementById('consentPage').style.cssText="id: consentPage; display: none"; /* скрыть consentPage */
+				document.getElementById('experimentPage').style.cssText="id: experimentPage; display: block"; /* показать experimentPage */
 				document.getElementById('text').innerText = "Для проигрывания слова нажмите на Play."; /* изменить текст */
 				getToTheNextWord();
 			});
@@ -203,7 +203,7 @@
 
 			$('#instructionForm').on("submit", function() {
 				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
-				document.getElementById('instructionPage').style.cssText="display: none"; /* скрыть instructionPage */
+				document.getElementById('instructionPage').style.cssText="id: instructionPage; display: none"; /* скрыть instructionPage */
 				document.getElementById('trainingPage').style.cssText="display: block"; /* показать consentPage */
 				document.getElementById('trainingText').innerText = "Для проигрывания слова нажмите на Play."; /* изменить текст */
 				getToTheNextWord();
