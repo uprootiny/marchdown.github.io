@@ -1,9 +1,20 @@
 # This is a map of the topics I'm studying. #
 
 * Math & Computer Science
+
+** Foundations
+
+*** Epsilon calculus and Epsilon theorems
+https://plato.stanford.edu/entries/epsilon-calculus/#2
+http://www.iep.utm.edu/ep-calc/
+https://en.wikipedia.org/wiki/Consistency
+https://www.dpmms.cam.ac.uk/~ardm/inefff.pdf
+https://www.dpmms.cam.ac.uk/~ardm/bourbaki.pdf
+https://www.reddit.com/r/math/comments/24ejh2/why_category_theory_matters/
+
 ** Category theory
-*** TODO Keep a reading list
-*** TODO Listen to a talk
+*** TODO Update my Category Theory reading list
+*** TODO Listen to a talk https://www.youtube.com/watch?v=xv6SwPn1dIc on univalent foundations
 *** TODO Listen to Voyevodski
 *** Get back to HoTT
 
@@ -20,19 +31,34 @@
 ** Programming Languages
 ** 
 
+https://www.math.ias.edu/vladimir/publications
+*** https://www.youtube.com/user/TheCatsters#p/u/68/xqLgGB7Hv7g 
+
 * Functional Programming
+
+** TrueScript
+
+*** Go to a meetup on <2017-07-31 Mon>
+**** TODO Do a tutorial beforehand
+**** Consider doing some fractals in canvas or something.
 ** FPComplete tutorials
 *** TODO Hard and Fast
-*** Software Foundations
-*** TDD
-**** TODO Progress to the next chapter
-* The practice of pragramming
-** TODO Pragmatic Programmer
+** Software Foundations
+** Idris
+** TODO What I Wish I knew when learning Haskell http://dev.stephendiehl.com/hask/
+
+**** TODO Progress to the next chapter in TDD
+* The practice of programming reading list
+** Pragmatic Programmer
+** Code Complete
+
+* Machine Learning 
+** https://distill.pub/2017/momentum/
+
 * Interviews
 ** CodeFights
+** Elements of Programming Interviews
 ** 
-
-
 
 * everything else
 

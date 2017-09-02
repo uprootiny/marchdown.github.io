@@ -3,3 +3,16 @@
 https://www.quora.com/What-is-a-good-non-partisan-book-about-the-history-of-Israel-and-the-Israeli-Palestinian-conflict
 * Math
  - Knuth, Selected papers on fun and games
+** Logic
+** Category Theory
+** Proof Assistants
+*** Coq
+*** Agda
+*** Isabelle
+* Programming
+** TDD
+** K&R
+
+
+
+

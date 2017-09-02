@@ -1,4 +1,31 @@
 * TODO META: Integrate various maps and todos together. Mostly for the links
+** Find a workable workflow
+   - track different projects
+     - immediate next action
+     - accountability: a log of done todos
+     - keep links inline
+     - cross-link
+     - render the big picture (org-agenda? Complice?)
+     - have a someday/maybe list of educational materials and project ideas
+
+
+* Get a job
+** Respond to Salaryo people
+*** TODO Set two hours aside and research scraping https://github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition
+
+https://docs.google.com/document/d/1Ni813EzbLo2qfMkc7Rjfhex2fOM6bi7dP4EYzieUuKE/edit
+
+*** make myself presentable
+**** TODO Clean up my GitHub Account
+***** TODO Remove or merge old repos
+***** TODO Brainstorm portfolio ideas 
+
+* Sharpen the saw
+** TODO Do http://learngitbranching.js.org
+** TODO Review Coursera classes
+** TODO solve a problem on HackerRank
+** Read up on http://blog.complice.co/
+
 * Stay sane, happy and productive
 ** Go through with the assimilation process
    [x] call misrad haklita and ask for a representative
