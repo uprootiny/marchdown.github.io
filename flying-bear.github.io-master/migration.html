@@ -167,7 +167,8 @@
 
 
     			$("#trainingForm").on("submit", function() { /* обработать введённое пользователем слово */
-    				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+            alert("submitted training form");
+            if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
     				var currentInput = normalizeAnswer(document.getElementById('trainingInput').value); /* положить в переменную текущий инпут */
     				if (currentInput == rightAnswer) { /* если верный ответ */
     					document.getElementById('trainingText').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
@@ -187,6 +188,7 @@
 
 
     			$("#trainingButton").on("click", function(){
+            alert("clicked training button");
     				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
     				//audio.currentTime = 0.0; /* начать проигрываеть слово с начала */
     				//audio.play(); /* проиграть слово */
@@ -362,7 +364,7 @@
 
 	</div>
 
-	<div id="instructionPage" style="display: none"> <!-- страница с инструкцией --> <!-- проверить инструкции -->
+	<div id="instructionPage" style="display: none" class="fluid-container"> <!-- страница с инструкцией --> <!-- проверить инструкции -->
 		<h1>Пожалуйста, внимательно прочитайте инструкцию.</h1> <br>
 		В эксперименте Вам по нажатию на Play будут предъявляться на слух части слов. Если вам кажется что вы знаете проигрываемое слово — введите его в текствое поле. Если вы не знаете слова, снова нажмите на Play и будет проиграна немного бо́льшая часть слова. После того, как вы угадаете слово, по нажатию на Play, Вам будет предъявлено следующее слово. Если вы не угадаете слово, следующее слово начнёт проигрываться автоматически.<br>
 		Среди предъявляемых слов могут быть слова во множественном числе, не в именительном падеже и жаргонные слова. Все слова — существительные. Ваша задача — угадать звучащее слово, которое является продолжением для "Там был(-а,-о) ... / Я заметил(а)...". <br>
@@ -373,7 +375,7 @@
 		</form>
 		</div>
 
-	<div id="trainingPage" style="display: none"> <!-- страница с экспериментом -->
+	<div id="trainingPage" style="display: none" class="fluid-container"> <!-- страница с экспериментом -->
 		<audio id="sample" preload></audio>
 
 		<a id="trainingButton" href="#" class="btn btn-primary" >Play</a> <!-- кнопка Play -->
@@ -392,7 +394,7 @@
 			</form>
 		</div>
 
-		<div id="consentPage" style="display: none"> <!-- страница с формой информированного согласия -->
+		<div id="consentPage" style="display: none" class="fluid-container"> <!-- страница с формой информированного согласия -->
 			<div id="consentText">
 				Тренировка окончена. Пожалуйста, прочтите заявление об информированном согласии на участие в эксперименте: <br>
 
@@ -411,7 +413,7 @@
 			</form>
 		</div> <!-- прилепить переход на след. страницу -->
 
-		<div id="experimentPage" style="display: none"> <!-- страница с экспериментом -->
+		<div id="experimentPage" style="display: none" class="fluid-container"> <!-- страница с экспериментом -->
 			<audio id="sample" preload></audio>
 
 			<a id="playButton" href="#" class="btn btn-primary">Play</a> <!-- кнопка Play -->
