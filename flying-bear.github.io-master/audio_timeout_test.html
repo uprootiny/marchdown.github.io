@@ -1,6 +1,24 @@
 <html>
 <head>
   <meta charset="utf-8">
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
+<script>
+var howl_sound;
+howl_sound = new Howl({
+     src: ['https://flying-bear.github.io/gating_disc/sound/9_3_молокосос.mp3'],
+     sprite: {
+      sample: [0, 200]
+      }
+   });
+  howl_sound.play('sample');
+</script>
+
 <script>
 var audio;
 var currentLength = .250;
@@ -11,7 +29,6 @@ var currentLength = .250;
 
   };
 }, 30); /* проверять условие каждые 30ms */
-
 
 
   function load() {
@@ -27,12 +44,25 @@ var currentLength = .250;
 
 
 <a onclick="this.firstChild.play()"><audio src="https://flying-bear.github.io/gating_disc/sound/9_3_молокосос.mp3" id="sample"></audio>Play</a>
+<h2>Howler controls</h2>
 <div>
+   <button onclick="howl_sound.play('sample')">Play</button>
+   <button onclick="howl_sound.pause()">Pause</button>
+   <button onclick="howl_sound._sprite.sample[1]+= 050">добавить 50 ms</button>
+   <button onclick="howl_sound._sprite.sample[1] = 250">сбросить на 250 ms</button>
+   <button onclick="howl_sound.mute()">Mute/ Unmute</button>
+   <span id="duration"></span>
+</div>
+
+<br/>
+<div>
+  <h2>html5 audio</h2>
    <button onclick="audio.play()">Play</button>
    <button onclick="audio.pause()">Pause</button>
    <button onclick="currentLength += .050">добавить 50 ms</button>
    <button onclick="currentLength = .250">сбросить на 250 ms</button>
    <button onclick="audio.muted=!document.getElementById('sample').muted">Mute/ Unmute</button>
 </div>
+
 </body>
 </html>
