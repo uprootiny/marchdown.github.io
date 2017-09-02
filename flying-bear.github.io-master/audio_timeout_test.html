@@ -92,6 +92,25 @@ function displayWordsRemaining() {
 </script>
 
 
+<script type="text/javascript" src="training filenames list.js"></script>
+
+<script type="text/javascript" src="experiment filenames list.js"></script>
+<script>
+var training_howls = [];
+var experiment_howls = [];
+fileTrainingSrcArray.map(function(x) {
+    training_howls.push(new Howl({src: [x],  autoplay: false, sprite: {clip: [0,250]}}));
+  })
+
+fileSrcArray.map(function(x) {
+      experiment_howls.push(new Howl({src: [x],  autoplay: false, sprite: {clip: [0,250]}}));
+  })
+
+var howls_lists = [experiment_howls, training_howls];
+
+</script>
+
+
 <script>
   var howls_index = 0; /* указатель на слово в массиве */
   var howls = [
@@ -102,15 +121,17 @@ function displayWordsRemaining() {
     new Howl({src: ['gating_sem/training/0_1_сахар.mp3'],     autoplay: false, sprite: {clip: [0,250]}})
     ];
 
+
+
     function howl_rotate_clip(){ /* дайте следущее слово */
       if (howls.length < 1){
         alert("слова кончились"); /* FIXME: заранее, снаружи этой функции, заметить, что слова закончились и не надо просить следующее, а надо завершить эксперимент. */
       }
       else {
         //howlObj = howls.pop();
+
         howls_index = (howls_index+1) % howls.length; /* ходить по массиво бесконечно */
         howlObj = howls[howls_index];
-
       }
     }
 /* Обертки вокруг примитивных операций:
@@ -146,6 +167,15 @@ function howlNext(){ /* дайте следущее слово */
     displayWordsRemaining();
 }
 
+function howlNextList(){
+  if(howls_lists.length < 1){
+    alert("нет больше списков слов");
+  } else {
+    howls = howls_lists.pop();
+  }
+  //howlOjb = howls.pop();
+
+}
 
 </script>
 
@@ -175,6 +205,7 @@ function howlNext(){ /* дайте следущее слово */
        <button class="btn" onclick="howlReset()">сбросить на 250 ms</button>
        <button class="btn" onclick="howlObj.mute()">Mute/ Unmute</button>
        <button class="btn" onclick="howlNext()">следующее слово</button>
+       <button class="btn" onclick="howlNextList()">следующий массив слов</button>
 
 
 
