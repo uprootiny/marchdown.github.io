@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="utf-8">
+<script>
+var audio;
+var currentLength = .250;
+  setInterval(function () { /* остановить аудио по нужному времени */
+  if (currentLength && (document.getElementById('sample').currentTime >= currentLength)) { /* если есть максимальная длина и она меньше текущей длины */
+    document.getElementById('sample').pause(); /* остановить аудио */
+    audio.currentTime = 0;
+
+  };
+}, 30); /* проверять условие каждые 30ms */
+
+
+
+  function load() {
+    console.log("load event detected!");
+    audio = document.getElementById('sample');
+
+  }
+  window.onload = load;
+
+</script>
+</head>
+<body>
+
+
+<a onclick="this.firstChild.play()"><audio src="https://flying-bear.github.io/gating_disc/sound/9_3_молокосос.mp3" id="sample"></audio>Play</a>
+<div>
+   <button onclick="audio.play()">Play</button>
+   <button onclick="audio.pause()">Pause</button>
+   <button onclick="currentTime += .050">добавить 50 ms</button>
+
+   <button onclick="audio.muted=!document.getElementById('sample').muted">Mute/ Unmute</button>
+</div>
+</body>
+</html>
