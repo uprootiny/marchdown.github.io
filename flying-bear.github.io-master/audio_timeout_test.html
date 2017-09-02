@@ -4,10 +4,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
+
+	<script type="text/javascript" src="howler_helper_funcs.js"></script>
 
 
 
-<script>
+<script> /* html5 audio demo */
 
 var audio;
 var currentLength = .250;
@@ -106,6 +109,8 @@ function hideFlag(flag){
 
 <script type="text/javascript" src="experiment filenames list.js"></script>
 <script>
+var howls = [];
+var howls_index = 0;
 var training_howls = [];
 var experiment_howls = [];
 fileTrainingSrcArray.map(function(x) {

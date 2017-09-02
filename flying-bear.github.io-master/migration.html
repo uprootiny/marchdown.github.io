@@ -21,7 +21,7 @@
 	<script type="text/javascript" src="experiment filenames list.js"></script> -->
   <script>
 "use strict"
-		var currentLength = 0.250; /* до какого момента пригрывать запись - изначально 250ms *///?
+		//var currentLength = 0.250; /* до какого момента пригрывать запись - изначально 250ms *///?
 		var inputArray = []; /* сюда складываются массивы ответов и данных о них */
 		var firstTrainingRun = true; /* первое ли слово проигрывается */
 		var firstExperimentRun = true;
@@ -33,7 +33,7 @@
 		var userData; /* анкетные данные испытуемого */
 		var fileText = ""; /* текст файла с результатами */                                    //!
 		var training = true; /* тренировка ли сейчас*/
-		var wordsLeftCounter = 0; /*сколько осталось слов*/                                    //?
+		//var wordsLeftCounter = 0; /*сколько осталось слов*/                                    //?
 
 
     		$(function(){ // это точка входа, отсюда начинается исполнение при загрузке. ниже содержится основная логика программы.
@@ -43,7 +43,7 @@
     					document.getElementById('trainingText').innerText = "Cлово проиграно до конца. Прочитайте инструкцию снова." /* изменить текст */
     					document.getElementById('trainingPage').style.cssText="display: none"; /* скрыть consentPage */
     					document.getElementById('instructionPage').style.cssText="display: block"; /* показать instructionPage */
-    					wordsSolvedCounter = 0;
+    					//wordsSolvedCounter = 0; // howls_index: сколько слов мы перебрали с начала списка, столько у нас решенных.
     			};
 
     			var experimentFunctionAudioFinished = function(){ /* когда аудио заканчивается */
@@ -119,7 +119,8 @@
     			$("#verbForm").on("submit", function() { /* обработать введённое пользователем слово */
     				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
     				var currentInput = normalizeAnswer(document.getElementById('input').value); /* положить в переменную текущий инпут */
-    				if (currentInput == rightAnswer) { /* если верный ответ */
+            var currentLength = document.getElementById('clip_duration').innerText=howlObj._sprite.clip[1];
+            if (currentInput == rightAnswer) { /* если верный ответ */
     					inputArray.push([userData.userName, rightAnswer, currentLength, currentInput, "true"]); /* сложить значения в массив ответов */
     					document.getElementById('text').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
     					getToTheNextWord() /* перейти к следующему слову */
