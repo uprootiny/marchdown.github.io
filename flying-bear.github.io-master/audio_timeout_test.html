@@ -87,6 +87,16 @@ function displayWordsRemaining() {
 //
 //   document.getElementById('duration').innerText=howlObj._sprite.clip[1];
 // }
+function displayEndFlag(){
+  document.getElementById('end_flag').style.cssText="display: block";
+}
+
+function displayFlag(flag){
+  document.getElementById(flag).style.cssText="display:block";
+}
+function hideFlag(flag){
+  document.getElementById(flag).style.cssText="display:none";
+}
 
 
 </script>
@@ -143,10 +153,28 @@ var howls_lists = [experiment_howls, training_howls];
 
 */
 function howlPlay(){ /* дайте следущее слово */
+    hideFlag("end_flag");
+    hideFlag("clip_end_flag");
+
     howlObj.play('clip');
+    //    howlObj.on("end", displayEndFlag()); /* срабатывает в конце _клипа_, а не всего слова*/
+
+    howlObj.on("end",
+
+      function() {
+      if (howlObj._sprite.clip[1] >= 1000*howlObj.duration()){
+        //alert(howlObj._sprite.clip[1] + " >= 1000*"+ howlObj.duration());
+        displayFlag("end_flag");
+      }
+      else {
+        displayFlag("clip_end_flag");
+      }}
+    );
+
 }
 function howlGrow(){ /* дайте следущее слово */
     howlObj._sprite.clip[1] += 50;
+
 
     // if (document.getElementById(duration))   //
     // {                                        //
@@ -165,6 +193,8 @@ function howlNext(){ /* дайте следущее слово */
     howlReset();
     displayCurrentSampleName();
     displayWordsRemaining();
+    hideFlag("end_flag");
+    hideFlag("clip_end_flag");
 }
 
 function howlNextList(){
@@ -174,7 +204,8 @@ function howlNextList(){
     howls = howls_lists.pop();
   }
   //howlOjb = howls.pop();
-
+  hideFlag("end_flag");
+  hideFlag("clip_end_flag");
 }
 
 </script>
@@ -216,8 +247,10 @@ function howlNextList(){
        <div class="badge badge-secondary">  текущая длительность:  <span id="clip_duration"></span> мc </div>
        <div class="badge badge-secondary">  длительность всей записи: <span id="total_sample_duration"> </span>   </div>
        <div class="badge badge-secondary">  текущая запись: </span>        <span id="sample_name"></span>              </div>
-       <div class="badge badge-warning">    мы ещё не умеем проверять, закончилось ли слово </span>        <span id="not_done"></span>              </div>
-       <!-- <div class="badge badge-alert">      слово закончилось </span>        <span id="done"></span>              </div> -->
+       <!-- <div class="badge badge-warning" >    мы ещё не умеем проверять, закончилось ли слово </span>        <span id="not_done"></span>              </div> -->
+       <div class="badge badge-danger" id="end_flag" style="display:none">  слово проиграно до конца </span>        <span ></span>              </div>
+       <div class="badge badge-success" id="clip_end_flag" style="display:none">  отрывок проигран </span>        <span ></span>              </div>
+
        <!-- <div class="badge badge-success">    слово закончилось </span>        <span id="done"></span>              </div> -->
        <div class="badge badge-secondary">  сколько осталось слов в списке:  <span id="words_remaining"></span> </div>
 
