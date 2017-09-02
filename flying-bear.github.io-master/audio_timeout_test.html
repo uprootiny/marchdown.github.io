@@ -1,25 +1,12 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
 
 
-
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
-<script>
-var howl_sound;
-howl_sound = new Howl({
-     src: ['https://flying-bear.github.io/gating_disc/sound/9_3_молокосос.mp3'],
-     sprite: {
-      sample: [0, 200]
-      }
-   });
-  howl_sound.play('sample');
-</script>
 
 <script>
+
 var audio;
 var currentLength = .250;
   setInterval(function () { /* остановить аудио по нужному времени */
@@ -37,32 +24,129 @@ var currentLength = .250;
 
   }
   window.onload = load;
+// нельзя сохранить элемент незагрузившейся страницы в переменную, надо подождать
 
 </script>
+
+<script> // простой пример использования обёртки
+var howl_sound;
+howl_sound = new Howl({
+     src: ['https://flying-bear.github.io/gating_disc/sound/9_3_молокосос.mp3'],
+     sprite: {
+      sample: [0, currentLength*1000] // начало и продолжительность в миллисекундах
+    },
+      autoplay: false
+   });
+  // howl_sound.play('sample');
+</script>
+
+
+
+<script>
+var timeoutID;
+var _;
+
+function delayedAlert() {
+  timeoutID = window.setTimeout(slowAlert, 2000);
+}
+function delayedPlay() {
+  timeoutID = window.setTimeout(audio.play(), 2000);
+}
+
+function slowAlert() {
+  alert('That was really slow!');
+}
+
+function clearAlert() {
+  window.clearTimeout(timeoutID);
+}
+function displayCurrentDuration() {
+  document.getElementById('duration').innerText=howl_sound._sprite.sample[1];
+}
+// function incrementCurrentLength() {
+//   currentLength += .050
+//
+//   document.getElementById('duration').innerText=howl_sound._sprite.sample[1];
+// }
+
+
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+<script>
+  var howls_index = 0;
+  var howls = [
+    //new Howl({src: ['gating_disc/training/0_1_художник.mp3'], autoplay: false, sprite: {sample: [0,250]}}),
+    new Howl({src: ['gating_disc/training/0_2_пациент.mp3'],  autoplay: false, sprite: {sample: [0,250]}}),
+    new Howl({src: ['gating_disc/training/0_3_громила.mp3'],  autoplay: false, sprite: {sample: [0,250]}}),
+    new Howl({src: ['gating_disc/training/0_4_школота.mp3'],  autoplay: false, sprite: {sample: [0,250]}}),
+    new Howl({src: ['gating_sem/training/0_1_сахар.mp3'],    autoplay: false, sprite:  {sample: [0,250]}})
+    ];
+
+
+    function howl_rotate_sample(){
+      if (howls.length < 1){
+        alert("звуки кончились");
+      }
+      else {
+        //howl_sound = howls.pop();
+        howls_index = (howls_index+1) % howls.length;
+        howl_sound = howls[howls_index];
+
+      }
+    }
+</script>
+
 </head>
 <body>
+  <div class="container">
+
+
 
 
 <a onclick="this.firstChild.play()"><audio src="https://flying-bear.github.io/gating_disc/sound/9_3_молокосос.mp3" id="sample"></audio>Play</a>
 <h2>Howler controls</h2>
-<div>
-   <button onclick="howl_sound.play('sample')">Play</button>
-   <button onclick="howl_sound.pause()">Pause</button>
-   <button onclick="howl_sound._sprite.sample[1]+= 050">добавить 50 ms</button>
-   <button onclick="howl_sound._sprite.sample[1] = 250">сбросить на 250 ms</button>
-   <button onclick="howl_sound.mute()">Mute/ Unmute</button>
+<div id="HowlerControls">
+   <button class="btn" onclick="howl_sound.play('sample')">Play</button>
+   <button class="btn" onclick="howl_sound.pause()">Pause</button>
+   <!-- <button class="btn" onclick="howl_sound._sprite.sample[1]+= 050">добавить 50 ms</button> -->
+   <button class="btn" onclick="howl_sound._sprite.sample[1] += 50;displayCurrentDuration()">добавить 50 ms</button>
+
+
+   <button class="btn" onclick="howl_sound._sprite.sample[1] = 250;displayCurrentDuration()">сбросить на 250 ms</button>
+   <button class="btn" onclick="howl_sound.mute()">Mute/ Unmute</button>
+   <button class="btn" onclick="howl_rotate_sample()">следующее слово</button>
+
    <span id="duration"></span>
 </div>
 
 <br/>
 <div>
   <h2>html5 audio</h2>
-   <button onclick="audio.play()">Play</button>
-   <button onclick="audio.pause()">Pause</button>
-   <button onclick="currentLength += .050">добавить 50 ms</button>
-   <button onclick="currentLength = .250">сбросить на 250 ms</button>
-   <button onclick="audio.muted=!document.getElementById('sample').muted">Mute/ Unmute</button>
+   <button class="btn" onclick="audio.play()">Play</button>
+   <button class="btn" onclick="audio.pause()">Pause</button>
+   <button class="btn" onclick="currentLength += .050">добавить 50 ms</button>
+   <button class="btn" onclick="currentLength = .250">сбросить на 250 ms</button>
+   <button class="btn" onclick="audio.muted=!document.getElementById('sample').muted">Mute/ Unmute</button>
 </div>
 
+
+</br>
+<h2>Well</h2>
+<div class="well">
+  <div>
+  <p>Примеры использования window.setTimeout и того, как плохо они со звуком работают</p>
+  <button class="btn" onclick="delayedAlert();">Show an alert box after two seconds</button>
+  <button class="btn" onclick="delayedPlay();">play a sound after two seconds</button>
+  <!-- <button class="btn" onclick="play_and_pause_after_a_delay();">play a sound and pause it after currentLength</button> -->
+
+
+  <p></p>
+  <button class="btn" onclick="clearAlert();">Cancel alert before it happens</button>
+  </div>
+
+</div>
+</div>
 </body>
 </html>
