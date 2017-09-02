@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en, ru">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
+	<script type="text/javascript" src="howler_helper_funcs.js"></script>
+
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+</br>
+
+
+
+
+
+
+  <div class="container">
+   <div id="indicator_panel" class="card border-dark mb-3" style="max-width: 60rem;">
+     <div class="card-header">
+       <h2 class="card-title">Howler controls</h2>
+       <button class="btn" onclick="howlPlay()">Play</button>
+       <button class="btn" onclick="howlObj.pause()">Pause</button>
+       <!-- <button class="btn" onclick="howlObj._sprite.clip[1]+= 050">добавить 50 ms</button> -->
+       <button class="btn" onclick="howlGrow()">добавить 50 ms</button>
+
+
+       <button class="btn" onclick="howlReset()">сбросить на 250 ms</button>
+       <button class="btn" onclick="howlObj.mute()">Mute/ Unmute</button>
+       <button class="btn" onclick="howlNext()">следующее слово</button>
+       <button class="btn" onclick="howlNextList()">следующий массив слов</button>
+
+
+
+     </div>
+     <div class="card-body">
+
+       <h4 class="card-title">состояние</h4>
+       <div class="badge badge-secondary">  текущая длительность:  <span id="clip_duration"></span> мc </div>
+       <div class="badge badge-secondary">  длительность всей записи: <span id="total_sample_duration"> </span>   </div>
+       <div class="badge badge-secondary">  текущая запись: </span>        <span id="sample_name"></span>              </div>
+       <!-- <div class="badge badge-warning" >    мы ещё не умеем проверять, закончилось ли слово </span>        <span id="not_done"></span>              </div> -->
+       <div class="badge badge-danger" id="end_flag" style="display:none">  слово проиграно до конца </span>        <span ></span>              </div>
+       <div class="badge badge-success" id="clip_end_flag" style="display:none">  отрывок проигран </span>        <span ></span>              </div>
+
+       <!-- <div class="badge badge-success">    слово закончилось </span>        <span id="done"></span>              </div> -->
+       <div class="badge badge-secondary">  сколько осталось слов в списке:  <span id="words_remaining"></span> </div>
+
+       <p class="card-text"></p>
+     </div>
+   </div>
+
+
+
+
+<br/>
+
+
+</div>
+</body>
+</html>
