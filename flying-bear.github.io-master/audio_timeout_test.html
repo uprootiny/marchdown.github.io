@@ -30,8 +30,8 @@ var currentLength = .250;
 <div>
    <button onclick="audio.play()">Play</button>
    <button onclick="audio.pause()">Pause</button>
-   <button onclick="currentTime += .050">добавить 50 ms</button>
-
+   <button onclick="currentLength += .050">добавить 50 ms</button>
+   <button onclick="currentLength = .250">сбросить на 250 ms</button>
    <button onclick="audio.muted=!document.getElementById('sample').muted">Mute/ Unmute</button>
 </div>
 </body>
