@@ -1,6 +1,8 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
 
 
@@ -10,8 +12,8 @@
 var audio;
 var currentLength = .250;
   setInterval(function () { /* остановить аудио по нужному времени */
-  if (currentLength && (document.getElementById('sample').currentTime >= currentLength)) { /* если есть максимальная длина и она меньше текущей длины */
-    document.getElementById('sample').pause(); /* остановить аудио */
+  if (currentLength && (document.getElementById('clip').currentTime >= currentLength)) { /* если есть максимальная длина и она меньше текущей длины */
+    document.getElementById('clip').pause(); /* остановить аудио */
     audio.currentTime = 0;
 
   };
@@ -20,7 +22,10 @@ var currentLength = .250;
 
   function load() {
     console.log("load event detected!");
-    audio = document.getElementById('sample');
+    audio = document.getElementById('clip');
+    displayCurrentDuration();
+    displayTotalDuration();
+
 
   }
   window.onload = load;
@@ -29,15 +34,15 @@ var currentLength = .250;
 </script>
 
 <script> // простой пример использования обёртки
-var howl_sound;
-howl_sound = new Howl({
+var howlObj;
+howlObj = new Howl({
      src: ['https://flying-bear.github.io/gating_disc/sound/9_3_молокосос.mp3'],
      sprite: {
-      sample: [0, currentLength*1000] // начало и продолжительность в миллисекундах
+      clip: [0, currentLength*1000] // начало и продолжительность в миллисекундах
     },
       autoplay: false
    });
-  // howl_sound.play('sample');
+  // howlObj.play('clip');
 </script>
 
 
@@ -60,43 +65,92 @@ function slowAlert() {
 function clearAlert() {
   window.clearTimeout(timeoutID);
 }
+
+
+/* вывод параметров */
+
+
 function displayCurrentDuration() {
-  document.getElementById('duration').innerText=howl_sound._sprite.sample[1];
+  document.getElementById('clip_duration').innerText=howlObj._sprite.clip[1];
+}
+function displayTotalDuration(){
+  (document.getElementById('total_sample_duration').innerText=howlObj.duration() * 1000).toFixed(2); ;
+}
+function displayCurrentSampleName() {
+  document.getElementById('sample_name').innerText=howlObj._src;
+}
+function displayWordsRemaining() {
+  document.getElementById('words_remaining').innerText=howls.length-howls_index;
 }
 // function incrementCurrentLength() {
 //   currentLength += .050
 //
-//   document.getElementById('duration').innerText=howl_sound._sprite.sample[1];
+//   document.getElementById('duration').innerText=howlObj._sprite.clip[1];
 // }
 
 
 </script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
 <script>
-  var howls_index = 0;
+  var howls_index = 0; /* указатель на слово в массиве */
   var howls = [
-    //new Howl({src: ['gating_disc/training/0_1_художник.mp3'], autoplay: false, sprite: {sample: [0,250]}}),
-    new Howl({src: ['gating_disc/training/0_2_пациент.mp3'],  autoplay: false, sprite: {sample: [0,250]}}),
-    new Howl({src: ['gating_disc/training/0_3_громила.mp3'],  autoplay: false, sprite: {sample: [0,250]}}),
-    new Howl({src: ['gating_disc/training/0_4_школота.mp3'],  autoplay: false, sprite: {sample: [0,250]}}),
-    new Howl({src: ['gating_sem/training/0_1_сахар.mp3'],    autoplay: false, sprite:  {sample: [0,250]}})
+    //new Howl({src: ['gating_disc/training/0_1_художник.mp3'], autoplay: false, sprite: {clip: [0,250]}}),
+    new Howl({src: ['gating_disc/training/0_2_пациент.mp3'],  autoplay: false, sprite: {clip: [0,250]}}),
+    new Howl({src: ['gating_disc/training/0_3_громила.mp3'],  autoplay: false, sprite: {clip: [0,250]}}),
+    new Howl({src: ['gating_disc/training/0_4_школота.mp3'],  autoplay: false, sprite: {clip: [0,250]}}),
+    new Howl({src: ['gating_sem/training/0_1_сахар.mp3'],     autoplay: false, sprite: {clip: [0,250]}})
     ];
 
-
-    function howl_rotate_sample(){
+    function howl_rotate_clip(){ /* дайте следущее слово */
       if (howls.length < 1){
-        alert("звуки кончились");
+        alert("слова кончились"); /* FIXME: заранее, снаружи этой функции, заметить, что слова закончились и не надо просить следующее, а надо завершить эксперимент. */
       }
       else {
-        //howl_sound = howls.pop();
-        howls_index = (howls_index+1) % howls.length;
-        howl_sound = howls[howls_index];
+        //howlObj = howls.pop();
+        howls_index = (howls_index+1) % howls.length; /* ходить по массиво бесконечно */
+        howlObj = howls[howls_index];
 
       }
     }
+/* Обертки вокруг примитивных операций:
+
+- воспроизвести (кусок заданной продолжительности из текущего слова)
+- нарастить продолжительность на 50 ms
+- сбросить продолжительность на 250 ms
+- перейти к следующему слову (и сбросить продолжительность)
+
+*/
+function howlPlay(){ /* дайте следущее слово */
+    howlObj.play('clip');
+}
+function howlGrow(){ /* дайте следущее слово */
+    howlObj._sprite.clip[1] += 50;
+
+    // if (document.getElementById(duration))   //
+    // {                                        //
+      displayCurrentDuration();              //
+      displayTotalDuration();
+    // }                                        //
+}
+function howlReset(){ /* дайте следущее слово */
+    howlObj._sprite.clip[1] = 250;
+    displayCurrentDuration();
+    displayTotalDuration();
+
+}
+function howlNext(){ /* дайте следущее слово */
+    howl_rotate_clip();
+    howlReset();
+    displayCurrentSampleName();
+    displayWordsRemaining();
+}
+
+
 </script>
+
+
+
 
 </head>
 <body>
@@ -105,20 +159,42 @@ function displayCurrentDuration() {
 
 
 
-<a onclick="this.firstChild.play()"><audio src="https://flying-bear.github.io/gating_disc/sound/9_3_молокосос.mp3" id="sample"></audio>Play</a>
-<h2>Howler controls</h2>
+<a onclick="this.firstChild.play()"><audio src="https://flying-bear.github.io/gating_disc/sound/9_3_молокосос.mp3" id="clip"></audio>Play</a>
+
 <div id="HowlerControls">
-   <button class="btn" onclick="howl_sound.play('sample')">Play</button>
-   <button class="btn" onclick="howl_sound.pause()">Pause</button>
-   <!-- <button class="btn" onclick="howl_sound._sprite.sample[1]+= 050">добавить 50 ms</button> -->
-   <button class="btn" onclick="howl_sound._sprite.sample[1] += 50;displayCurrentDuration()">добавить 50 ms</button>
+
+   <div id="indicator_panel" class="card border-dark mb-3" style="max-width: 60rem;">
+     <div class="card-header">
+       <h2 class="card-title">Howler controls</h2>
+       <button class="btn" onclick="howlPlay()">Play</button>
+       <button class="btn" onclick="howlObj.pause()">Pause</button>
+       <!-- <button class="btn" onclick="howlObj._sprite.clip[1]+= 050">добавить 50 ms</button> -->
+       <button class="btn" onclick="howlGrow()">добавить 50 ms</button>
 
 
-   <button class="btn" onclick="howl_sound._sprite.sample[1] = 250;displayCurrentDuration()">сбросить на 250 ms</button>
-   <button class="btn" onclick="howl_sound.mute()">Mute/ Unmute</button>
-   <button class="btn" onclick="howl_rotate_sample()">следующее слово</button>
+       <button class="btn" onclick="howlReset()">сбросить на 250 ms</button>
+       <button class="btn" onclick="howlObj.mute()">Mute/ Unmute</button>
+       <button class="btn" onclick="howlNext()">следующее слово</button>
 
-   <span id="duration"></span>
+
+
+     </div>
+     <div class="card-body">
+
+       <h4 class="card-title">состояние</h4>
+       <div class="badge badge-secondary">  текущая длительность:  <span id="clip_duration"></span> мc </div>
+       <div class="badge badge-secondary">  длительность всей записи: <span id="total_sample_duration"> </span>   </div>
+       <div class="badge badge-secondary">  текущая запись: </span>        <span id="sample_name"></span>              </div>
+       <div class="badge badge-warning">    слово не закончилось </span>        <span id="not_done"></span>              </div>
+       <div class="badge badge-alert">      слово закончилось </span>        <span id="done"></span>              </div>
+       <!-- <div class="badge badge-success">    слово закончилось </span>        <span id="done"></span>              </div> -->
+       <div class="badge badge-secondary">  сколько осталось слов в списке:  <span id="words_remaining"></span> </div>
+
+       <p class="card-text"></p>
+     </div>
+   </div>
+
+
 </div>
 
 <br/>
@@ -128,7 +204,7 @@ function displayCurrentDuration() {
    <button class="btn" onclick="audio.pause()">Pause</button>
    <button class="btn" onclick="currentLength += .050">добавить 50 ms</button>
    <button class="btn" onclick="currentLength = .250">сбросить на 250 ms</button>
-   <button class="btn" onclick="audio.muted=!document.getElementById('sample').muted">Mute/ Unmute</button>
+   <button class="btn" onclick="audio.muted=!document.getElementById('clip').muted">Mute/ Unmute</button>
 </div>
 
 
