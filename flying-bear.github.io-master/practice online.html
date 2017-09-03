@@ -90,13 +90,19 @@
   /* status display */
   function displayWordsRemaining() {
     //alert("слов осталось: " + (howls.length-howls_index));
-    var displayElement = document.getElementById("WordsLeftCounterText")
+      document.getElementById('words_remaining').innerText=howls.length-howls_index;
 
-    document.getElementById('words_remaining').innerText=howls.length-howls_index;
+    if (training) {
+      document.getElementById('words_remaining').innerText=howls.length-howls_index;
+      document.getElementById("trainingWordsLeftCounterText").innerText = "Слов осталось: " + (howls.length - howls_index);
 
-    if (training) displayElement = document.getElementById("trainingWordsLeftCounterText")
-    displayElement.innerText = "Слов осталось: " + (howls.length - howls_index);
+    }
+    else {
+      document.getElementById('words_remaining').innerText=howls.length-howls_index;
+      document.getElementById('WordsLeftCounterText').innerText = "Слов осталось: " + (howls.length - howls_index);
+    }
   }
+
   function displayFlag(flag){
     document.getElementById(flag).style.cssText="display:block";
   }
