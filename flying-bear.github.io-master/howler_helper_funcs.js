@@ -81,8 +81,13 @@ function howlNext(){ /* следущее слово, длина 250  */
 
 /* status display */
 function displayWordsRemaining() {
-  alert("слов осталось: "+ howls.length-howls_index);
+  //alert("слов осталось: " + (howls.length-howls_index));
+  var displayElement = document.getElementById("WordsLeftCounterText")
+
   document.getElementById('words_remaining').innerText=howls.length-howls_index;
+
+  if (training) displayElement = document.getElementById("trainingWordsLeftCounterText")
+  displayElement.innerText = "Слов осталось: " + (howls.length - howls_index);
 }
 function displayFlag(flag){
   document.getElementById(flag).style.cssText="display:block";
@@ -98,4 +103,8 @@ function hideFlag(flag){
 
 function displayCurrentDuration() {
   document.getElementById('clip_duration').innerText=howlObj._sprite.clip[1];
+  document.getElementById('total_sample_duration').innerText=howlObj.duration();
+  document.getElementById('sample_name').innerText=howlObj._src;
+
+  //displayWordsRemaining(); // where else to chuck this?
 }

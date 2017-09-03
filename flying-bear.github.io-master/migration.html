@@ -64,7 +64,8 @@
     			function getToTheNextWord(){ /* перейти к следующему слову */
               howlNext();
     				  if (training == false){ /* экспериментальные задания */
-    						document.getElementById("wordsLeftCounterText").innerText = "Слов осталось: " + (howls.length - howls_index);
+                displayWordsRemaining();
+    						// document.getElementById("wordsLeftCounterText").innerText = "Слов осталось: " + (howls.length - howls_index);
     						// currentLength = 0.250 /* сбросить текущую длину проигрывания до начальной */ в howlNext()
     						// document.getElementById('sample').src = fileSrcArray[wordsSolvedCounter - 1]; /* положить в переменную audio следующий файл из спика адресов файлов */
     						// var source = decodeURI(document.getElementById('sample').src); /* обновить правильный ответ: адрес файла кладётся в текстовую переменную */
@@ -97,7 +98,8 @@
     						//wordsLeftCounter = fileTrainingSrcArray.length - wordsSolvedCounter; /* обновить значение числа оставшихся слов */
     						//wordsSolvedCounter += 1; /* прибавить 1 к числу решённых слов */
                 //assert(howls.length == fileTrainingSrcArray.length)
-    						document.getElementById("trainingWordsLeftCounterText").innerText = "Слов осталось: " + (howls.length - howls_index);
+    						//document.getElementById("trainingWordsLeftCounterText").innerText = "Слов осталось: " + (howls.length - howls_index);
+                displayWordsRemaining();
     						//currentLength = 0.250; /* сбросить текущую длину проигрывания до начальной */
     						//document.getElementById('sample').src = fileTrainingSrcArray[wordsSolvedCounter - 1]; /* положить в переменную audio следующий файл из спика адресов файлов */
     						//var source = decodeURI(document.getElementById('sample').src); /* обновить правильный ответ: адрес файла кладётся в текстовую переменную */
@@ -123,18 +125,22 @@
             if (currentInput == rightAnswer) { /* если верный ответ */
     					inputArray.push([userData.userName, rightAnswer, currentLength, currentInput, "true"]); /* сложить значения в массив ответов */
     					document.getElementById('text').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
-    					getToTheNextWord() /* перейти к следующему слову */
+    					getToTheNextWord(); /* перейти к следующему слову */
+              howlPlay();
     				}
     				else{ /* если неверный ответ */
     					inputArray.push([userData.userName, rightAnswer, currentLength, currentInput, "false"]); /* сложить значения в массив ответов */
     					if (audioFinished == false){ /* если слово не проиграно до конца */
     						//currentLength += 0.050; /* прибавить 50ms */
-                howlGrow();
     						document.getElementById('text').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
-    					};
+                howlGrow();
+                howlPlay();
+              };
+
     				};
+
     				document.getElementById('input').value = "" /* стереть значение инпута */
-    				if (howls_index < (fileSrcArray.length-1)) $("#playButton").click();  // CHECK ME
+    				//if (howls_index < (fileSrcArray.length-1)) $("#playButton").click();  // CHECK ME
     				return false;
     			});
 
@@ -167,37 +173,52 @@
 
 
     			$("#trainingForm").on("submit", function() { /* обработать введённое пользователем слово */
-            alert("submitted training form");
+            //alert("submitted training form");
             if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
     				var currentInput = normalizeAnswer(document.getElementById('trainingInput').value); /* положить в переменную текущий инпут */
     				if (currentInput == rightAnswer) { /* если верный ответ */
     					document.getElementById('trainingText').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
-    					getToTheNextWord() /* перейти к следующему слову */
+    					getToTheNextWord(); /* перейти к следующему слову */
+              howlPlay();
     				}
     				else{ /* если неверный ответ */
     					if (audioFinished == false){ /* если слово не проиграно до конца */
     						//currentLength += 0.050; /* прибавить 50ms */
+                document.getElementById('trainingText').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
                 howlGrow();
-    						document.getElementById('trainingText').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
-    					};
+                howlPlay();
+    						};
     				};
     				document.getElementById('trainingInput').value = "" /* стереть значение инпута */
-    				if (training) $("#trainingButton").click();
+    				// if (training) $("#trainingButton").click();
+            /* make the following happen:
+            play a sound;
+            increment it it's not complete yet; x
+            change #trainingText;               x
+            set firstTrainingRun to false.
+
+            what SUBMIT does but PLAY doesn't:
+            check the answer
+            erase the input
+            move on to the next word if the answer was right.
+
+            */
     				return false;
     			});
 
 
     			$("#trainingButton").on("click", function(){
-            alert("clicked training button");
+            //alert("clicked training button");
     				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
     				//audio.currentTime = 0.0; /* начать проигрываеть слово с начала */
     				//audio.play(); /* проиграть слово */
-            howlPlay();
-
-    				if (audioFinished == false){
+            if (audioFinished == false){
     					//currentLength += 0.050; /* прибавить 50ms */
                howlGrow();
     				};
+            howlPlay();
+
+
     				if(firstTrainingRun == true){ /* если проигрывается первое слово */
     					document.getElementById('trainingText').innerText = "Введите слово. Если вы не знаете слова, нажмите на Play." /* изменить текст */
     					//audio.addEventListener("ended", trainingFunctionAudioFinished);
@@ -375,7 +396,7 @@
 		</form>
 		</div>
 
-	<div id="trainingPage" style="display: none" class="fluid-container"> <!-- страница с экспериментом -->
+	<div id="trainingPage" style="display: none; margin-top:1ex" class="fluid-container"> <!-- страница с экспериментом -->
 		<audio id="sample" preload></audio>
 
 		<a id="trainingButton" href="#" class="btn btn-primary" >Play</a> <!-- кнопка Play -->
@@ -451,17 +472,16 @@
   <div class="container">
    <div id="indicator_panel" class="card border-dark mb-3" style="max-width: 60rem;">
      <div class="card-header">
-       <h2 class="card-title">Howler controls</h2>
-       <button class="btn" onclick="howlPlay()">Play</button>
-       <button class="btn" onclick="howlObj.pause()">Pause</button>
+       <h2 class="card-title">Howler controls        <button class="btn btn-outline-danger" style="float: right" onclick="this.parentElement.parentElement.parentElement.style.cssText='display: none'">Кыш!</button>
+</h2>
+       <button class="btn btn-outline-secondary" onclick="howlPlay()">Play</button>
+       <button class="btn btn-outline-secondary" onclick="howlObj.pause()">Pause and rewind</button>
        <!-- <button class="btn" onclick="howlObj._sprite.clip[1]+= 050">добавить 50 ms</button> -->
-       <button class="btn" onclick="howlGrow()">добавить 50 ms</button>
+       <button class="btn btn-outline-secondary" onclick="howlGrow()">добавить 50 ms</button>
+       <button class="btn btn-outline-secondary" onclick="howlReset()">сбросить на 250 ms</button>
+       <button class="btn btn-outline-secondary" onclick="howlNext()">следующее слово</button>
+       <button class="btn btn-outline-danger" onclick="document.getElementById('instructionPage').style.cssText='display: block'; document.getElementById('inqueryPage').style.cssText='display: none'; this.style.cssText='display: none'">пропустить анкету</button>
 
-
-       <button class="btn" onclick="howlReset()">сбросить на 250 ms</button>
-       <button class="btn" onclick="howlObj.mute()">Mute/ Unmute</button>
-       <button class="btn" onclick="howlNext()">следующее слово</button>
-       <button class="btn" onclick="howlNextList()">следующий массив слов</button>
 
 
 
