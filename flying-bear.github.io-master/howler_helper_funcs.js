@@ -58,18 +58,18 @@ function normalizeAnswer(s){
     return(s.trim().toLowerCase().replace(/ё/gi, "е"));
     }
 function howlNext(){ /* следущее слово, длина 250  */
-    // if( ) {
-    //   alert(howls_index);
-    // } else {
-     // Do we really need this?
-    // mind whether we're using demo or exp array
-    howls_index += 1;
-    howlObj = howls[howls_index];//  howl_rotate_clip();
-    howlReset();
-    rightAnswer = normalizeAnswer(howlObj._src.match( /_\d+_(.*)\./i )[1]);
-    //displayWordsRemaining();
-    hideFlag("end_flag");
-    hideFlag("clip_end_flag");
+    if(howls.length-1 <= howls_index) {
+      alert("нет следующего слова!");
+    }
+    else{
+      howls_index += 1;
+      howlObj = howls[howls_index];//  howl_rotate_clip();
+      howlReset();
+      rightAnswer = normalizeAnswer(howlObj._src.match( /_\d+_(.*)\./i )[1]);
+      //displayWordsRemaining();
+      hideFlag("end_flag");
+      hideFlag("clip_end_flag");
+    }
   // }
 }
 
