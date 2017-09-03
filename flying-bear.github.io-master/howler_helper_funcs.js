@@ -69,6 +69,7 @@ function howlNext(){ /* следущее слово, длина 250  */
       //displayWordsRemaining();
       hideFlag("end_flag");
       hideFlag("clip_end_flag");
+      displayCurrentDuration();
     }
   // }
 }
