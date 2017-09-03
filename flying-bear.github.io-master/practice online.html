@@ -110,7 +110,7 @@
 
   function displayCurrentDuration() {
     document.getElementById('clip_duration').innerText=howlObj._sprite.clip[1];
-    document.getElementById('total_sample_duration').innerText=howlObj.duration();
+    document.getElementById('total_sample_duration').innerText=howlObj.duration().toFixed(2);
     document.getElementById('sample_name').innerText=howlObj._src;
 
     //displayWordsRemaining(); // where else to chuck this?
