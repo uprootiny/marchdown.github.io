@@ -20,6 +20,11 @@ var howls = training_howls; // указатель на текущий масси
 var howlObj = howls[howls_index]; // текущий звуковой объект в массиве
 
 function switchFromTrainingToExpList(){
+
+  $('#trainingPage').hide(); /* скрыть trainingPage */
+  document.getElementById('consentPage').style.cssText="display: block"; /* скрыть кнопку Play */
+  training = false;
+
   howls = experiment_howls;
   howls_index = 0;
   howlObj = howls[howls_index];
@@ -60,6 +65,12 @@ function normalizeAnswer(s){
 function howlNext(){ /* следущее слово, длина 250  */
     if(howls.length-1 <= howls_index) {
       alert("нет следующего слова!");
+      if(training){
+        switchFromTrainingToExpList();
+      }
+      else {
+        submitResults();
+      }
     }
     else{
       howls_index += 1;
@@ -72,6 +83,26 @@ function howlNext(){ /* следущее слово, длина 250  */
       displayCurrentDuration();
     }
   // }
+}
+
+function submitResults(){
+
+  document.getElementById('wordInputDiv').style.cssText="display: none"; /* скрыть инпут слов */
+  $('#text').html("Эксперимент окончен, спасибо за участие! Пожалуйста, не рассказывайте никому о содержании эксперимента до его завершения."); /* изменить текст */
+  $('#wordsLeftCounterText').hide(); /* скрыть wordsLeftCounterText */
+  $('#playButton').hide(); /* скрыть кнопку Play */
+
+  var i, j, textLine = "";
+  var convertedArray = [];
+  for(var i = 0; i < inputArray.length; i++){convertedArray.push(inputArray[i]);}
+  for (i = 0; i < convertedArray.length; i++) {
+    textLine = convertedArray[i].join(";");
+    fileText += textLine + "\n";
+  };
+  var userDataCsv=""; $.each(userData, function(k,v) {userDataCsv+=k+":"+v+"; \n";});
+  alert("A resounding success!");
+  //createAndUploadCSVFile(fileText, userData.userName+" answers.csv");
+  //createAndUploadCSVFile(userDataCsv, userData.userName+" user data.csv");
 }
 
 
@@ -92,7 +123,7 @@ function displayWordsRemaining() {
   }
   else {
     document.getElementById('words_remaining').innerText=howls.length-howls_index;
-    document.getElementById('WordsLeftCounterText').innerText = "Слов осталось: " + (howls.length - howls_index);
+    document.getElementById('wordsLeftCounterText').innerText = "Слов осталось: " + (howls.length - howls_index);
   }
 }
 function displayFlag(flag){

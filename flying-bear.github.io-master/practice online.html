@@ -99,7 +99,7 @@
     }
     else {
       document.getElementById('words_remaining').innerText=howls.length-howls_index;
-      document.getElementById('WordsLeftCounterText').innerText = "Слов осталось: " + (howls.length - howls_index);
+      document.getElementById('wordsLeftCounterText').innerText = "Слов осталось: " + (howls.length - howls_index);
     }
   }
 
@@ -188,7 +188,7 @@
     						// document.getElementById('sample').src = fileSrcArray[wordsSolvedCounter - 1]; /* положить в переменную audio следующий файл из спика адресов файлов */
     						// var source = decodeURI(document.getElementById('sample').src); /* обновить правильный ответ: адрес файла кладётся в текстовую переменную */
     						// rightAnswer = source.match( /_\d+_(.*)\./i )[1].toLowerCase(); /* положить эту текстовую переменную в правильный ответ */
-    				        if (howls_index >= fileSrcArray.length-1) { /* если решено слов столько же или больше длины списка слов */
+    				        if (howls_index > fileSrcArray.length-1) { /* если решено слов столько же или больше длины списка слов */
                       /* то перейди на следущую подстраницу: поблагодари респондента и спрячь всё лишнее */
                       /* допустим, в списку два слова. тогда fileSrcArray.length-1 == 1; при непоследнем проходе index==0, при последнем index==1, сравнение срабатывает и мы опускаемся в эту ветку */
           						document.getElementById('wordInputDiv').style.cssText="display: none"; /* скрыть инпут слов */

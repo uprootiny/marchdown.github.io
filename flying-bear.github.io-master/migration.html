@@ -70,32 +70,19 @@
     						// document.getElementById('sample').src = fileSrcArray[wordsSolvedCounter - 1]; /* положить в переменную audio следующий файл из спика адресов файлов */
     						// var source = decodeURI(document.getElementById('sample').src); /* обновить правильный ответ: адрес файла кладётся в текстовую переменную */
     						// rightAnswer = source.match( /_\d+_(.*)\./i )[1].toLowerCase(); /* положить эту текстовую переменную в правильный ответ */
-                    if (howls_index >= fileSrcArray.length-1) { /* если решено слов столько же или больше длины списка слов */
+                    if (howls_index > fileSrcArray.length-1) { /* если решено слов столько же или больше длины списка слов */
                       /* то перейди на следущую подстраницу: поблагодари респондента и спрячь всё лишнее */
                       /* допустим, в списку два слова. тогда fileSrcArray.length-1 == 1; при непоследнем проходе index==0, при последнем index==1, сравнение срабатывает и мы опускаемся в эту ветку */
-          						document.getElementById('wordInputDiv').style.cssText="display: none"; /* скрыть инпут слов */
-          						$('#text').html("Эксперимент окончен, спасибо за участие! Пожалуйста, не рассказывайте никому о содержании эксперимента до его завершения."); /* изменить текст */
-          						$('#wordsLeftCounterText').hide(); /* скрыть wordsLeftCounterText */
-          						$('#playButton').hide(); /* скрыть кнопку Play */
           						//audio.removeEventListener("ended", experimentFunctionAudioFinished);
 
                       //---- собери данные и отправь в filestack
-          						var i, j, textLine = "";
-          						var convertedArray = [];
-          						for(var i = 0; i < inputArray.length; i++){convertedArray.push(inputArray[i]);}
-          						for (i = 0; i < convertedArray.length; i++) {
-          							textLine = convertedArray[i].join(";");
-          							fileText += textLine + "\n";
-          						};
-          						var userDataCsv=""; $.each(userData, function(k,v) {userDataCsv+=k+":"+v+"; \n";});
-          						createAndUploadCSVFile(fileText, userData.userName+" answers.csv");
-          						createAndUploadCSVFile(userDataCsv, userData.userName+" user data.csv");
+                      submitResults();
                       //----
                       }
     					}
 
     				else { /* тренировочные задания */
-    					if (howls_index < fileTrainingSrcArray.length-1){ /* если решено слов меньше длины списка слов */
+    					if (howls_index < fileTrainingSrcArray.length){ /* если решено слов меньше длины списка слов */
     						//wordsLeftCounter = fileTrainingSrcArray.length - wordsSolvedCounter; /* обновить значение числа оставшихся слов */
     						//wordsSolvedCounter += 1; /* прибавить 1 к числу решённых слов */
                 //assert(howls.length == fileTrainingSrcArray.length)
