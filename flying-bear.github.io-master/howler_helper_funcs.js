@@ -63,8 +63,8 @@ function normalizeAnswer(s){
     return(s.trim().toLowerCase().replace(/ё/gi, "е"));
     }
 function howlNext(){ /* следущее слово, длина 250  */
-    if(howls.length-1 <= howls_index) {
-      alert("нет следующего слова!");
+    if(howls.length <= howls_index) {
+      // alert("нет следующего слова!");
       if(training){
         switchFromTrainingToExpList();
       }

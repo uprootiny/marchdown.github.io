@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel = "stylesheet" href = "https://code.jquery.com/qunit/qunit-1.22.0.css">
+  <script src = "https://code.jquery.com/qunit/qunit-1.22.0.js"></script>
+  <script src = "tests.js"></script>
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
 	<script type="text/javascript" src="howler_helper_funcs.js"></script>
 
@@ -62,7 +67,9 @@
     			};
 
     			function getToTheNextWord(){ /* перейти к следующему слову */
-              howlNext();
+              if (howls_index < fileTrainingSrcArray.length){
+                howlNext();
+              }
     				  if (training == false){ /* экспериментальные задания */
                 displayWordsRemaining();
     						// document.getElementById("wordsLeftCounterText").innerText = "Слов осталось: " + (howls.length - howls_index);
@@ -490,6 +497,9 @@
        <p class="card-text"></p>
      </div>
    </div>
+
+   <div id = "qunit"></div>
+   <div id = "qunit-fixture"></div>
 
 
 

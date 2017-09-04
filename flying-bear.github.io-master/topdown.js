@@ -1,3 +1,35 @@
+var function firstPage() {
+
+}
+var function nextPage() {
+
+}
+var function firstWord() {
+
+}
+var function nextWord() {
+
+}
+var function rightAnswer() {
+
+}
+var function wrongAnswer() {
+
+}
+var function replayWord() {
+
+}
+var function wrapUpAndSubmitData() {
+
+}
+
+
+
+
+/* ============ refactor me ============ */
+
+
+
 "use strict"
   //var currentLength = 0.250; /* до какого момента пригрывать запись - изначально 250ms *///?
   var inputArray = []; /* сюда складываются массивы ответов и данных о них */
