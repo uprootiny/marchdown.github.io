@@ -23,21 +23,139 @@
 </head>
 
 <body>
-  <div id="topLevelContainer" class="container">
+  <div id="topLevelContainer" class="container" >
     <div id="inqueryPage" class="card border-dark mb-3">
+      <div class="card-header">
+
+        inquery
+
+     </div>
+    <div class="card-body">
+
+
+      <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">→</button>
+    </div>
     </div>
     <div id="instructionPage" class="card border-dark mb-3" style="display:none">
-    </div>
-    <div id="trainingPage" class="card border-light mb-3" style="display:none">
-    </div>
-    <div id="consentPage" class="card border-dark mb-3" style="display:none">
-    </div>
-    <div id="experimentPage" class="card border-light mb-3" style="display:none">
-    </div>
-    <div id="endPage" class="card border-dark mb-3" style="display:none">
-    </div>
-  <div class="container">
 
+     <div class="card-header">
+
+        instruction
+
+    </div>
+   <div class="card-body">
+
+
+      <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">→</button>
+   </div>
+    </div>
+    <div id="trainingPage" class="card border-alert mb-3" style="display:none">
+
+     <div class="card-header">
+
+        training
+
+    </div>
+
+   <div class="card-body">
+
+     <button id="trainingButton" href="#" class="btn btn-primary" onclick="playBtnClicked()">Play</button> <!-- кнопка Play -->
+ 		<div id="trainingText"> <!-- текстовый блок -->
+ 			Для проигривания слова нажмите на Play.
+ 		</div>
+ 		<div id="trainingWordsLeftCounterText"> <!-- текстовый блок - сколько слов ещё нужно прослушать в тренировочном задании. -->
+ 			Здесь будет выводиться, сколько слов вам ещё нужно прослушать в тренировочном задании.
+ 		</div>
+
+
+
+     <form id="trainingForm" class="form-group"> <!-- Форма с инпутом для глаголов-->
+       <div id="trainingInputDiv"> <!-- невидимый блок с инпутом и кнопкой go -->
+         <input type="text" class="form-control"         id="trainingInput"           name="in" value=""/>
+         <button type="submit" class="btn btn-primary" style="display: none">Go</button>
+       </div>
+     </form>
+
+      <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">→</button>
+   </div>
+    </div>
+    <div id="consentPage" class="card border-alert mb-3" style="display:none">
+
+     <div class="card-header">
+
+        consent
+
+    </div>
+   <div class="card-body">
+
+
+      <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">→</button>
+   </div>
+    </div>
+    <div id="experimentPage" class="card border-dark mb-3" style="display:none">
+
+     <div class="card-header">
+
+        experiment
+
+    </div>
+      <div class="card-body">
+
+
+        <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">:)</button>
+      </div>
+    </div>
+    <div id="endPage" class="card border-primary mb-3" style="display:none">
+
+     <div class="card-header">
+
+            end
+
+    </div>
+      <div class="card-body">
+
+
+        <button class="btn btn-sm btn-outline-primary" disabled onclick="nextPage()">→</button>
+        <!-- <button class="btn btn-sm btn-outline-primary" onclick='$("#topLevelContainer").fireworks()'>Yay!</button> -->
+
+      </div>
+    </div>
+  </div><!--  topLevelContainer closes here-->
+
+
+  <div class="container">
+    <div id="indicator_panel" class="card border-dark mb-3" style="max-width: 60rem;">
+      <div class="card-header">
+        <h2 class="card-title">Howler controls        <button class="btn btn-outline-danger" style="float: right" onclick="this.parentElement.parentElement.parentElement.style.cssText='display: none'">Кыш!</button>
+    </h2>
+        <button class="btn btn-outline-secondary" onclick="howlPlay()">Play</button>
+        <button class="btn btn-outline-secondary" onclick="howlObj.pause()">Pause and rewind</button>
+        <!-- <button class="btn" onclick="howlObj._sprite.clip[1]+= 050">добавить 50 ms</button> -->
+        <button class="btn btn-outline-secondary" onclick="howlGrow()">добавить 50 ms</button>
+        <button class="btn btn-outline-secondary" onclick="howlReset()">сбросить на 250 ms</button>
+        <button class="btn btn-outline-secondary" onclick="howlNext()">следующее слово</button>
+        <button class="btn btn-outline-danger" onclick="document.getElementById('instructionPage').style.cssText='display: block'; document.getElementById('inqueryPage').style.cssText='display: none'; this.style.cssText='display: none'">пропустить анкету</button>
+
+
+
+
+      </div>
+      <div class="card-body">
+
+        <h4 class="card-title">состояние</h4>
+        <div class="badge badge-secondary">  текущая длительность:  <span id="clip_duration"></span> мc </div>
+        <div class="badge badge-secondary">  длительность всей записи: <span id="total_sample_duration"> </span>   </div>
+        <div class="badge badge-secondary">  текущая запись: </span>        <span id="sample_name"></span>              </div>
+        <!-- <div class="badge badge-warning" >    мы ещё не умеем проверять, закончилось ли слово </span>        <span id="not_done"></span>              </div> -->
+        <div class="badge badge-danger" id="end_flag" style="display:none">  слово проиграно до конца </span>        <span ></span>              </div>
+        <div class="badge badge-success" id="clip_end_flag" style="display:none">  отрывок проигран </span>        <span ></span>              </div>
+
+        <!-- <div class="badge badge-success">    слово закончилось </span>        <span id="done"></span>              </div> -->
+        <div class="badge badge-secondary">  сколько осталось слов в списке:  <span id="words_remaining"></span> </div>
+
+        <p class="card-text"></p>
+      </div>
+    </div>
 
 
 

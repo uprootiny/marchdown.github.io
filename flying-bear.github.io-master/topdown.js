@@ -9,37 +9,54 @@ var pages = ["inqueryPage",
              "endPage"];
 var pi = 0;
 
-var function prepareFirstPage() {
+var training;               // are we in the training stage?
+var playedThisWordAlready;  // have we played the current word since pointing to it?
+
+function prepareFirstPage() {
+
+
   /*initialize everything*/
   /* check that nothing is Null */
-
+  alert("prepareFirstPage() fired");
 }
-var function nextPage() {
+function nextPage() {
   /* check for fist, last, intermediary elements. */
   /* check that the wordlist assigns correctly */
   /* check page visibility changes? */
   hidePage(pages[pi]);
   pi += 1;
-  if (pages[pi] in ["trainingPage", "experimentPage")
+  /* preparePage */
+  if (["trainingPage", "experimentPage"].includes(pages[pi])) /* check */
   {
     word_index = 0;
-    words = pages[pi].substr(pages[pi].search('P')); // trainingPage → training;
-    currentWord = words[word_index];
+    words = eval(pages[pi].substr(0,pages[pi].search('P'))+"_howls"); // trainingPage → training;
+    currentWord = words[word_index]; /* check */
   }
 
 
   showPage(pages[pi]);
 }
-var function prepareFirstWord() {
+function prepareFirstWord() {
 
 }
-var function nextWord() {
+function nextWord() {
 
 }
-var function checkAnswer() {
-
+function checkAnswer() {
+  /* normalize input*/
+  /* extract basename from the sound object */
+  /* compare and dispatch accordingly */
+  if (training) {
+    inputElementId = "trainingInput";
+  } else {
+    inputElementId = "experimentInput";
+  }
+  var rightAnswer = document.getElementById
+  var normalizedInput = document.getElementsByClassName(inputElementId);
+  if (normalizedInput == rightAnswer) reactToRightAnswer();
+      else                            reactToWrongAnswer();
 }
-var function reactToRightAnswer() {
+function reactToRightAnswer() {
   /* text resets */
   /* duration resets */
   /* play is being called */
@@ -47,7 +64,7 @@ var function reactToRightAnswer() {
   /* word changes */
   /* ?? page stays the same */
 }
-var function reactToWrongAnswer() {
+function reactToWrongAnswer() {
   /* text may change */
   /* duration changes but not too much*/
   /* word stays the same */
@@ -57,22 +74,39 @@ var function reactToWrongAnswer() {
   /* play is being called  */
 
 }
-var function replayWord() {
-  /* text may change */
-  /* duration changes but not too much*/
-  /* word stays the same */
-  /* page stays the same */
-  /* text changes */
-  /* IF too many _grow_s already, do something */
-  /* play is being called  */
+function playBtnClicked(){
+  if (playedThisWordAlready) {
+    replayWord();
+  } else {
+    howlObj.play('clip');
+    //alert("lalala");
+    playedThisWordAlready = true;
+  }
 }
-var function wrapUpAndSubmitData() {
+function increment_clip_length(howl_object){
+    howl_object._sprite.clip[1] += 50;
+}
+function replayWord() {
+  /* update instruction text maybe */
+  currentWord.play("clip");
+  increment_clip_length(currentWord);
+  /* IF too many _grow_s already, do something */
+}
 
+function wrapUpAndSubmitData() {
+  /* form submission entry */
+  /* call filestack upload func */
 }
   /* check that _play) is only being called once per a user event  */
 
+function hidePage(id) {
+  document.getElementById(id).style.cssText="display:none";
+}
+function showPage(id) {
+  document.getElementById(id).style.cssText="display:block";
+}
 
-
+prepareFirstPage();
 /* ============ refactor me ============ */
 
 
