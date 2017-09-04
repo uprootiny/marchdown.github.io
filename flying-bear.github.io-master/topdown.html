@@ -60,9 +60,8 @@
    <div class="card-body">
 
      <button id="trainingButton" href="#" class="btn btn-primary" onclick="playBtnClicked()">Play</button> <!-- кнопка Play -->
- 		<div id="trainingText"> <!-- текстовый блок -->
- 			Для проигривания слова нажмите на Play.
- 		</div>
+     <div id="trainingTextCue"><p>Для проигрывания слова нажмите на Play.</p></div>
+
  		<div id="trainingWordsLeftCounterText"> <!-- текстовый блок - сколько слов ещё нужно прослушать в тренировочном задании. -->
  			Здесь будет выводиться, сколько слов вам ещё нужно прослушать в тренировочном задании.
  		</div>
@@ -73,6 +72,7 @@
        <div id="trainingInputDiv"> <!-- невидимый блок с инпутом и кнопкой go -->
          <input type="text" class="form-control"         id="trainingInput"           name="in" value=""/>
          <button type="submit" class="btn btn-primary" style="display: none">Go</button>
+
        </div>
      </form>
 
@@ -103,6 +103,7 @@
 
 
         <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">:)</button>
+        <div id="experimentTextCue"><p>Для проигрывания слова нажмите на Play.</p></div>
       </div>
     </div>
     <div id="endPage" class="card border-primary mb-3" style="display:none">

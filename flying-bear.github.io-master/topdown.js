@@ -1,6 +1,8 @@
 var currentWord;
+var rightAnswer;
 var words; // array of sound objects, set in nextPage.
-
+var word_index;
+var audioFinished;
 var pages = ["inqueryPage",
              "instructionPage",
              "trainingPage",
@@ -10,14 +12,15 @@ var pages = ["inqueryPage",
 var pi = 0;
 
 var training;               // are we in the training stage?
-var playedThisWordAlready;  // have we played the current word since pointing to it?
+var firstExperimentRun;
+
 
 function prepareFirstPage() {
 
 
   /*initialize everything*/
   /* check that nothing is Null */
-  alert("prepareFirstPage() fired");
+  //alert("prepareFirstPage() fired");
 }
 function nextPage() {
   /* check for fist, last, intermediary elements. */
@@ -31,6 +34,9 @@ function nextPage() {
     word_index = 0;
     words = eval(pages[pi].substr(0,pages[pi].search('P'))+"_howls"); // trainingPage → training;
     currentWord = words[word_index]; /* check */
+    rightAnswer = normalizeAnswer(howlObj._src.match( /_\d+_(.*)\./i )[1]);
+
+    var firstExperimentRun = true;
   }
 
 
@@ -40,10 +46,16 @@ function prepareFirstWord() {
 
 }
 function nextWord() {
-
+  /* should never be called on the last word.     */
+  /* check if the list is over and decide whether */
+  /* to call nextWord or nextPage or submitData   */
+  word_index += 1;
+  currentWord = words[word_index]; /* check */
+  rightAnswer = normalizeAnswer(howlObj._src.match( /_\d+_(.*)\./i )[1]);
+  audioFinished = false;
 }
-function checkAnswer() {
-  /* normalize input*/
+
+function checkAnswer(/* inputElementId, word */) {
   /* extract basename from the sound object */
   /* compare and dispatch accordingly */
   if (training) {
@@ -51,20 +63,30 @@ function checkAnswer() {
   } else {
     inputElementId = "experimentInput";
   }
-  var rightAnswer = document.getElementById
-  var normalizedInput = document.getElementsByClassName(inputElementId);
+  var normalizedInput = normalizeAnswer(document.getElementsByClassName(inputElementId)); /* test normalizeAnswer */
   if (normalizedInput == rightAnswer) reactToRightAnswer();
       else                            reactToWrongAnswer();
 }
 function reactToRightAnswer() {
-  /* text resets */
-  /* duration resets */
+  alert("called reactToRightAnswer");
+  document.getElementById('trainingTextCue').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
+  /* test that the text resets */
+  // getToTheNextWord(); /* перейти к следующему слову */
+  nextWord();
+  currentWord.play("clip");
   /* play is being called */
   /* input clears */
   /* word changes */
   /* ?? page stays the same */
 }
 function reactToWrongAnswer() {
+  alert("called reactToWrongAnswer");
+  if (audioFinished == false){ /* если слово не проиграно до конца */
+    //currentLength += 0.050; /* прибавить 50ms */
+    increment_clip_length(currentWord);
+    document.getElementById('trainingTextCue').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
+    currentWord.play("clip");
+    }
   /* text may change */
   /* duration changes but not too much*/
   /* word stays the same */
@@ -74,30 +96,48 @@ function reactToWrongAnswer() {
   /* play is being called  */
 
 }
+
 function playBtnClicked(){
-  if (playedThisWordAlready) {
     replayWord();
-  } else {
-    howlObj.play('clip');
+    //currentWord.play("clip");
     //alert("lalala");
-    playedThisWordAlready = true;
-  }
 }
+
 function increment_clip_length(howl_object){
     howl_object._sprite.clip[1] += 50;
+    if (howlObj._sprite.clip[1] >= 1000*howlObj.duration()){
+      audioFinished = true;
+    }
 }
 function replayWord() {
   /* update instruction text maybe */
   currentWord.play("clip");
-  increment_clip_length(currentWord);
+  //increment_clip_length(currentWord);
   /* IF too many _grow_s already, do something */
+  if (audioFinished == false){
+    //currentLength += 0.050; /* прибавить 50ms */
+    increment_clip_length(currentWord);
+  }
+  if (firstExperimentRun == true){ /* если проигрывается первое слово */
+    var cueElementId;
+    if (training) {
+      cueElementId = "trainingTextCue";
+    } else {
+      cueElementId = "experimentTextCue";
+    }
+    /* change conditional to page.cue */
+    document.getElementById(cueElementId).innerText = "Введите слово. Если вы не знаете слова, нажмите на Play." /* изменить текст */
+    //audio.addEventListener("ended", experimentFunctionAudioFinished);
+  }
+  firstExperimentRun = false; /* изменить значение на "проигрывается не первое слово" */
+
 }
 
 function wrapUpAndSubmitData() {
   /* form submission entry */
   /* call filestack upload func */
 }
-  /* check that _play) is only being called once per a user event  */
+  /* check that _play_ is only being called once per a user event  */
 
 function hidePage(id) {
   document.getElementById(id).style.cssText="display:none";
@@ -105,7 +145,10 @@ function hidePage(id) {
 function showPage(id) {
   document.getElementById(id).style.cssText="display:block";
 }
-
+function lastWord() { /* пользователь только что ответил на последнее слово */
+  if ((word_index+1) == words.length) return true;
+  else return false;
+}
 prepareFirstPage();
 /* ============ refactor me ============ */
 
@@ -163,7 +206,7 @@ prepareFirstPage();
               // document.getElementById('sample').src = fileSrcArray[wordsSolvedCounter - 1]; /* положить в переменную audio следующий файл из спика адресов файлов */
               // var source = decodeURI(document.getElementById('sample').src); /* обновить правильный ответ: адрес файла кладётся в текстовую переменную */
               // rightAnswer = source.match( /_\d+_(.*)\./i )[1].toLowerCase(); /* положить эту текстовую переменную в правильный ответ */
-                  if (howls_index > fileSrcArray.length-1) { /* если решено слов столько же или больше длины списка слов */
+                  if (word_index = words.length-1) { /* если решено слов столько же или больше длины списка слов */
                     /* то перейди на следущую подстраницу: поблагодари респондента и спрячь всё лишнее */
                     /* допустим, в списку два слова. тогда fileSrcArray.length-1 == 1; при непоследнем проходе index==0, при последнем index==1, сравнение срабатывает и мы опускаемся в эту ветку */
                     //audio.removeEventListener("ended", experimentFunctionAudioFinished);
@@ -235,40 +278,32 @@ prepareFirstPage();
         // }, 30); /* проверять условие каждые 30ms */
 
 
-        $("#playButton").on("click", function(){
-          if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
-//    				audio.currentTime = 0.0; /* начать проигрываеть слово с начала */
-//    				audio.play(); /* проиграть слово */
-            howlPlay();
-
-          if (audioFinished == false){
-            //currentLength += 0.050; /* прибавить 50ms */
-            howlGrow();
-          };
-          if(firstExperimentRun == true){ /* если проигрывается первое слово */
-            document.getElementById('text').innerText = "Введите слово. Если вы не знаете слова, нажмите на Play." /* изменить текст */
-            //audio.addEventListener("ended", experimentFunctionAudioFinished);
-          };
-          firstExperimentRun = false; /* изменить значение на "проигрывается не первое слово" */
-        });
+//         $("#playButton").on("click", function(){
+//           if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+// //    				audio.currentTime = 0.0; /* начать проигрываеть слово с начала */
+// //    				audio.play(); /* проиграть слово */
+//             howlPlay();
+//
+//           if (audioFinished == false){
+//             //currentLength += 0.050; /* прибавить 50ms */
+//             howlGrow();
+//           };
+//           if(firstExperimentRun == true){ /* если проигрывается первое слово */
+//             document.getElementById('text').innerText = "Введите слово. Если вы не знаете слова, нажмите на Play." /* изменить текст */
+//             //audio.addEventListener("ended", experimentFunctionAudioFinished);
+//           };
+//           firstExperimentRun = false; /* изменить значение на "проигрывается не первое слово" */
+//         });
 
 
         $("#trainingForm").on("submit", function() { /* обработать введённое пользователем слово */
-          //alert("submitted training form");
           if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
           var currentInput = normalizeAnswer(document.getElementById('trainingInput').value); /* положить в переменную текущий инпут */
           if (currentInput == rightAnswer) { /* если верный ответ */
-            document.getElementById('trainingText').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
-            getToTheNextWord(); /* перейти к следующему слову */
-            howlPlay();
+            reactToRightAnswer();
           }
           else{ /* если неверный ответ */
-            if (audioFinished == false){ /* если слово не проиграно до конца */
-              //currentLength += 0.050; /* прибавить 50ms */
-              document.getElementById('trainingText').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
-              howlGrow();
-              howlPlay();
-              };
+            reactToWrongAnswer();
           };
           document.getElementById('trainingInput').value = "" /* стереть значение инпута */
           // if (training) $("#trainingButton").click();
@@ -288,24 +323,24 @@ prepareFirstPage();
         });
 
 
-        $("#trainingButton").on("click", function(){
-          //alert("clicked training button");
-          if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
-          //audio.currentTime = 0.0; /* начать проигрываеть слово с начала */
-          //audio.play(); /* проиграть слово */
-          if (audioFinished == false){
-            //currentLength += 0.050; /* прибавить 50ms */
-             howlGrow();
-          };
-          howlPlay();
-
-
-          if(firstTrainingRun == true){ /* если проигрывается первое слово */
-            document.getElementById('trainingText').innerText = "Введите слово. Если вы не знаете слова, нажмите на Play." /* изменить текст */
-            //audio.addEventListener("ended", trainingFunctionAudioFinished);
-          };
-          firstTrainingRun = false; /* изменить значение на "проигрывается не первое слово" */
-        });
+        // $("#trainingButton").on("click", function(){
+        //   //alert("clicked training button");
+        //   if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+        //   //audio.currentTime = 0.0; /* начать проигрываеть слово с начала */
+        //   //audio.play(); /* проиграть слово */
+        //   if (audioFinished == false){
+        //     //currentLength += 0.050; /* прибавить 50ms */
+        //      howlGrow();
+        //   };
+        //   howlPlay();
+        //
+        //
+        //   if(firstTrainingRun == true){ /* если проигрывается первое слово */
+        //     document.getElementById('trainingText').innerText = "Введите слово. Если вы не знаете слова, нажмите на Play." /* изменить текст */
+        //     //audio.addEventListener("ended", trainingFunctionAudioFinished);
+        //   };
+        //   firstTrainingRun = false; /* изменить значение на "проигрывается не первое слово" */
+        // });
 
         /* Этот блок срабатывает первым */
         $('#inqueryForm').on("submit", function() {
