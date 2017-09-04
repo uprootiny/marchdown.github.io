@@ -1,28 +1,75 @@
-var function firstPage() {
+var currentWord;
+var words; // array of sound objects, set in nextPage.
+
+var pages = ["inqueryPage",
+             "instructionPage",
+             "trainingPage",
+             "consentPage",
+             "experimentPage",
+             "endPage"];
+var pi = 0;
+
+var function prepareFirstPage() {
+  /*initialize everything*/
+  /* check that nothing is Null */
 
 }
 var function nextPage() {
+  /* check for fist, last, intermediary elements. */
+  /* check that the wordlist assigns correctly */
+  /* check page visibility changes? */
+  hidePage(pages[pi]);
+  pi += 1;
+  if (pages[pi] in ["trainingPage", "experimentPage")
+  {
+    word_index = 0;
+    words = pages[pi].substr(pages[pi].search('P')); // trainingPage → training;
+    currentWord = words[word_index];
+  }
 
+
+  showPage(pages[pi]);
 }
-var function firstWord() {
+var function prepareFirstWord() {
 
 }
 var function nextWord() {
 
 }
-var function rightAnswer() {
+var function checkAnswer() {
 
 }
-var function wrongAnswer() {
+var function reactToRightAnswer() {
+  /* text resets */
+  /* duration resets */
+  /* play is being called */
+  /* input clears */
+  /* word changes */
+  /* ?? page stays the same */
+}
+var function reactToWrongAnswer() {
+  /* text may change */
+  /* duration changes but not too much*/
+  /* word stays the same */
+  /* page stays the same */
+  /* text changes */
+  /* IF too many _grow_s already, do something */
+  /* play is being called  */
 
 }
 var function replayWord() {
-
+  /* text may change */
+  /* duration changes but not too much*/
+  /* word stays the same */
+  /* page stays the same */
+  /* text changes */
+  /* IF too many _grow_s already, do something */
+  /* play is being called  */
 }
 var function wrapUpAndSubmitData() {
 
 }
-
+  /* check that _play) is only being called once per a user event  */
 
 
 
