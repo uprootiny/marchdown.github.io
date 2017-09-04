@@ -106,6 +106,8 @@ function playBtnClicked(){
 function increment_clip_length(howl_object){
     howl_object._sprite.clip[1] += 50;
     if (howlObj._sprite.clip[1] >= 1000*howlObj.duration()){
+      if (training) trainingFunctionAudioFinished();
+      else experimentFunctionAudioFinished();
       audioFinished = true;
     }
 }
@@ -149,6 +151,36 @@ function lastWord() { /* пользователь только что ответ
   if ((word_index+1) == words.length) return true;
   else return false;
 }
+
+
+/* ============ snip ============ */
+var trainingFunctionAudioFinished = function(){ /* когда аудио заканчивается */
+  audioFinished = true; /* аудио закончилось */
+    document.getElementById('trainingTextCue').innerText = "Cлово проиграно до конца. Прочитайте инструкцию снова." /* изменить текст */
+    document.getElementById('trainingPage').style.cssText="display: none"; /* скрыть consentPage */
+    document.getElementById('instructionPage').style.cssText="display: block"; /* показать instructionPage */
+    //wordsSolvedCounter = 0; // howls_index: сколько слов мы перебрали с начала списка, столько у нас решенных.
+};
+
+var experimentFunctionAudioFinished = function(){ /* когда аудио заканчивается */
+    //if (audioFinished) return;
+    audioFinished = true; /* аудио закончилось */
+    document.getElementById('text').innerText = "Слово проиграно до конца."; /* изменить текст */
+    nextWord();
+    //getToTheNextWord();
+    //audio.play();
+    //howlPlay();
+    currentWord.play('clip');
+
+  };
+function createAndUploadCSVFile(text, name) {
+  var blob = new Blob([text], {type : 'text/csv'});
+  var client = filestack.init('A7iAeWAkkSZ67VSjAJPuZz', { policy: 'policy', signature: 'gmryazanskaya' });
+  client.upload(blob, {}, {filename: name});
+};
+/* ============ snip ============ */
+
+
 prepareFirstPage();
 /* ============ refactor me ============ */
 
@@ -172,28 +204,7 @@ prepareFirstPage();
 
       $(function(){ // это точка входа, отсюда начинается исполнение при загрузке. ниже содержится основная логика программы.
         //audio = document.getElementById('sample'); /* текущее слово (аудио) */ // теперь лежит в howlObj
-        var trainingFunctionAudioFinished = function(){ /* когда аудио заканчивается */
-          audioFinished = true; /* аудио закончилось */
-            document.getElementById('trainingText').innerText = "Cлово проиграно до конца. Прочитайте инструкцию снова." /* изменить текст */
-            document.getElementById('trainingPage').style.cssText="display: none"; /* скрыть consentPage */
-            document.getElementById('instructionPage').style.cssText="display: block"; /* показать instructionPage */
-            //wordsSolvedCounter = 0; // howls_index: сколько слов мы перебрали с начала списка, столько у нас решенных.
-        };
 
-        var experimentFunctionAudioFinished = function(){ /* когда аудио заканчивается */
-            if (audioFinished) return;
-            audioFinished = true; /* аудио закончилось */
-            document.getElementById('text').innerText = "Слово проиграно до конца."; /* изменить текст */
-            getToTheNextWord();
-            //audio.play();
-            howlPlay();
-
-          };
-        function createAndUploadCSVFile(text, name) {
-          var blob = new Blob([text], {type : 'text/csv'});
-          var client = filestack.init('A7iAeWAkkSZ67VSjAJPuZz', { policy: 'policy', signature: 'gmryazanskaya' });
-          client.upload(blob, {}, {filename: name});
-        };
 
         function getToTheNextWord(){ /* перейти к следующему слову */
             if (howls_index < fileTrainingSrcArray.length){

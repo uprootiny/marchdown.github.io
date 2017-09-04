@@ -122,3 +122,21 @@ QUnit.test( "after a lot of replays audioFinished becomes true", function( asser
   word_index = xi;
   audioFinished = xa;
 });
+
+QUnit.test( "after a lot of replays the textual cue changes", function( assert ) {
+  xws = words;
+  xi = word_index;
+  xw = currentWord;
+  words = training_howls;
+  word_index = 3;
+  currentWord = training_howls[word_index];
+  xa = audioFinished;
+
+  for (i = 20; i> 0; i--) replayWord();
+  assert.ok( audioFinished == false, "Passed!" ); /* check JavaScript equality constructs */
+
+  currentWord = xw;
+  words = xws;
+  word_index = xi;
+  audioFinished = xa;
+});
