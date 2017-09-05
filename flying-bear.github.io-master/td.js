@@ -288,17 +288,17 @@ $(function(){ // это точка входа, отсюда начинается
   });
   /* html onclick does not call anything  */
 
-  // $('#consentForm').on("submit", function() {
-  //   if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
-  //   nextPage();
-  // });
-  /* html onclick calls nextPage() */
+  $('#consentForm').on("submit", function() {
+    if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+    nextPage();
+  });
 
-  // $('#instructionForm').on("submit", function() {
-  //   if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
-  //   nextPage();
-  // });
 
-  /* html onclick calls nextPage() */
+  $('#instructionForm').on("submit", function() {
+    if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+    nextPage();
+  });
+
+
 
 });
