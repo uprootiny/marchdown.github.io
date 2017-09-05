@@ -107,7 +107,7 @@ function reactToRightAnswer() {
   // getToTheNextWord(); /* перейти к следующему слову */
   if (lastWord()){
     if (training) nextPage();
-    else (wrapUpAndSubmitData());
+    else (wrapUpAndSubmitData()); /* if the answer is right and we are at the last word of the experiment word list.
   } else {
   nextWord();
   currentWord.play("clip");
@@ -180,13 +180,11 @@ function replayWord() {
 }
 
 function wrapUpAndSubmitData() {
-  alert("hurray! we're done here.");
+
   /* form submission entry */
-  submitResults();
   /* call filestack upload func */
-
-
-  nextPage();
+  submitResults();
+  nextPage(); /* endPage! */
 }
   /* check that _play_ is only being called once per a user event  */
 
@@ -234,10 +232,10 @@ function submitResults(){
   };
   var userDataCsv=""; $.each(userData, function(k,v) {userDataCsv+=k+":"+v+"; \n";});
 
-  alert("A resounding success! "+fileText+"анкета:"+userData);
+  // alert("A resounding success! "+fileText+"анкета:"+userData);
 
-  //createAndUploadCSVFile(fileText, userData.userName+" answers.csv");
-  //createAndUploadCSVFile(userDataCsv, userData.userName+" user data.csv");
+  createAndUploadCSVFile(fileText, userData.userName+" answers.csv");
+  createAndUploadCSVFile(userDataCsv, userData.userName+" user data.csv");
 }
 /* ============ snip ============ */
 

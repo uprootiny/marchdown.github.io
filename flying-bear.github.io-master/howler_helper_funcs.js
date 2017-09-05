@@ -55,6 +55,7 @@ function howlGrow(){ /* увеличить звучащий сегмент */
     howlObj._sprite.clip[1] += 50;
     displayCurrentDuration();
     }
+
 function increment_clip_length(howl_object){
     howl_object._sprite.clip[1] += 50;
 }
@@ -105,9 +106,8 @@ function submitResults(){
     fileText += textLine + "\n";
   };
   var userDataCsv=""; $.each(userData, function(k,v) {userDataCsv+=k+":"+v+"; \n";});
-  alert("A resounding success!");
-  //createAndUploadCSVFile(fileText, userData.userName+" answers.csv");
-  //createAndUploadCSVFile(userDataCsv, userData.userName+" user data.csv");
+  createAndUploadCSVFile(fileText, userData.userName+" answers.csv");
+  createAndUploadCSVFile(userDataCsv, userData.userName+" user data.csv");
 }
 
 
