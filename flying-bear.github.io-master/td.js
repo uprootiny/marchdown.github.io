@@ -180,7 +180,7 @@ function replayWord() {
 }
 
 function wrapUpAndSubmitData() {
-  alert("hurray! we're done here.");
+  // alert("hurray! we're done here.");
   /* form submission entry */
   submitResults();
   /* call filestack upload func */
@@ -234,10 +234,10 @@ function submitResults(){
   };
   var userDataCsv=""; $.each(userData, function(k,v) {userDataCsv+=k+":"+v+"; \n";});
 
-  alert("A resounding success! "+fileText+"анкета:"+userData);
+  // alert("A resounding success! "+fileText+"анкета:"+userData);
 
-  //createAndUploadCSVFile(fileText, userData.userName+" answers.csv");
-  //createAndUploadCSVFile(userDataCsv, userData.userName+" user data.csv");
+  createAndUploadCSVFile(fileText, userData.userName+" answers.csv");
+  createAndUploadCSVFile(userDataCsv, userData.userName+" user data.csv");
 }
 /* ============ snip ============ */
 
@@ -275,6 +275,7 @@ $(function(){ // это точка входа, отсюда начинается
     };
     document.getElementById('trainingInput').value = "" /* стереть значение инпута */
   });
+  /* html onclick does not call anything  */
 
   $('#inqueryForm').on("submit", function() {
     if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
@@ -285,14 +286,19 @@ $(function(){ // это точка входа, отсюда начинается
     }, {});
     nextPage();
   });
+  /* html onclick does not call anything  */
 
-  $('#consentForm').on("submit", function() {
-    if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
-    nextPage();
-  });
+  // $('#consentForm').on("submit", function() {
+  //   if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+  //   nextPage();
+  // });
+  /* html onclick calls nextPage() */
 
-  $('#instructionForm').on("submit", function() {
-    if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
-    nextPage();
-  });
+  // $('#instructionForm').on("submit", function() {
+  //   if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+  //   nextPage();
+  // });
+
+  /* html onclick calls nextPage() */
+
 });
