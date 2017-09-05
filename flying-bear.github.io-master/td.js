@@ -54,7 +54,9 @@ function nextPage() {
   }
 
 
+
   showPage(pages[pi]);
+  if(pages[pi]=="consentPage")  document.getElementById("consentSubmitButton").focus();
 }
 function prevPage() { /* training → instruction
   /* check for fist, last, intermediary elements. */
