@@ -44,13 +44,13 @@ function nextPage() {
   /* preparePage */
   if (["trainingPage", "experimentPage"].includes(pages[pi])) /* check */
   {
+    if (pages[pi] == "experimentPage") training = false;
     word_index = 0;
     words = eval(pages[pi].substr(0,pages[pi].search('P'))+"_howls"); // trainingPage → training;
     currentWord = words[word_index]; /* check */
     rightAnswer = normalizeAnswer(currentWord._src.match( /_\d+_(.*)\./i )[1]);
     displayWordsRemaining();
     var firstExperimentRun = true;
-    if (pages[pi] == "experimentPage") training = false;
   }
 
 
