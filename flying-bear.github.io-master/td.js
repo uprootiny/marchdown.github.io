@@ -103,8 +103,12 @@ function checkAnswer(/* inputElementId, word */) {
 }
 function reactToRightAnswer() {
   // green_blip();
-  if (training) document.getElementById('trainingTextCue').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
-  else          document.getElementById('experimentTextCue').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
+  if (training) {
+    document.getElementById('trainingTextCue').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
+    document.getElementById('prevPage_from_training_btn').style.cssText="display:none";
+  }  else {
+    document.getElementById('experimentTextCue').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
+  }
   /* test that the text resets */
   // getToTheNextWord(); /* перейти к следующему слову */
   if (lastWord()){
@@ -123,9 +127,13 @@ function reactToWrongAnswer() {
     if (audioFinished == false){ /* если слово не проиграно до конца */
       //currentLength += 0.050; /* прибавить 50ms */
       increment_clip_length(currentWord);
-      if (training) document.getElementById('trainingTextCue').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
-      else          document.getElementById('experimentTextCue').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
-    currentWord.play("clip");
+      if (training) {
+        document.getElementById('trainingTextCue').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
+        document.getElementById('prevPage_from_training_btn').style.cssText="display:none";
+      }  else {
+        document.getElementById('experimentTextCue').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
+      }
+      currentWord.play("clip");
     } else {
       if (training) trainingFunctionAudioFinished();
       else experimentFunctionAudioFinished();
@@ -167,14 +175,12 @@ function replayWord() {
     increment_clip_length(currentWord);
   }
   if (firstExperimentRun == true){ /* если проигрывается первое слово */
-    var cueElementId;
     if (training) {
-      cueElementId = "trainingTextCue";
-    } else {
-      cueElementId = "experimentTextCue";
+      document.getElementById('trainingTextCue').innerText = "Введите слово. Если вы не знаете слова, нажмите на Play."; /* изменить текст */
+      document.getElementById('prevPage_from_training_btn').style.cssText="display:none";
+    }  else {
+      document.getElementById('experimentTextCue').innerText = "Введите слово. Если вы не знаете слова, нажмите на Play."; /* изменить текст */
     }
-    /* change conditional to page.cue */
-    document.getElementById(cueElementId).innerText = "Введите слово. Если вы не знаете слова, нажмите на Play." /* изменить текст */
     //audio.addEventListener("ended", experimentFunctionAudioFinished);
   }
   firstExperimentRun = false; /* изменить значение на "проигрывается не первое слово" */
@@ -212,6 +218,7 @@ function displayWordsRemaining() {
 var trainingFunctionAudioFinished = function(){ /* когда аудио заканчивается */
   audioFinished = true; /* аудио закончилось */
     document.getElementById('trainingTextCue').innerText = "Cлово проиграно до конца. Прочитайте инструкцию снова." /* изменить текст */
+    document.getElementById('prevPage_from_training_btn').style.cssText="display:block";
 };
 
 var experimentFunctionAudioFinished = function(){ /* когда аудио заканчивается */
