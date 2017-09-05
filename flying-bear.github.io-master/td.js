@@ -121,8 +121,8 @@ function reactToWrongAnswer() {
     if (audioFinished == false){ /* если слово не проиграно до конца */
       //currentLength += 0.050; /* прибавить 50ms */
       increment_clip_length(currentWord);
-      if (training) document.getElementById('trainingTextCue').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
-      else          document.getElementById('experimentTextCue').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
+      if (training) document.getElementById('trainingTextCue').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
+      else          document.getElementById('experimentTextCue').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
     currentWord.play("clip");
     } else {
       if (training) trainingFunctionAudioFinished();
