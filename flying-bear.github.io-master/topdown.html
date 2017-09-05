@@ -33,9 +33,155 @@
     <div class="card-body">
 
 
+      <div>
+			<span>
+			Эксперимент довольно продолжительный - занимает около получаса, будьте готовы. Вы можете прерываться, но, пожалуйста, пройдите его до конца. (До предъявления надписи "эксперимент окончен".)<br>
+			Сначала, пожалуйста, заполните демографический блок, чтобы нам было, где искать интересные корреляции. Мы знаем, что он очень длинный и скучный и заранее говорим вам спасибо за долготерпение. </span>
+			</div>
+			 <hr />
+    <div>
+		<form id="inqueryForm"  class="form">
+			<div class="form-group">
+				<label for="userNameInput">Имя и фамилия: (любой уникальный псевдоним)</label><br> <input type="text" class="form-control"         id="userNameInput" name="userName"           required><!-- Имя и фамилия -->
+			</div>
+
+			<div class="form-group">
+				<label for="ageInput">Возраст (полных лет): </label><br> <input class="form-control"         id="userAgeInput" name="userAge" type="number" min="6" max="90" required><!-- Возраст (полных лет) -->
+			</div>
+
+				<label for="userSexRadio">Пол:  <!-- radio: Пол: м/ж/другое (укажите) -->
+				<div class="form-group" id="userSexRadio">
+
+          <div class="form-check">
+						<label  class="form-check-label" for="sexMale">
+              <input  type="radio" class="form-check-input" name="userSex" value="male" id="sexMale" required>
+              мужской
+            </label>
+          </div>
+
+          <div class="form-check">
+						<label class="form-check-label" for="sexFemale">
+              <input  type="radio" class="form-check-input" name="userSex" value="female" id="sexFemale" required>
+              женский
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label" for="sexOther">
+              <input type="radio" class="form-check-input" name="userSex" value="" id="sexOther" required>
+              другое (укажите):
+              <input type="text" class="form-control"                   name="userSex">
+            </label>
+          </div>
+
+				</div>
+        </label>
+
+
+
+			<div class="form-group" >
+		    <label for="userEducationSelect">Образование: </label>
+		    <select class="form-control" id="userEducationSelect" name="userEducation">
+		      <option value="school">среднее</option>
+		      <option value="school special">среднее специальное</option>
+		      <option value="higher undergraduate">неоконченное высшее</option>
+		      <option value="graduate">высшее</option>
+					<option value="degree">ученая степень</option>
+		    </select>
+
+				<div class="form-group">
+					<div>
+						<label for="yearsOfEducationInput">Длительность образования в годах (например, школа+среднее специальное+высшее - 11+2+5=18 лет): </label><br>
+						<input class="form-control"        id="yearsOfEducationInput" name="userYearsOfEducation" type="number" min="1" max="40" required><!-- Длительность образования в годах (например, школа+среднее специальное+высшее - 11+2+5=18 лет) -->
+					</div>
+
+					<div>
+						<label for="professionInput">Область профессиональной деятельности: </label><br>
+						<input type="text" class="form-control"        id="userProfessionInput" name="userProfession"           required><br> <!-- Область профессиональной деятельности -->
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="languageInput">Родной язык: </label><br>
+				<input type="text" class="form-control"         id="userLanguageInput" name="userLanguage"           required><!-- Родной язык -->
+			</div>
+
+			<div class="form-group">
+			    <label for="userHandSelect">Ведущая рука: </label>
+			    <select class="form-control" id="userHandSelect" name="userHand">
+			      <option value="right">правша</option>
+			      <option value="left">левша</option>
+			      <option value="ambi">амбидекстер</option>
+			      <option value="right to left">переученный левша</option>
+			    </select>
+			</div>
+
+        <label for="userDisordersRadio"><p>Имеются ли у вас неврологические/психиатрические  расстройства?</p><!-- radio: Имеются ли у вас неврологические/психиатрические  расстройства?: нет/да(какие) -->
+          <div class="form-group" id="userDisordersRadio">
+            <div class="form-check">
+              <label  class="form-check-label" for="noDisorders">
+                <input type="radio" class="form-check-input"          name="userDisorders" value="no" id="noDisorders" required>
+                нет</label>
+            </div>
+
+            <div class="form-check">
+              <label class="form-check-label" for="disorders">
+                <input type="radio" class="form-check-input"          name="userDisorders" value="" id="disorders" required>
+                <p>да (укажите какие):</p>
+                <input type="text" class="form-control"                   name="userDisorders">
+                </label>
+            </div>
+
+          </div>
+        </label>
+
+			<div class="form-group" id="userMedicationRadio">
+				<label for="userMedicationRadio">Принимаете ли вы какие медицинские препараты, которые могут повлиять на концентрацию внимания и время реакции?</label> <!-- radio: Принимаете ли вы какие медицинские препараты, которые могут повлиять на концентрацию внимания и время реакции?: нет/да(какие) -->
+
+					<div class="form-check">
+          <label class="form-check-label" for="noMedication">
+						<input type="radio" class="form-check-input"          name="userMedication" value="no" id="noMedication" required>
+						нет
+            </label>
+					</div>
+					<div class="form-check">
+          <label class="form-check-label" for="Medication">
+					  <input type="radio" class="form-check-input"          name="userMedication" value="" id="Medication" required>
+					  да (укажите какие):
+					  <input type="text" class="form-control"                   name="userMedication">
+           </label>
+					</div>
+
+			</div>
+
+			<div class="form-check">
+				<label for="userPerceptionRadio">Есть ли у вас какие-то проблемы со зрением или слухом?:</label> <!-- radio: Есть ли у вас какие-то проблемы со зрением или слухом?: нет/да(какие) -->
+				<div id="userPerceptionRadio">
+					<div class="form-check">
+          <label class="form-check-label" for="noPerceptionDisorder">
+						<input type="radio" class="form-check-input"          name="userPerception" value="no" id="noPerceptionDisorder" required>
+						нет</label>
+					</div>
+					<div class="form-check">
+          <label class="form-check-label" for="perceptionDisorder">
+					  <input type="radio" class="form-check-input"          name="userPerception" value="" id="perceptionDisorder" required>
+					  да (укажите какие):
+					  <input type="text" class="form-control"                   name="userPerception">
+            </label>
+					</div>
+				</div>
+			</div>
+      <div class="help-block"> &nbsp </div>
+			<button type="submit" class="btn btn-primary">Готово</button><div class="control-group"> &nbsp </div>
+
+		</form>
+    </div>
+
       <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">→</button>
     </div>
     </div>
+
     <div id="instructionPage" class="card border-dark mb-3" style="display:none">
 
      <div class="card-header">
