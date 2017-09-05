@@ -105,9 +105,9 @@ function submitResults(){
     fileText += textLine + "\n";
   };
   var userDataCsv=""; $.each(userData, function(k,v) {userDataCsv+=k+":"+v+"; \n";});
-  alert("A resounding success!");
-  //createAndUploadCSVFile(fileText, userData.userName+" answers.csv");
-  //createAndUploadCSVFile(userDataCsv, userData.userName+" user data.csv");
+
+  createAndUploadCSVFile(fileText, userData.userName+" answers.csv");
+  createAndUploadCSVFile(userDataCsv, userData.userName+" user data.csv");
 }
 
 
@@ -135,7 +135,7 @@ function displayFlag(flag){
   document.getElementById(flag).style.cssText="display:block";
 }
 function displayEndFlag(){
-  alert("проиграли слово до конца").
+  //alert("проиграли слово до конца").
   document.getElementById('end_flag').style.cssText="display: block";
 }
 function hideFlag(flag){

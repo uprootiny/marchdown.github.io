@@ -176,7 +176,7 @@
 			<button type="submit" class="btn btn-primary">Готово</button><div class="control-group"> &nbsp </div>
 
 		</form>
-    </div>
+  </div>
 
       <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">→</button>
     </div>
@@ -199,7 +199,7 @@
        <button id="instructionCheck" type="submit" class="btn btn-primary">Я понял инструкцию</button> <!-- кнопочочка подтверждения понимания инструкции -->
      </form>
 
-      <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">→</button>
+      <button class="btn btn-sm btn-outline-primary" >→</button>
    </div>
     </div>
     <div id="trainingPage" class="card border-alert mb-3" style="display:none">
@@ -225,7 +225,7 @@
        <div id="trainingInputDiv"> <!-- невидимый блок с инпутом и кнопкой go -->
          <input type="text" class="form-control"         id="trainingInput"           name="in" value=""/>
          <button type="submit" class="btn btn-primary" style="display: none">Go</button>
-
+        <!-- Submitting triggers jquery onSubmit from td.js. it might call nextPage eventually. -->
        </div>
      </form>
 
@@ -250,7 +250,7 @@
         3. Не нахожусь под воздействием алкоголя и иных психотропных веществ. <br>
       </div>
       <form id="consentForm" class="form-group">
-        <button type="submit" class="btn btn-primary" onclick="nextPage()">Согласен</button> <!-- кнопочка согласия -->
+        <button type="submit" class="btn btn-primary">Согласен</button> <!-- кнопочка согласия -->
       </form>
 
     </div>

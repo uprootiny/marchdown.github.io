@@ -253,7 +253,7 @@ $(function(){ // это точка входа, отсюда начинается
     var currentLength = currentWord._sprite.clip[1]/1000.0;
     if (currentInput == rightAnswer) { /* если верный ответ */
       inputArray.push([userData.userName, rightAnswer, currentLength, currentInput, "true"]); /* сложить значения в массив ответов */
-      alert(inputArray);
+      // alert(inputArray);
       reactToRightAnswer();
     }
     else{ /* если неверный ответ */
