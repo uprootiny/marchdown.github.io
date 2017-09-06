@@ -1,1 +1,0 @@
-var fileTrainingSrcArray = ["gating_disc/training/0_1_художник.mp3", "gating_disc/training/0_2_пациент.mp3", "gating_disc/training/0_3_громила.mp3", "gating_disc/training/0_4_школота.mp3", "gating_sem/training/0_1_сахар.mp3", "gating_sem/training/0_2_коса.mp3", "gating_sem/training/0_3_парта.mp3", "gating_sem/training/0_4_огонь.mp3"]
