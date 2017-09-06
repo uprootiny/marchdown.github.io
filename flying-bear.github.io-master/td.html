@@ -178,7 +178,7 @@
 		</form>
   </div>
 
-      <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">→</button>
+      <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
     </div>
     </div>
 
@@ -197,11 +197,11 @@
     <p>Сейчас будет проиграно несколько тренировочных слов. Если вы не сможете ответить правильно, вы автоматически попадёте на эту страницу.</p>
      <form id="instructionForm" class="form-group">
        <button id="instructionCheck" type="foo" class="btn btn-primary" onclick="function(){nextPage();alert("foo!");return false;}">Я понял инструкцию</button> <!-- кнопочочка подтверждения понимания инструкции -->
-       <!-- <button id="another" class="btn btn-success" >yay!</button> <!-- кнопочочка подтверждения понимания инструкции --> -->
+       <!-- <button id="another" class="btn btn-success" >yay!</button> -->
 
      </form>
 
-     <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">→</button>
+     <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
 </div>
     </div>
     <div id="trainingPage" class="card border-alert mb-3" style="display:none">
@@ -231,7 +231,7 @@
        </div>
      </form>
       <button id="prevPage_from_training_btn" class="btn btn-sm btn-outline-primary" onclick="prevPage()">покажите инструкцию</button>
-      <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">→</button>
+      <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
    </div>
     </div>
     <div id="consentPage" class="card border-alert mb-3" style="display:none">
@@ -259,7 +259,7 @@
    <div class="card-body">
 
 
-      <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">→</button>
+      <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
    </div>
     </div>
 
@@ -289,7 +289,7 @@
             </div>
           </form>
 
-          <button class="btn btn-sm btn-outline-primary" onclick="nextPage()">:)</button>
+          <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
         </div>
 
     </div>
@@ -308,7 +308,7 @@
       <div class="card-body">
         <p>Эксперимент окончен, спасибо за участие! Пожалуйста, не рассказывайте никому о содержании эксперимента до его завершения.</p>
 
-        <button class="btn btn-sm btn-outline-primary" disabled onclick="nextPage()">→</button>
+        <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()" disabled>→</button>
         <!-- <button class="btn btn-sm btn-outline-primary" onclick='$("#topLevelContainer").fireworks()'>Yay!</button> -->
 
       </div>
