@@ -304,10 +304,9 @@ $(function(){ // это точка входа, отсюда начинается
 
 
   $('#instructionForm').on("submit", function() {
-    if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+    event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
     nextPage();
   });
-
 
 
 });
