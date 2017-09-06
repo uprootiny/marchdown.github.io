@@ -14,10 +14,13 @@ var pi = 0;
 var training = true; // are we in the training stage? proceed to the next word when this one's fully revealed?
 var firstExperimentRun;
 var inputArray = []; /* сюда складываются массивы ответов и данных о них */
-var usersInput; /* username испытуемого */
+//var usersInput; /* username испытуемого */
 var userData; /* анкетные данные испытуемого */
 var fileText = ""; /* текст файла с результатами */
 
+function normalizeAnswer(s){
+          return(s.trim().toLowerCase().replace(/ё/gi, "е"));
+          }
 function nextPage() {
   hidePage(pages[pi]);
   pi += 1;
@@ -30,7 +33,7 @@ function nextPage() {
     currentWord = words[word_index]; /* check */
     rightAnswer = normalizeAnswer(currentWord._src.match( /_\d+_(.*)\./i )[1]);
     displayWordsRemaining();
-    var firstExperimentRun = true;
+    firstExperimentRun = true;
   }
   showPage(pages[pi]);
   if(pages[pi]=="consentPage")  document.getElementById("consentSubmitButton").focus();
@@ -46,7 +49,7 @@ function prevPage() { // training → instruction
     currentWord = words[word_index]; /* check */
     rightAnswer = normalizeAnswer(currentWord._src.match( /_\d+_(.*)\./i )[1]);
     displayWordsRemaining();
-    var firstExperimentRun = true;
+    firstExperimentRun = true;
   }
   showPage(pages[pi]);
 }
@@ -61,19 +64,7 @@ function nextWord() {
   audioFinished = false;
   displayWordsRemaining();
 }
-function normalizeAnswer(s){
-    return(s.trim().toLowerCase().replace(/ё/gi, "е"));
-    }
-function checkAnswer(/* inputElementId, word */) {
-  /* extract basename from the sound object */
-  /* compare and dispatch accordingly */
-  if (training) inputElementId = "trainingInput";
-  else inputElementId = "experimentInput";
 
-  var normalizedInput = normalizeAnswer(document.getElementsByClassName(inputElementId)); /* test normalizeAnswer */
-  if (normalizedInput == rightAnswer) reactToRightAnswer();
-  else                                reactToWrongAnswer();
-}
 function reactToRightAnswer() {
   if (training) {
     document.getElementById('trainingTextCue').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
@@ -167,7 +158,7 @@ function displayWordsRemaining() {
 /* ============ snip ============ */
 var trainingFunctionAudioFinished = function(){ /* когда аудио заканчивается */
   audioFinished = true; /* аудио закончилось */
-  document.getElementById('trainingTextCue').innerText = "Cлово проиграно до конца. Прочитайте инструкцию снова." /* изменить текст */
+  document.getElementById('trainingTextCue').innerText = "Cлово проиграно до конца. Прочитайте инструкцию снова."; /* изменить текст */
   document.getElementById('prevPage_from_training_btn').style.cssText="display:block";
 };
 var experimentFunctionAudioFinished = function(){ /* когда аудио заканчивается */
@@ -185,9 +176,9 @@ function createAndUploadCSVFile(text, name) {
 function submitResults(){
   var i, j, textLine = "";
   var convertedArray = [];
-  for(var i = 0; i < inputArray.length; i++){convertedArray.push(inputArray[i]);}
-  for (i = 0; i < convertedArray.length; i++) {
-    textLine = convertedArray[i].join(";");
+  for(i = 0; i < inputArray.length; i++){convertedArray.push(inputArray[i]);}
+  for(j = 0; j < convertedArray.length; j++) {
+    textLine = convertedArray[j].join(";");
     fileText += textLine + "\n";
   };
   var userDataCsv=""; $.each(userData, function(k,v) {userDataCsv+=k+":"+v+"; \n";});
@@ -211,8 +202,8 @@ $(function(){ // это точка входа, отсюда начинается
     else{ /* если неверный ответ */
       inputArray.push([userData.userName, rightAnswer, currentLength, currentInput, "false"]); /* сложить значения в массив ответов */
       reactToWrongAnswer();
-    };
-    document.getElementById('experimentInput').value = "" /* стереть значение инпута */
+    }
+    document.getElementById('experimentInput').value = ""; /* стереть значение инпута */
   });
   $("#trainingForm").on("submit", function(event) { /* обработать введённое пользователем слово */
     if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
@@ -222,8 +213,8 @@ $(function(){ // это точка входа, отсюда начинается
     }
     else{ /* если неверный ответ */
       reactToWrongAnswer();
-    };
-    document.getElementById('trainingInput').value = "" /* стереть значение инпута */
+    }
+    document.getElementById('trainingInput').value = ""; /* стереть значение инпута */
   });
   /* no html onclick in trainingForm  */
   $('#inqueryForm').on("submit", function(event) {
