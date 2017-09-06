@@ -180,7 +180,7 @@ function submitResults(){
   for(j = 0; j < convertedArray.length; j++) {
     textLine = convertedArray[j].join(";");
     fileText += textLine + "\n";
-  };
+  }
   var userDataCsv=""; $.each(userData, function(k,v) {userDataCsv+=k+":"+v+"; \n";});
   // alert("A resounding success! "+fileText+"анкета:"+userData);
   createAndUploadCSVFile(fileText, userData.userName+" answers.csv");
