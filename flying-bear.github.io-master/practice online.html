@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en, ru">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
+	<script type="text/javascript">
+  /* инициализация переменных */
+  var audioFinished = false;
+
+  var fileTrainingSrcArray = ["gating_disc/training/0_1_художник.mp3", "gating_disc/training/0_2_пациент.mp3", "gating_disc/training/0_3_громила.mp3", "gating_disc/training/0_4_школота.mp3", "gating_sem/training/0_1_сахар.mp3", "gating_sem/training/0_2_коса.mp3", "gating_sem/training/0_3_парта.mp3", "gating_sem/training/0_4_огонь.mp3"];
+  var fileSrcArray = ["gating_disc/sound/1_1_мошенник.mp3", "gating_disc/sound/1_2_мажор.mp3", "gating_disc/sound/2_2_пахан.mp3", "gating_disc/sound/2_4_радист.mp3", "gating_disc/sound/3_1_юрист.mp3", "gating_disc/sound/3_3_дохляк.mp3", "gating_disc/sound/4_1_метрдотель.mp3", "gating_disc/sound/4_2_стукач.mp3", "gating_disc/sound/5_2_барыга.mp3", "gating_disc/sound/5_4_чиновник.mp3", "gating_disc/sound/6_1_разведчики.mp3", "gating_disc/sound/6_2_гопники.mp3", "gating_disc/sound/7_1_коллеги.mp3", "gating_disc/sound/7_2_кореша.mp3", "gating_disc/sound/8_1_молодежь.mp3", "gating_disc/sound/8_2_дембеля.mp3", "gating_disc/sound/9_3_молокосос.mp3", "gating_disc/sound/9_4_юноша.mp3", "gating_disc/sound/10_2_водила.mp3", "gating_disc/sound/10_4_ветеран.mp3", "gating_disc/sound/11_2_лузеры.mp3", "gating_disc/sound/11_4_неудачники.mp3", "gating_disc/sound/12_1_студенты.mp3", "gating_disc/sound/12_2_ботаны.mp3", "gating_disc/sound/13_1_доцент.mp3", "gating_disc/sound/13_3_препод.mp3", "gating_disc/sound/14_1_ведущий.mp3", "gating_disc/sound/14_3_бомжара.mp3", "gating_disc/sound/15_2_нарик.mp3", "gating_disc/sound/15_4_ректор.mp3", "gating_disc/sound/16_3_курва.mp3", "gating_disc/sound/16_4_гостья.mp3", "gating_disc/sound/17_2_чувак.mp3", "gating_disc/sound/17_4_посол.mp3", "gating_disc/sound/18_2_телка.mp3", "gating_disc/sound/18_4_дама.mp3", "gating_disc/sound/19_1_спортсмен.mp3", "gating_disc/sound/19_2_качок.mp3", "gating_disc/sound/20_1_банкир.mp3", "gating_disc/sound/20_2_жмот.mp3", "gating_disc/sound/21_1_графиня.mp3", "gating_disc/sound/21_2_чувиха.mp3", "gating_disc/sound/22_1_лектор.mp3", "gating_disc/sound/22_2_трепач.mp3", "gating_disc/sound/23_1_абитуриент.mp3", "gating_disc/sound/23_2_абитура.mp3", "gating_disc/sound/24_1_флорист.mp3", "gating_disc/sound/24_2_дружбан.mp3", "gating_disc/sound/25_1_снайпер.mp3", "gating_disc/sound/25_2_мазила.mp3", "gating_disc/sound/26_1_бездельник.mp3", "gating_disc/sound/26_2_сачок.mp3", "gating_disc/sound/27_1_гурман.mp3", "gating_disc/sound/27_2_ханыга.mp3", "gating_disc/sound/28_2_пофигист.mp3", "gating_disc/sound/28_4_дипломат.mp3", "gating_disc/sound/29_2_герла.mp3", "gating_disc/sound/29_4_модель.mp3", "gating_disc/sound/30_1_дворецкий.mp3", "gating_disc/sound/30_2_шизики.mp3", "gating_disc/sound/31_1_партнер.mp3", "gating_disc/sound/31_2_браток.mp3", "gating_disc/sound/32_2_первокур.mp3", "gating_disc/sound/32_4_учащийся.mp3", "gating_disc/sound/33_2_зубрила.mp3", "gating_disc/sound/33_4_отличник.mp3", "gating_disc/sound/34_1_диктор.mp3", "gating_disc/sound/34_3_тормоз.mp3", "gating_disc/sound/35_1_особа.mp3", "gating_disc/sound/35_3_шалава.mp3", "gating_disc/sound/36_1_кузен.mp3", "gating_disc/sound/36_2_братан.mp3", "gating_disc/sound/37_1_клерки.mp3", "gating_disc/sound/37_2_пацаны.mp3", "gating_disc/sound/38_1_программист.mp3", "gating_disc/sound/38_3_лохоклерк.mp3", "gating_disc/sound/39_3_водила.mp3", "gating_disc/sound/39_4_кондуктор.mp3", "gating_disc/sound/40_2_грымза.mp3", "gating_disc/sound/40_4_судья.mp3", "gating_sem/sound/1_2_режим.mp3", "gating_sem/sound/1_4_экран.mp3", "gating_sem/sound/2_2_газон.mp3", "gating_sem/sound/2_4_статью.mp3", "gating_sem/sound/3_2_металл.mp3", "gating_sem/sound/3_4_допрос.mp3", "gating_sem/sound/4_1_сигнал.mp3", "gating_sem/sound/4_3_подвал.mp3", "gating_sem/sound/5_1_приказ.mp3", "gating_sem/sound/5_2_стакан.mp3", "gating_sem/sound/6_3_словарь.mp3", "gating_sem/sound/6_4_браслет.mp3", "gating_sem/sound/7_3_баян.mp3", "gating_sem/sound/7_4_овес.mp3", "gating_sem/sound/8_1_банты.mp3", "gating_sem/sound/8_3_зонты.mp3", "gating_sem/sound/9_3_нарыв.mp3", "gating_sem/sound/9_4_руду.mp3", "gating_sem/sound/10_3_асфальт.mp3", "gating_sem/sound/10_4_побег.mp3", "gating_sem/sound/11_2_абзац.mp3", "gating_sem/sound/11_4_коржи.mp3", "gating_sem/sound/12_2_арбуз.mp3", "gating_sem/sound/12_4_шарфы.mp3", "gating_sem/sound/13_2_совок.mp3", "gating_sem/sound/13_4_вираж.mp3", "gating_sem/sound/14_2_раствор.mp3", "gating_sem/sound/14_4_загон.mp3", "gating_sem/sound/15_2_зачет.mp3", "gating_sem/sound/15_4_жилет.mp3", "gating_sem/sound/16_2_полет.mp3", "gating_sem/sound/16_4_багаж.mp3", "gating_sem/sound/17_2_пятно.mp3", "gating_sem/sound/17_4_шкафы.mp3", "gating_sem/sound/18_2_опрос.mp3", "gating_sem/sound/18_4_чулан.mp3", "gating_sem/sound/19_2_налог.mp3", "gating_sem/sound/19_4_визит.mp3", "gating_sem/sound/20_2_халат.mp3", "gating_sem/sound/20_4_ружье.mp3", "gating_sem/sound/21_2_канал.mp3", "gating_sem/sound/21_4_товар.mp3", "gating_sem/sound/22_2_район.mp3", "gating_sem/sound/22_4_кулак.mp3", "gating_sem/sound/23_2_сирень.mp3", "gating_sem/sound/23_4_рекорд.mp3", "gating_sem/sound/24_2_фонтан.mp3", "gating_sem/sound/24_4_сустав.mp3", "gating_sem/sound/25_2_флакон.mp3", "gating_sem/sound/25_4_погром.mp3", "gating_sem/sound/26_2_отвар.mp3", "gating_sem/sound/26_4_карниз.mp3", "gating_sem/sound/27_2_размер.mp3", "gating_sem/sound/27_4_морковь.mp3", "gating_sem/sound/28_2_очки.mp3", "gating_sem/sound/28_4_ущерб.mp3", "gating_sem/sound/29_2_собор.mp3", "gating_sem/sound/29_4_устав.mp3", "gating_sem/sound/30_2_кредит.mp3", "gating_sem/sound/30_4_тропу.mp3", "gating_sem/sound/31_2_тоску.mp3", "gating_sem/sound/31_4_чехол.mp3", "gating_sem/sound/32_2_носок.mp3", "gating_sem/sound/32_4_билет.mp3", "gating_sem/sound/33_2_отчет.mp3", "gating_sem/sound/33_4_диван.mp3", "gating_sem/sound/34_3_корабль.mp3", "gating_sem/sound/34_4_прием.mp3", "gating_sem/sound/35_2_мешок.mp3", "gating_sem/sound/35_4_пароль.mp3", "gating_sem/sound/36_2_следы.mp3", "gating_sem/sound/36_4_болты.mp3", "gating_sem/sound/37_2_фасоль.mp3", "gating_sem/sound/37_4_замер.mp3", "gating_sem/sound/38_2_топор.mp3", "gating_sem/sound/38_4_компот.mp3", "gating_sem/sound/39_2_кольцо.mp3", "gating_sem/sound/39_4_альбом.mp3", "gating_sem/sound/40_2_гараж.mp3", "gating_sem/sound/40_4_рассказ.mp3"];
+
+
+
+  var howls_index = 0; // номер текущего объекта
+  var training_howls = [];
+  var experiment_howls = [];
+  fileTrainingSrcArray.map(function (x){
+      training_howls.push(new Howl({src: [x],  autoplay: false, sprite: {clip: [0,250]}}));
+    }); // считай звуковые файлы и заверни их в объекты, которые можно проигрывать по кусочкам: howlObj.play('clip');
+
+  fileSrcArray.map(function(x) {
+        experiment_howls.push(new Howl({src: [x],  autoplay: false, sprite: {clip: [0,250]}}));
+    });
+  var howls = training_howls; // указатель на текущий массив, чтобы не дублировать код для обоих.
+  var howlObj = howls[howls_index]; // текущий звуковой объект в массиве
+
+  function switchFromTrainingToExpList(){
+
+    $('#trainingPage').hide(); /* скрыть trainingPage */
+    document.getElementById('consentPage').style.cssText="display: block"; /* скрыть кнопку Play */
+    training = false;
+
+    howls = experiment_howls;
+    howls_index = 0;
+    howlObj = howls[howls_index];
+    howlReset();
+  }
+
+  /* операции, которые нам нужны */
+
+
+
+  function howlPlay(){ /* дайте следущее слово */
+      howlObj.play("clip");
+      howlObj.on("end",
+        function() {
+        if (howlObj._sprite.clip[1] >= 1000*howlObj.duration()){
+          audioFinished = true;
+          displayFlag("end_flag");
+        }
+        else {
+          displayFlag("clip_end_flag");
+        }}
+
+      );
+  }
+
+  function howlGrow(){ /* увеличить звучащий сегмент */
+      howlObj._sprite.clip[1] += 50;
+      displayCurrentDuration();
+      }
+  function howlReset(){ /* сбросить длину звучащего сегмента на 250 мс */
+      howlObj._sprite.clip[1] = 250;
+      audioFinished = false;
+      displayCurrentDuration();
+      }
+  function normalizeAnswer(s){
+      return(s.trim().toLowerCase().replace(/ё/gi, "е"));
+      }
+  function howlNext(){ /* следущее слово, длина 250  */
+      if(howls.length <= howls_index) {
+        // alert("нет следующего слова!");
+        if(training){
+          switchFromTrainingToExpList();
+        }
+        else {
+          submitResults();
+        }
+      }
+        else{
+        howls_index += 1;
+        howlObj = howls[howls_index];//  howl_rotate_clip();
+        howlReset();
+        rightAnswer = normalizeAnswer(howlObj._src.match( /_\d+_(.*)\./i )[1]);
+        //displayWordsRemaining();
+        hideFlag("end_flag");
+        hideFlag("clip_end_flag");
+        displayCurrentDuration();
+      }
+    // }
+  }
+
+  function submitResults(){
+
+    document.getElementById('wordInputDiv').style.cssText="display: none"; /* скрыть инпут слов */
+    $('#text').html("Эксперимент окончен, спасибо за участие! Пожалуйста, не рассказывайте никому о содержании эксперимента до его завершения."); /* изменить текст */
+    $('#wordsLeftCounterText').hide(); /* скрыть wordsLeftCounterText */
+    $('#playButton').hide(); /* скрыть кнопку Play */
+
+    var i, j, textLine = "";
+    var convertedArray = [];
+    for(var i = 0; i < inputArray.length; i++){convertedArray.push(inputArray[i]);}
+    for (i = 0; i < convertedArray.length; i++) {
+      textLine = convertedArray[i].join(";");
+      fileText += textLine + "\n";
+    };
+    var userDataCsv=""; $.each(userData, function(k,v) {userDataCsv+=k+":"+v+"; \n";});
+    alert("A resounding success!");
+    //createAndUploadCSVFile(fileText, userData.userName+" answers.csv");
+    //createAndUploadCSVFile(userDataCsv, userData.userName+" user data.csv");
+  }
+
+
+
+    // howlObj.play('clip');
+
+
+
+  /* status display */
+  function displayWordsRemaining() {
+    //alert("слов осталось: " + (howls.length-howls_index));
+      document.getElementById('words_remaining').innerText=howls.length-howls_index;
+
+    if (training) {
+      document.getElementById('words_remaining').innerText=howls.length-howls_index;
+      document.getElementById("trainingWordsLeftCounterText").innerText = "Слов осталось: " + (howls.length - howls_index);
+
+    }
+    else {
+      document.getElementById('words_remaining').innerText=howls.length-howls_index;
+      document.getElementById('wordsLeftCounterText').innerText = "Слов осталось: " + (howls.length - howls_index);
+    }
+  }
+  function displayFlag(flag){
+    document.getElementById(flag).style.cssText="display:block";
+  }
+  function displayEndFlag(){
+    alert("проиграли слово до конца").
+    document.getElementById('end_flag').style.cssText="display: block";
+  }
+  function hideFlag(flag){
+
+    document.getElementById(flag).style.cssText="display:none";
+  }
+
+  function displayCurrentDuration() {
+    document.getElementById('clip_duration').innerText=howlObj._sprite.clip[1];
+    document.getElementById('total_sample_duration').innerText=howlObj.duration().toFixed(2);
+    document.getElementById('sample_name').innerText=howlObj._src;
+
+    //displayWordsRemaining(); // where else to chuck this?
+  }
+
+
+  </script>
+
+  <link rel="preload" href="gating_disc/training/0_1_художник.mp3"><link rel="preload" href="gating_disc/training/0_2_пациент.mp3",<link rel="preload" href="gating_disc/training/0_3_громила.mp3",<link rel="preload" href="gating_disc/training/0_4_школота.mp3",<link rel="preload" href="gating_sem/training/0_1_сахар.mp3",<link rel="preload" href="gating_sem/training/0_2_коса.mp3",<link rel="preload" href="gating_sem/training/0_3_парта.mp3",<link rel="preload" href="gating_sem/training/0_4_огонь.mp3"><link rel="preload" href="gating_disc/sound/1_1_мошенник.mp3"><link rel="preload" href="gating_disc/sound/1_2_мажор.mp3"><link rel="preload" href="gating_disc/sound/2_2_пахан.mp3"><link rel="preload" href="gating_disc/sound/2_4_радист.mp3"><link rel="preload" href="gating_disc/sound/3_1_юрист.mp3"><link rel="preload" href="gating_disc/sound/3_3_дохляк.mp3"><link rel="preload" href="gating_disc/sound/4_1_метрдотель.mp3"><link rel="preload" href="gating_disc/sound/4_2_стукач.mp3"><link rel="preload" href="gating_disc/sound/5_2_барыга.mp3"><link rel="preload" href="gating_disc/sound/5_4_чиновник.mp3"><link rel="preload" href="gating_disc/sound/6_1_разведчики.mp3"><link rel="preload" href="gating_disc/sound/6_2_гопники.mp3"><link rel="preload" href="gating_disc/sound/7_1_коллеги.mp3"><link rel="preload" href="gating_disc/sound/7_2_кореша.mp3"><link rel="preload" href="gating_disc/sound/8_1_молодежь.mp3"><link rel="preload" href="gating_disc/sound/8_2_дембеля.mp3"><link rel="preload" href="gating_disc/sound/9_3_молокосос.mp3"><link rel="preload" href="gating_disc/sound/9_4_юноша.mp3"><link rel="preload" href="gating_disc/sound/10_2_водила.mp3"><link rel="preload" href="gating_disc/sound/10_4_ветеран.mp3"><link rel="preload" href="gating_disc/sound/11_2_лузеры.mp3"><link rel="preload" href="gating_disc/sound/11_4_неудачники.mp3"><link rel="preload" href="gating_disc/sound/12_1_студенты.mp3"><link rel="preload" href="gating_disc/sound/12_2_ботаны.mp3"><link rel="preload" href="gating_disc/sound/13_1_доцент.mp3"><link rel="preload" href="gating_disc/sound/13_3_препод.mp3"><link rel="preload" href="gating_disc/sound/14_1_ведущий.mp3"><link rel="preload" href="gating_disc/sound/14_3_бомжара.mp3"><link rel="preload" href="gating_disc/sound/15_2_нарик.mp3"><link rel="preload" href="gating_disc/sound/15_4_ректор.mp3"><link rel="preload" href="gating_disc/sound/16_3_курва.mp3"><link rel="preload" href="gating_disc/sound/16_4_гостья.mp3"><link rel="preload" href="gating_disc/sound/17_2_чувак.mp3"><link rel="preload" href="gating_disc/sound/17_4_посол.mp3"><link rel="preload" href="gating_disc/sound/18_2_телка.mp3"><link rel="preload" href="gating_disc/sound/18_4_дама.mp3"><link rel="preload" href="gating_disc/sound/19_1_спортсмен.mp3"><link rel="preload" href="gating_disc/sound/19_2_качок.mp3"><link rel="preload" href="gating_disc/sound/20_1_банкир.mp3"><link rel="preload" href="gating_disc/sound/20_2_жмот.mp3"><link rel="preload" href="gating_disc/sound/21_1_графиня.mp3"><link rel="preload" href="gating_disc/sound/21_2_чувиха.mp3"><link rel="preload" href="gating_disc/sound/22_1_лектор.mp3"><link rel="preload" href="gating_disc/sound/22_2_трепач.mp3"><link rel="preload" href="gating_disc/sound/23_1_абитуриент.mp3"><link rel="preload" href="gating_disc/sound/23_2_абитура.mp3"><link rel="preload" href="gating_disc/sound/24_1_флорист.mp3"><link rel="preload" href="gating_disc/sound/24_2_дружбан.mp3"><link rel="preload" href="gating_disc/sound/25_1_снайпер.mp3"><link rel="preload" href="gating_disc/sound/25_2_мазила.mp3"><link rel="preload" href="gating_disc/sound/26_1_бездельник.mp3"><link rel="preload" href="gating_disc/sound/26_2_сачок.mp3"><link rel="preload" href="gating_disc/sound/27_1_гурман.mp3"><link rel="preload" href="gating_disc/sound/27_2_ханыга.mp3"><link rel="preload" href="gating_disc/sound/28_2_пофигист.mp3"><link rel="preload" href="gating_disc/sound/28_4_дипломат.mp3"><link rel="preload" href="gating_disc/sound/29_2_герла.mp3"><link rel="preload" href="gating_disc/sound/29_4_модель.mp3"><link rel="preload" href="gating_disc/sound/30_1_дворецкий.mp3"><link rel="preload" href="gating_disc/sound/30_2_шизики.mp3"><link rel="preload" href="gating_disc/sound/31_1_партнер.mp3"><link rel="preload" href="gating_disc/sound/31_2_браток.mp3"><link rel="preload" href="gating_disc/sound/32_2_первокур.mp3"><link rel="preload" href="gating_disc/sound/32_4_учащийся.mp3"><link rel="preload" href="gating_disc/sound/33_2_зубрила.mp3"><link rel="preload" href="gating_disc/sound/33_4_отличник.mp3"><link rel="preload" href="gating_disc/sound/34_1_диктор.mp3"><link rel="preload" href="gating_disc/sound/34_3_тормоз.mp3"><link rel="preload" href="gating_disc/sound/35_1_особа.mp3"><link rel="preload" href="gating_disc/sound/35_3_шалава.mp3"><link rel="preload" href="gating_disc/sound/36_1_кузен.mp3"><link rel="preload" href="gating_disc/sound/36_2_братан.mp3"><link rel="preload" href="gating_disc/sound/37_1_клерки.mp3"><link rel="preload" href="gating_disc/sound/37_2_пацаны.mp3"><link rel="preload" href="gating_disc/sound/38_1_программист.mp3"><link rel="preload" href="gating_disc/sound/38_3_лохоклерк.mp3"><link rel="preload" href="gating_disc/sound/39_3_водила.mp3"><link rel="preload" href="gating_disc/sound/39_4_кондуктор.mp3"><link rel="preload" href="gating_disc/sound/40_2_грымза.mp3"><link rel="preload" href="gating_disc/sound/40_4_судья.mp3"><link rel="preload" href="gating_sem/sound/1_2_режим.mp3"><link rel="preload" href="gating_sem/sound/1_4_экран.mp3"><link rel="preload" href="gating_sem/sound/2_2_газон.mp3"><link rel="preload" href="gating_sem/sound/2_4_статью.mp3"><link rel="preload" href="gating_sem/sound/3_2_металл.mp3"><link rel="preload" href="gating_sem/sound/3_4_допрос.mp3"><link rel="preload" href="gating_sem/sound/4_1_сигнал.mp3"><link rel="preload" href="gating_sem/sound/4_3_подвал.mp3"><link rel="preload" href="gating_sem/sound/5_1_приказ.mp3"><link rel="preload" href="gating_sem/sound/5_2_стакан.mp3"><link rel="preload" href="gating_sem/sound/6_3_словарь.mp3"><link rel="preload" href="gating_sem/sound/6_4_браслет.mp3"><link rel="preload" href="gating_sem/sound/7_3_баян.mp3"><link rel="preload" href="gating_sem/sound/7_4_овес.mp3"><link rel="preload" href="gating_sem/sound/8_1_банты.mp3"><link rel="preload" href="gating_sem/sound/8_3_зонты.mp3"><link rel="preload" href="gating_sem/sound/9_3_нарыв.mp3"><link rel="preload" href="gating_sem/sound/9_4_руду.mp3"><link rel="preload" href="gating_sem/sound/10_3_асфальт.mp3"><link rel="preload" href="gating_sem/sound/10_4_побег.mp3"><link rel="preload" href="gating_sem/sound/11_2_абзац.mp3"><link rel="preload" href="gating_sem/sound/11_4_коржи.mp3"><link rel="preload" href="gating_sem/sound/12_2_арбуз.mp3"><link rel="preload" href="gating_sem/sound/12_4_шарфы.mp3"><link rel="preload" href="gating_sem/sound/13_2_совок.mp3"> <link rel="preload" href="gating_sem/sound/13_4_вираж.mp3"><link rel="preload" href="gating_sem/sound/14_2_раствор.mp3"><link rel="preload" href="gating_sem/sound/14_4_загон.mp3"><link rel="preload" href="gating_sem/sound/15_2_зачет.mp3"><link rel="preload" href="gating_sem/sound/15_4_жилет.mp3"><link rel="preload" href="gating_sem/sound/16_2_полет.mp3"><link rel="preload" href="gating_sem/sound/16_4_багаж.mp3"><link rel="preload" href="gating_sem/sound/17_2_пятно.mp3"><link rel="preload" href="gating_sem/sound/17_4_шкафы.mp3"><link rel="preload" href="gating_sem/sound/18_2_опрос.mp3"><link rel="preload" href="gating_sem/sound/18_4_чулан.mp3"><link rel="preload" href="gating_sem/sound/19_2_налог.mp3"><link rel="preload" href="gating_sem/sound/19_4_визит.mp3"><link rel="preload" href="gating_sem/sound/20_2_халат.mp3"><link rel="preload" href="gating_sem/sound/20_4_ружье.mp3"><link rel="preload" href="gating_sem/sound/21_2_канал.mp3"><link rel="preload" href="gating_sem/sound/21_4_товар.mp3"><link rel="preload" href="gating_sem/sound/22_2_район.mp3"><link rel="preload" href="gating_sem/sound/22_4_кулак.mp3"><link rel="preload" href="gating_sem/sound/23_2_сирень.mp3"><link rel="preload" href="gating_sem/sound/23_4_рекорд.mp3"><link rel="preload" href="gating_sem/sound/24_2_фонтан.mp3"><link rel="preload" href="gating_sem/sound/24_4_сустав.mp3"><link rel="preload" href="gating_sem/sound/25_2_флакон.mp3"><link rel="preload" href="gating_sem/sound/25_4_погром.mp3"><link rel="preload" href="gating_sem/sound/26_2_отвар.mp3"><link rel="preload" href="gating_sem/sound/26_4_карниз.mp3"><link rel="preload" href="gating_sem/sound/27_2_размер.mp3"><link rel="preload" href="gating_sem/sound/27_4_морковь.mp3"><link rel="preload" href="gating_sem/sound/28_2_очки.mp3"><link rel="preload" href="gating_sem/sound/28_4_ущерб.mp3"><link rel="preload" href="gating_sem/sound/29_2_собор.mp3"><link rel="preload" href="gating_sem/sound/29_4_устав.mp3"><link rel="preload" href="gating_sem/sound/30_2_кредит.mp3"><link rel="preload" href="gating_sem/sound/30_4_тропу.mp3"><link rel="preload" href="gating_sem/sound/31_2_тоску.mp3"><link rel="preload" href="gating_sem/sound/31_4_чехол.mp3"><link rel="preload" href="gating_sem/sound/32_2_носок.mp3"><link rel="preload" href="gating_sem/sound/32_4_билет.mp3"><link rel="preload" href="gating_sem/sound/33_2_отчет.mp3"><link rel="preload" href="gating_sem/sound/33_4_диван.mp3"><link rel="preload" href="gating_sem/sound/34_3_корабль.mp3"><link rel="preload" href="gating_sem/sound/34_4_прием.mp3"><link rel="preload" href="gating_sem/sound/35_2_мешок.mp3"><link rel="preload" href="gating_sem/sound/35_4_пароль.mp3"><link rel="preload" href="gating_sem/sound/36_2_следы.mp3"><link rel="preload" href="gating_sem/sound/36_4_болты.mp3"><link rel="preload" href="gating_sem/sound/37_2_фасоль.mp3"><link rel="preload" href="gating_sem/sound/37_4_замер.mp3"><link rel="preload" href="gating_sem/sound/38_2_топор.mp3"><link rel="preload" href="gating_sem/sound/38_4_компот.mp3"><link rel="preload" href="gating_sem/sound/39_2_кольцо.mp3"><link rel="preload" href="gating_sem/sound/39_4_альбом.mp3"><link rel="preload" href="gating_sem/sound/40_2_гараж.mp3"><link rel="preload" href="gating_sem/sound/40_4_рассказ.mp3">
+
+  <title>Experiment</title>
+
+	<meta name="description" content="Исследование скорости узнавания предъявляемых на слух слов">
+	<meta name="author" content="V">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+
+  <!-- пути данных прописаны в howler_helper_funcs. из javascript-файлов нельзя импортировать другие javascript-файлы, а там эти пути используются, так что приходится их определять заранее.
+  <script type="text/javascript" src="training filenames list.js"></script>
+
+	<script type="text/javascript" src="experiment filenames list.js"></script> -->
+  <script>
+"use strict"
+		//var currentLength = 0.250; /* до какого момента пригрывать запись - изначально 250ms *///?
+		var inputArray = []; /* сюда складываются массивы ответов и данных о них */
+		var firstTrainingRun = true; /* первое ли слово проигрывается */
+		var firstExperimentRun = true;
+    var audioFinished = false; /* проиграно ли слово до конца */                           //ушло в howler_helper_funcs
+		var wordsSolvedCounter = 0; /* количество решённых слов */
+		var audio;                                                                             //?
+		var rightAnswer; /* правильный ответ */                                                //!
+		var usersInput; /* username испытуемого */
+		var userData; /* анкетные данные испытуемого */
+		var fileText = ""; /* текст файла с результатами */                                    //!
+		var training = true; /* тренировка ли сейчас*/
+		//var wordsLeftCounter = 0; /*сколько осталось слов*/                                    //?
+
+
+    		$(function(){ // это точка входа, отсюда начинается исполнение при загрузке. ниже содержится основная логика программы.
+    			//audio = document.getElementById('sample'); /* текущее слово (аудио) */ // теперь лежит в howlObj
+    			var trainingFunctionAudioFinished = function(){ /* когда аудио заканчивается */
+    				audioFinished = true; /* аудио закончилось */
+    					document.getElementById('trainingText').innerText = "Cлово проиграно до конца. Прочитайте инструкцию снова." /* изменить текст */
+    					document.getElementById('trainingPage').style.cssText="display: none"; /* скрыть consentPage */
+    					document.getElementById('instructionPage').style.cssText="display: block"; /* показать instructionPage */
+    					//wordsSolvedCounter = 0; // howls_index: сколько слов мы перебрали с начала списка, столько у нас решенных.
+    			};
+
+    			var experimentFunctionAudioFinished = function(){ /* когда аудио заканчивается */
+    					if (audioFinished) return;
+    					audioFinished = true; /* аудио закончилось */
+    					document.getElementById('text').innerText = "Слово проиграно до конца."; /* изменить текст */
+    					getToTheNextWord();
+    					//audio.play();
+              howlPlay();
+
+    				};
+    			function createAndUploadCSVFile(text, name) {
+    				var blob = new Blob([text], {type : 'text/csv'});
+    				var client = filestack.init('A7iAeWAkkSZ67VSjAJPuZz', { policy: 'policy', signature: 'gmryazanskaya' });
+    				client.upload(blob, {}, {filename: name});
+    			};
+
+    			function getToTheNextWord(){ /* перейти к следующему слову */
+              if (howls_index < fileTrainingSrcArray.length){
+                howlNext();
+              }
+    				  if (training == false){ /* экспериментальные задания */
+                displayWordsRemaining();
+    						// document.getElementById("wordsLeftCounterText").innerText = "Слов осталось: " + (howls.length - howls_index);
+    						// currentLength = 0.250 /* сбросить текущую длину проигрывания до начальной */ в howlNext()
+    						// document.getElementById('sample').src = fileSrcArray[wordsSolvedCounter - 1]; /* положить в переменную audio следующий файл из спика адресов файлов */
+    						// var source = decodeURI(document.getElementById('sample').src); /* обновить правильный ответ: адрес файла кладётся в текстовую переменную */
+    						// rightAnswer = source.match( /_\d+_(.*)\./i )[1].toLowerCase(); /* положить эту текстовую переменную в правильный ответ */
+                    if (howls_index > fileSrcArray.length-1) { /* если решено слов столько же или больше длины списка слов */
+                      /* то перейди на следущую подстраницу: поблагодари респондента и спрячь всё лишнее */
+                      /* допустим, в списку два слова. тогда fileSrcArray.length-1 == 1; при непоследнем проходе index==0, при последнем index==1, сравнение срабатывает и мы опускаемся в эту ветку */
+          						//audio.removeEventListener("ended", experimentFunctionAudioFinished);
+
+                      //---- собери данные и отправь в filestack
+                      submitResults();
+                      //----
+                      }
+    					}
+
+    				else { /* тренировочные задания */
+    					if (howls_index < fileTrainingSrcArray.length){ /* если решено слов меньше длины списка слов */
+    						//wordsLeftCounter = fileTrainingSrcArray.length - wordsSolvedCounter; /* обновить значение числа оставшихся слов */
+    						//wordsSolvedCounter += 1; /* прибавить 1 к числу решённых слов */
+                //assert(howls.length == fileTrainingSrcArray.length)
+    						//document.getElementById("trainingWordsLeftCounterText").innerText = "Слов осталось: " + (howls.length - howls_index);
+                displayWordsRemaining();
+    						//currentLength = 0.250; /* сбросить текущую длину проигрывания до начальной */
+    						//document.getElementById('sample').src = fileTrainingSrcArray[wordsSolvedCounter - 1]; /* положить в переменную audio следующий файл из спика адресов файлов */
+    						//var source = decodeURI(document.getElementById('sample').src); /* обновить правильный ответ: адрес файла кладётся в текстовую переменную */
+    						//rightAnswer = source.match( /_\d+_(.*)\./i )[1].toLowerCase(); /* положить эту текстовую переменную в правильный ответ */
+    					} else { /* если решено слов столько же или больше длины списка слов */
+    						$('#trainingPage').hide(); /* скрыть trainingPage */
+    						document.getElementById('consentPage').style.cssText="display: block"; /* скрыть кнопку Play */
+                training = false;
+                switchFromTrainingToExpList();
+
+    						//audio.removeEventListener("ended", trainingFunctionAudioFinished);
+    						//wordsSolvedCounter = 0; /* сбросить число решённых слов */
+    					};
+
+    				};
+    			};
+
+          /* выше служебные функции, ниже обработчики событий */
+    			$("#verbForm").on("submit", function() { /* обработать введённое пользователем слово */
+    				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+    				var currentInput = normalizeAnswer(document.getElementById('input').value); /* положить в переменную текущий инпут */
+            var currentLength = document.getElementById('clip_duration').innerText=howlObj._sprite.clip[1];
+            if (currentInput == rightAnswer) { /* если верный ответ */
+    					inputArray.push([userData.userName, rightAnswer, currentLength, currentInput, "true"]); /* сложить значения в массив ответов */
+    					document.getElementById('text').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
+    					getToTheNextWord(); /* перейти к следующему слову */
+              howlPlay();
+    				}
+    				else{ /* если неверный ответ */
+    					inputArray.push([userData.userName, rightAnswer, currentLength, currentInput, "false"]); /* сложить значения в массив ответов */
+    					if (audioFinished == false){ /* если слово не проиграно до конца */
+    						//currentLength += 0.050; /* прибавить 50ms */
+    						document.getElementById('text').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
+                howlGrow();
+                howlPlay();
+              };
+
+    				};
+
+    				document.getElementById('input').value = "" /* стереть значение инпута */
+    				//if (howls_index < (fileSrcArray.length-1)) $("#playButton").click();  // CHECK ME
+    				return false;
+    			});
+
+
+          // так мы больше не делаем, это плохой таймер.
+          // вместо этого мы отправляем на воспроизведение кусочки файлов нужного размера.
+    			// setInterval(function () { /* остановить аудио по нужному времени */
+    			// 	if (currentLength && audio.currentTime >= currentLength) { /* если есть максимальная длина и она меньше текущей длины */
+    			// 		audio.pause(); /* остановить аудио */
+    			// 	};
+    			// }, 30); /* проверять условие каждые 30ms */
+
+
+    			$("#playButton").on("click", function(){
+    				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+//    				audio.currentTime = 0.0; /* начать проигрываеть слово с начала */
+//    				audio.play(); /* проиграть слово */
+              howlPlay();
+
+    				if (audioFinished == false){
+    					//currentLength += 0.050; /* прибавить 50ms */
+              howlGrow();
+    				};
+    				if(firstExperimentRun == true){ /* если проигрывается первое слово */
+    					document.getElementById('text').innerText = "Введите слово. Если вы не знаете слова, нажмите на Play." /* изменить текст */
+    					//audio.addEventListener("ended", experimentFunctionAudioFinished);
+    				};
+    				firstExperimentRun = false; /* изменить значение на "проигрывается не первое слово" */
+    			});
+
+
+    			$("#trainingForm").on("submit", function() { /* обработать введённое пользователем слово */
+            //alert("submitted training form");
+            if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+    				var currentInput = normalizeAnswer(document.getElementById('trainingInput').value); /* положить в переменную текущий инпут */
+    				if (currentInput == rightAnswer) { /* если верный ответ */
+    					document.getElementById('trainingText').innerText = "Вы ввели верное слово. Для проигрывания следующего слова нажмите на Play."; /* изменить текст */
+    					getToTheNextWord(); /* перейти к следующему слову */
+              howlPlay();
+    				}
+    				else{ /* если неверный ответ */
+    					if (audioFinished == false){ /* если слово не проиграно до конца */
+    						//currentLength += 0.050; /* прибавить 50ms */
+                document.getElementById('trainingText').innerText = "Вы ввели неверное слово. Для повторного проигрывания слова нажмите на Play."; /* изменить текст */
+                howlGrow();
+                howlPlay();
+    						};
+    				};
+    				document.getElementById('trainingInput').value = "" /* стереть значение инпута */
+    				// if (training) $("#trainingButton").click();
+            /* make the following happen:
+            play a sound;
+            increment it it's not complete yet; x
+            change #trainingText;               x
+            set firstTrainingRun to false.
+
+            what SUBMIT does but PLAY doesn't:
+            check the answer
+            erase the input
+            move on to the next word if the answer was right.
+
+            */
+    				return false;
+    			});
+
+
+    			$("#trainingButton").on("click", function(){
+            //alert("clicked training button");
+    				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+    				//audio.currentTime = 0.0; /* начать проигрываеть слово с начала */
+    				//audio.play(); /* проиграть слово */
+            if (audioFinished == false){
+    					//currentLength += 0.050; /* прибавить 50ms */
+               howlGrow();
+    				};
+            howlPlay();
+
+
+    				if(firstTrainingRun == true){ /* если проигрывается первое слово */
+    					document.getElementById('trainingText').innerText = "Введите слово. Если вы не знаете слова, нажмите на Play." /* изменить текст */
+    					//audio.addEventListener("ended", trainingFunctionAudioFinished);
+    				};
+    				firstTrainingRun = false; /* изменить значение на "проигрывается не первое слово" */
+    			});
+
+          /* Этот блок срабатывает первым */
+    			$('#inqueryForm').on("submit", function() {
+    				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+    				/* if(document.forms['inqueryForm']['userName'].required) */
+    				userData = $('#inqueryForm').serializeArray().reduce(function(obj, item) {
+    					obj[item.name] = obj[item.name]||item.value; /* username = userData[userName] - не работает */
+    					return obj;
+    				}, {});
+    				document.getElementById('inqueryPage').style.cssText="id:inqueryPage; display: none"; /* скрыть inqueryPage */
+    				document.getElementById('instructionPage').style.cssText="display: block"; /* показать instructionPage */
+    			});
+
+
+    			$('#consentForm').on("submit", function() {
+    				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+    				document.getElementById('consentPage').style.cssText="id: consentPage; display: none"; /* скрыть consentPage */
+    				document.getElementById('experimentPage').style.cssText="id: experimentPage; display: block"; /* показать experimentPage */
+    				document.getElementById('text').innerText = "Для проигрывания слова нажмите на Play."; /* изменить текст */
+    				getToTheNextWord();
+    			});
+
+
+    			$('#instructionForm').on("submit", function() {
+    				if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
+    				document.getElementById('instructionPage').style.cssText="id: instructionPage; display: none"; /* скрыть instructionPage */
+    				document.getElementById('trainingPage').style.cssText="display: block"; /* показать consentPage */
+    				document.getElementById('trainingText').innerText = "Для проигрывания слова нажмите на Play."; /* изменить текст */
+    				getToTheNextWord();
+    			});
+    		});
+</script>
+</head>
+<body>
+
+  <div class="container">
+		<div id="inqueryPage" > <!-- страница с анкетой -->
+			<div>
+			<span>
+			Эксперимент довольно продолжительный - занимает около получаса, будьте готовы. Вы можете прерываться, но, пожалуйста, пройдите его до конца. (До предъявления надписи "эксперимент окончен".)<br>
+			Сначала, пожалуйста, заполните демографический блок, чтобы нам было, где искать интересные корреляции. Мы знаем, что он очень длинный и скучный и заранее говорим вам спасибо за долготерпение. </span>
+			</div>
+			 <hr />
+		<form id="inqueryForm">
+			<div class="form-group">
+				<label for="userNameInput">Имя и фамилия: (любой уникальный псевдоним)</label><br> <input type="text" class="form-control"         id="userNameInput" name="userName"           required><!-- Имя и фамилия -->
+			</div>
+
+			<div class="form-group">
+				<label for="ageInput">Возраст (полных лет): </label><br> <input class="form-control"         id="userAgeInput" name="userAge" type="number" min="6" max="90" required><!-- Возраст (полных лет) -->
+			</div>
+
+			<div class="form-group">
+
+				<label for="userSexRadio">Пол: </label> <!-- radio: Пол: м/ж/другое (укажите) -->
+				<div class="form-group" id="userSexRadio">
+					<div>
+						<input  type="radio" class="form-check-input" name="userSex" value="male" id="sexMale" required>
+						<label for="sexMale">мужской</label>
+					</div>
+					<div>
+						<input  type="radio" class="form-check-input" name="userSex" value="female" id="sexFemale" required>
+						<label for="sexFemale">женский</label>
+					</div>
+					<div>
+					  <input type="radio" class="form-check-input" name="userSex" value="" id="sexOther" required>
+					  <label for="sexOther">другое (укажите):</label>
+					  <input type="text" class="form-control"                   name="userSex">
+					</div>
+				</div>
+			</div>
+
+
+			<div class="form-group" >
+		    <label for="userEducationSelect">Образование: </label>
+		    <select class="form-control" id="userEducationSelect" name="userEducation">
+		      <option value="school">среднее</option>
+		      <option value="school special">среднее специальное</option>
+		      <option value="higher undergraduate">неоконченное высшее</option>
+		      <option value="graduate">высшее</option>
+					<option value="degree">ученая степень</option>
+		    </select>
+
+				<div class="form-group">
+					<div>
+						<label for="yearsOfEducationInput">Длительность образования в годах (например, школа+среднее специальное+высшее - 11+2+5=18 лет): </label><br>
+						<input class="form-control"        id="yearsOfEducationInput" name="userYearsOfEducation" type="number" min="1" max="40" required><!-- Длительность образования в годах (например, школа+среднее специальное+высшее - 11+2+5=18 лет) -->
+					</div>
+
+					<div>
+						<label for="professionInput">Область профессиональной деятельности: </label><br>
+						<input type="text" class="form-control"        id="userProfessionInput" name="userProfession"           required><br> <!-- Область профессиональной деятельности -->
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="languageInput">Родной язык: </label><br>
+				<input type="text" class="form-control"         id="userLanguageInput" name="userLanguage"           required><!-- Родной язык -->
+			</div>
+
+			<div class="form-group">
+			    <label for="userHandSelect">Ведущая рука: </label>
+			    <select class="form-control" id="userHandSelect" name="userHand">
+			      <option value="right">правша</option>
+			      <option value="left">левша</option>
+			      <option value="ambi">амбидекстер</option>
+			      <option value="right to left">переученный левша</option>
+			    </select>
+			</div>
+
+			<div class="form-group">
+				<label for="userDisordersRadio">Имеются ли у вас неврологические/психиатрические  расстройства?</label> <!-- radio: Имеются ли у вас неврологические/психиатрические  расстройства?: нет/да(какие) -->
+				<div id="userDisordersRadio">
+					<div>
+						<input type="radio" class="form-check-input"          name="userDisorders" value="no" id="noDisorders" required>
+						<label for="noDisorders">нет</label>
+					</div>
+					<div>
+					  <input type="radio" class="form-check-input"          name="userDisorders" value="" id="disorders" required>
+					  <label for="disorders">да (укажите какие):</label>
+					  <input type="text" class="form-control"                   name="userDisorders">
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<label for="userMedicationRadio">Принимаете ли вы какие медицинские препараты, которые могут повлиять на концентрацию внимания и время реакции?</label> <!-- radio: Принимаете ли вы какие медицинские препараты, которые могут повлиять на концентрацию внимания и время реакции?: нет/да(какие) -->
+				<div id="userMedicationRadio">
+					<div>
+						<input type="radio" class="form-check-input"          name="userMedication" value="no" id="noMedication" required>
+						<label for="noMedication">нет</label>
+					</div>
+					<div>
+					  <input type="radio" class="form-check-input"          name="userMedication" value="" id="Medication" required>
+					  <label for="Medication">да (укажите какие):</label>
+					  <input type="text" class="form-control"                   name="userMedication">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-check">
+				<label for="userPerceptionRadio">Есть ли у вас какие-то проблемы со зрением или слухом?:</label> <!-- radio: Есть ли у вас какие-то проблемы со зрением или слухом?: нет/да(какие) -->
+				<div id="userPerceptionRadio">
+					<div>
+						<input type="radio" class="form-check-input"          name="userPerception" value="no" id="noPerceptionDisorder" required>
+						<label for="noPerceptionDisorder">нет</label>
+					</div>
+					<div>
+					  <input type="radio" class="form-check-input"          name="userPerception" value="" id="perceptionDisorder" required>
+					  <label for="perceptionDisorder">да (укажите какие):</label>
+					  <input type="text" class="form-control"                   name="userPerception">
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Готово</button>
+		</form>
+
+	</div>
+
+	<div id="instructionPage" style="display: none" class="fluid-container"> <!-- страница с инструкцией --> <!-- проверить инструкции -->
+		<h1>Пожалуйста, внимательно прочитайте инструкцию.</h1> <br>
+		В эксперименте Вам по нажатию на Play будут предъявляться на слух части слов. Если вам кажется что вы знаете проигрываемое слово — введите его в текствое поле. Если вы не знаете слова, снова нажмите на Play и будет проиграна немного бо́льшая часть слова. После того, как вы угадаете слово, по нажатию на Play, Вам будет предъявлено следующее слово. Если вы не угадаете слово, следующее слово начнёт проигрываться автоматически.<br>
+		Среди предъявляемых слов могут быть слова во множественном числе, не в именительном падеже и жаргонные слова. Все слова — существительные. Ваша задача — угадать звучащее слово, которое является продолжением для "Там был(-а,-о) ... / Я заметил(а)...". <br>
+		<br>
+		Сейчас будет проиграно несколько тренировочных слов. Если вы не сможете ответить правильно, вы автоматически попадёте на эту страницу. <br>
+		<form id="instructionForm" class="form-group">
+			<button id="instructionCheck" type="submit" class="btn btn-primary">Я понял инструкцию</button> <!-- кнопочочка подтверждения понимания инструкции -->
+		</form>
+		</div>
+
+	<div id="trainingPage" style="display: none; margin-top:1ex" class="fluid-container"> <!-- страница с экспериментом -->
+		<audio id="sample" preload></audio>
+
+		<a id="trainingButton" href="#" class="btn btn-primary" >Play</a> <!-- кнопка Play -->
+		<div id="trainingText"> <!-- текстовый блок -->
+			Для проигривания слова нажмите на Play.
+		</div>
+		<div id="trainingWordsLeftCounterText"> <!-- текстовый блок - сколько слов ещё нужно прослушать в тренировочном задании. -->
+			Здесь будет выводиться, сколько слов вам ещё нужно прослушать в тренировочном задании.
+		</div>
+
+			<form id="trainingForm" class="form-group"> <!-- Форма с инпутом для глаголов-->
+				<div id="trainingInputDiv"> <!-- невидимый блок с инпутом и кнопкой go -->
+					<input type="text" class="form-control"         id="trainingInput"           name="in" value=""/>
+					<button type="submit" class="btn btn-primary" style="display: none">Go</button>
+				</div>
+			</form>
+		</div>
+
+		<div id="consentPage" style="display: none" class="fluid-container"> <!-- страница с формой информированного согласия -->
+			<div id="consentText">
+				Тренировка окончена. Пожалуйста, прочтите заявление об информированном согласии на участие в эксперименте: <br>
+
+				Я заявляю о добровольном участии в лингвистическом исследовании «Исследование скорости узнавания предъявляемых на слух слов», проводимом лабораторией нейролингвистики НИУ «Высшая школа экономики». Я согласен с тем, что данные, полученные от меня в ходе исследования (личные данные, результаты теста), могут быть опубликованы и использованы в научных целях при условии, что моё имя останется в тайне. <br>
+
+				Я проинформирован о процедуре исследования, которая заключается в выполнении речевого задания на компьютере (узнавание слов, предъявленных на слух по частям). Я также проинформирован, что могу прекратить участие в исследовании в любое время. <br>
+
+				Я также подтверждаю, что на момент исследования: <br>
+
+				1. Не имею нескорректированных проблем со слухом и зрением; <br>
+				2. Не принимаю медицинские препараты, влияющие на концентрацию внимания и время реакции, или указал название принимаемых мною препаратов; <br>
+				3. Не нахожусь под воздействием алкоголя и иных психотропных веществ. <br>
+			</div>
+			<form id="consentForm" class="form-group">
+				<button type="submit" class="btn btn-primary" >Согласен</button> <!-- кнопочка согласия -->
+			</form>
+		</div> <!-- прилепить переход на след. страницу -->
+
+		<div id="experimentPage" style="display: none" class="fluid-container"> <!-- страница с экспериментом -->
+			<audio id="sample" preload></audio>
+
+			<a id="playButton" href="#" class="btn btn-primary">Play</a> <!-- кнопка Play -->
+			<div id="text"> <!-- текстовый блок -->
+				Для проигривания слова нажмите на Play.
+			</div>
+			<div id="wordsLeftCounterText"> <!-- текстовый блок - сколько слов ещё нужно прослушать -->
+				Здесь будет выводиться, сколько слов вам ещё нужно прослушать.
+			</div>
+
+			<form id="verbForm" class="form-group"> <!-- Форма с инпутом для глаголов-->
+				<div id="wordInputDiv"> <!-- невидимый блок с инпутом и кнопкой go -->
+					<input type="text" class="form-control"         id="input"           name="in" value=""/>
+					<br />
+					<button type="submit" class="btn btn-primary" style="display: none">Go</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+</br>
+
+
+
+
+
+
+  <div class="container">
+   <div id="indicator_panel" class="card border-dark mb-3" style="max-width: 60rem; display:none;">
+     <div class="card-header">
+       <h2 class="card-title">Howler controls        <button class="btn btn-outline-danger" style="float: right" onclick="this.parentElement.parentElement.parentElement.style.cssText='display: none'">Кыш!</button>
+</h2>
+       <button class="btn btn-outline-secondary" onclick="howlPlay()">Play</button>
+       <button class="btn btn-outline-secondary" onclick="howlObj.pause()">Pause and rewind</button>
+       <!-- <button class="btn" onclick="howlObj._sprite.clip[1]+= 050">добавить 50 ms</button> -->
+       <button class="btn btn-outline-secondary" onclick="howlGrow()">добавить 50 ms</button>
+       <button class="btn btn-outline-secondary" onclick="howlReset()">сбросить на 250 ms</button>
+       <button class="btn btn-outline-secondary" onclick="howlNext()">следующее слово</button>
+       <button class="btn btn-outline-danger" onclick="document.getElementById('instructionPage').style.cssText='display: block'; document.getElementById('inqueryPage').style.cssText='display: none'; this.style.cssText='display: none'">пропустить анкету</button>
+
+
+
+
+     </div>
+     <div class="card-body">
+
+       <h4 class="card-title">состояние</h4>
+       <div class="badge badge-secondary">  текущая длительность:  <span id="clip_duration"></span> мc </div>
+       <div class="badge badge-secondary">  длительность всей записи: <span id="total_sample_duration"> </span>   </div>
+       <div class="badge badge-secondary">  текущая запись: </span>        <span id="sample_name"></span>              </div>
+       <!-- <div class="badge badge-warning" >    мы ещё не умеем проверять, закончилось ли слово </span>        <span id="not_done"></span>              </div> -->
+       <div class="badge badge-danger" id="end_flag" style="display:none">  слово проиграно до конца </span>        <span ></span>              </div>
+       <div class="badge badge-success" id="clip_end_flag" style="display:none">  отрывок проигран </span>        <span ></span>              </div>
+
+       <!-- <div class="badge badge-success">    слово закончилось </span>        <span id="done"></span>              </div> -->
+       <div class="badge badge-secondary">  сколько осталось слов в списке:  <span id="words_remaining"></span> </div>
+
+       <p class="card-text"></p>
+     </div>
+   </div>
+
+
+
+
+<br/>
+
+
+</div>
+</body>
+</html>
