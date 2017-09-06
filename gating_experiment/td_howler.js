@@ -64,9 +64,7 @@ function howlReset(){ /* сбросить длину звучащего сегм
     audioFinished = false;
     displayCurrentDuration();
     }
-function normalizeAnswer(s){
-    return(s.trim().toLowerCase().replace(/ё/gi, "е"));
-    }
+
 function howlNext(){ /* следущее слово, длина 250  */
     if(howls.length <= howls_index) {
       // alert("нет следующего слова!");
@@ -81,7 +79,8 @@ function howlNext(){ /* следущее слово, длина 250  */
       howls_index += 1;
       howlObj = howls[howls_index];//  howl_rotate_clip();
       howlReset();
-      rightAnswer = normalizeAnswer(howlObj._src.match( /_\d+_(.*)\./i )[1]);
+      rightAnswer =
+      howlObj._src.match( /_\d+_(.*)\./i )[1].trim().toLowerCase().replace(/ё/gi, "е");
       //displayWordsRemaining();
       hideFlag("end_flag");
       hideFlag("clip_end_flag");
