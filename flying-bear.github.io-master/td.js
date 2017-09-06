@@ -256,7 +256,7 @@ prepareDummyUserDataToTestFinalization();
 
 $(function(){ // это точка входа, отсюда начинается исполнение при загрузке. ниже содержится основная логика программы.
 
-  $("#verbForm").on("submit", function() { /* обработать введённое пользователем слово */
+  $("#verbForm").on("submit", function(event) { /* обработать введённое пользователем слово */
     if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
     var currentInput = normalizeAnswer(document.getElementById('experimentInput').value); /* положить в переменную текущий инпут */
     var currentLength = currentWord._sprite.clip[1]/1000.0;
@@ -273,7 +273,7 @@ $(function(){ // это точка входа, отсюда начинается
 
   });
 
-  $("#trainingForm").on("submit", function() { /* обработать введённое пользователем слово */
+  $("#trainingForm").on("submit", function(event) { /* обработать введённое пользователем слово */
     if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
     var currentInput = normalizeAnswer(document.getElementById('trainingInput').value); /* положить в переменную текущий инпут */
     if (currentInput == rightAnswer) { /* если верный ответ */
@@ -286,7 +286,7 @@ $(function(){ // это точка входа, отсюда начинается
   });
   /* html onclick does not call anything  */
 
-  $('#inqueryForm').on("submit", function() {
+  $('#inqueryForm').on("submit", function(event) {
     if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
     /* if(document.forms['inqueryForm']['userName'].required) */
     userData = $('#inqueryForm').serializeArray().reduce(function(obj, item) {
@@ -297,13 +297,13 @@ $(function(){ // это точка входа, отсюда начинается
   });
   /* html onclick does not call anything  */
 
-  $('#consentForm').on("submit", function() {
+  $('#consentForm').on("submit", function(event) {
     if (event.preventDefault) event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
     nextPage();
   });
 
 
-  $('#instructionForm').on("submit", function() {
+  $('#instructionForm').on("submit", function(event) {
     event.preventDefault(); /* не переходить на новую страницу (отключить обработчик по умолчанию) */
     nextPage();
   });
