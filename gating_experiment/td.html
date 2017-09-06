@@ -21,250 +21,247 @@
 </head>
 <body>
   <div id="topLevelContainer" class="container" >
-  <div id="inqueryPage" class="card border-dark mb-3">
-    <div class="card-header">Анкета</div>
-    <div class="card-body">
-      <div>
-        <span>
-          Эксперимент довольно продолжительный - занимает около получаса, будьте готовы. Вы можете прерываться, но, пожалуйста, пройдите его до конца. (До предъявления надписи "эксперимент окончен".)<br>
-          Сначала, пожалуйста, заполните демографический блок, чтобы нам было где искать интересные корреляции. Мы знаем, что он может быть длинным и скучным, и заранее говорим вам спасибо за терпение. </span>
-        </div>
-        <hr />
+    <div id="inqueryPage" class="card border-dark mb-3">
+      <div class="card-header">Анкета</div>
+      <div class="card-body">
         <div>
-          <form id="inqueryForm"  class="form">
-            <div class="form-group">
-              <label for="userNameInput">Имя и фамилия: (любой уникальный псевдоним)</label><br> <input type="text" class="form-control"         id="userNameInput" name="userName"           required><!-- Имя и фамилия -->
-            </div>
-
-            <div class="form-group">
-              <label for="ageInput">Возраст (полных лет): </label><br> <input class="form-control"         id="userAgeInput" name="userAge" type="number" min="6" max="90" required><!-- Возраст (полных лет) -->
-            </div>
-
-            <label for="userSexRadio">Пол:  <!-- radio: Пол: м/ж/другое (укажите) -->
-              <div class="form-group" id="userSexRadio">
-
-                <div class="form-check">
-                  <label  class="form-check-label" for="sexMale">
-                    <input  type="radio" class="form-check-input" name="userSex" value="male" id="sexMale" required>
-                    мужской
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <label class="form-check-label" for="sexFemale">
-                    <input  type="radio" class="form-check-input" name="userSex" value="female" id="sexFemale" required>
-                    женский
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <label class="form-check-label" for="sexOther">
-                    <input type="radio" class="form-check-input" name="userSex" value="" id="sexOther" required>
-                    другое (укажите):
-                    <input type="text" class="form-control"                   name="userSex">
-                  </label>
-                </div>
+          <span>
+            Эксперимент довольно продолжительный - занимает около получаса, будьте готовы. Вы можете прерываться, но, пожалуйста, пройдите его до конца. (До предъявления надписи "эксперимент окончен".)<br>
+            Сначала, пожалуйста, заполните демографический блок, чтобы нам было где искать интересные корреляции. Мы знаем, что он может быть длинным и скучным, и заранее говорим вам спасибо за терпение. </span>
+          </div>
+          <hr />
+          <div>
+            <form id="inqueryForm"  class="form">
+              <div class="form-group">
+                <label for="userNameInput">Имя и фамилия: (любой уникальный псевдоним)</label><br> <input type="text" class="form-control"         id="userNameInput" name="userName"           required><!-- Имя и фамилия -->
               </div>
-            </label>
-
-            <div class="form-group" >
-              <label for="userEducationSelect">Образование: </label>
-              <select class="form-control" id="userEducationSelect" name="userEducation">
-                <option value="school">среднее</option>
-                <option value="school special">среднее специальное</option>
-                <option value="higher undergraduate">неоконченное высшее</option>
-                <option value="graduate">высшее</option>
-                <option value="degree">ученая степень</option>
-              </select>
 
               <div class="form-group">
-                <div>
-                  <label for="yearsOfEducationInput">Длительность образования в годах (например, школа+среднее специальное+высшее - 11+2+5=18 лет): </label><br>
-                  <input class="form-control"        id="yearsOfEducationInput" name="userYearsOfEducation" type="number" min="1" max="40" required><!-- Длительность образования в годах (например, школа+среднее специальное+высшее - 11+2+5=18 лет) -->
-                </div>
-
-                <div>
-                  <label for="professionInput">Область профессиональной деятельности: </label><br>
-                  <input type="text" class="form-control"        id="userProfessionInput" name="userProfession"           required><br> <!-- Область профессиональной деятельности -->
-                </div>
+                <label for="ageInput">Возраст (полных лет): </label><br> <input class="form-control"         id="userAgeInput" name="userAge" type="number" min="6" max="90" required><!-- Возраст (полных лет) -->
               </div>
-            </div>
 
-            <div class="form-group">
-              <label for="languageInput">Родной язык: </label><br>
-              <input type="text" class="form-control"         id="userLanguageInput" name="userLanguage"           required><!-- Родной язык -->
-            </div>
-
-            <div class="form-group">
-              <label for="userHandSelect">Ведущая рука: </label>
-              <select class="form-control" id="userHandSelect" name="userHand">
-                <option value="right">правша</option>
-                <option value="left">левша</option>
-                <option value="ambi">амбидекстер</option>
-                <option value="right to left">переученный левша</option>
-              </select>
-            </div>
-
-            <label for="userDisordersRadio"><p>Имеются ли у вас неврологические/психиатрические  расстройства?</p><!-- radio: Имеются ли у вас неврологические/психиатрические  расстройства?: нет/да(какие) -->
-              <div class="form-group" id="userDisordersRadio">
-                <div class="form-check">
-                  <label  class="form-check-label" for="noDisorders">
-                    <input type="radio" class="form-check-input"          name="userDisorders" value="no" id="noDisorders" required>
-                    нет</label>
-                  </div>
+              <label for="userSexRadio">Пол:  <!-- radio: Пол: м/ж/другое (укажите) -->
+                <div class="form-group" id="userSexRadio">
 
                   <div class="form-check">
-                    <label class="form-check-label" for="disorders">
-                      <input type="radio" class="form-check-input"          name="userDisorders" value="" id="disorders" required>
-                      <p>да (укажите какие):</p>
-                      <input type="text" class="form-control"                   name="userDisorders">
+                    <label  class="form-check-label" for="sexMale">
+                      <input  type="radio" class="form-check-input" name="userSex" value="male" id="sexMale" required>
+                      мужской
                     </label>
                   </div>
 
+                  <div class="form-check">
+                    <label class="form-check-label" for="sexFemale">
+                      <input  type="radio" class="form-check-input" name="userSex" value="female" id="sexFemale" required>
+                      женский
+                    </label>
+                  </div>
+
+                  <div class="form-check">
+                    <label class="form-check-label" for="sexOther">
+                      <input type="radio" class="form-check-input" name="userSex" value="" id="sexOther" required>
+                      другое (укажите):
+                      <input type="text" class="form-control"                   name="userSex">
+                    </label>
+                  </div>
                 </div>
               </label>
 
-              <div class="form-group" id="userMedicationRadio">
-                <label for="userMedicationRadio">Принимаете ли вы какие медицинские препараты, которые могут повлиять на концентрацию внимания и время реакции?</label> <!-- radio: Принимаете ли вы какие медицинские препараты, которые могут повлиять на концентрацию внимания и время реакции?: нет/да(какие) -->
-                <div class="form-check">
-                  <label class="form-check-label" for="noMedication">
-                    <input type="radio" class="form-check-input"          name="userMedication" value="no" id="noMedication" required>
-                    нет
-                  </label>
-                </div>
+              <div class="form-group" >
+                <label for="userEducationSelect">Образование: </label>
+                <select class="form-control" id="userEducationSelect" name="userEducation">
+                  <option value="school">среднее</option>
+                  <option value="school special">среднее специальное</option>
+                  <option value="higher undergraduate">неоконченное высшее</option>
+                  <option value="graduate">высшее</option>
+                  <option value="degree">ученая степень</option>
+                </select>
 
-                <div class="form-check">
-                  <label class="form-check-label" for="Medication">
-                    <input type="radio" class="form-check-input"          name="userMedication" value="" id="Medication" required>
-                    да (укажите какие):
-                    <input type="text" class="form-control"                   name="userMedication">
-                  </label>
-                </div>
-              </div>
+                <div class="form-group">
+                  <div>
+                    <label for="yearsOfEducationInput">Длительность образования в годах (например, школа+среднее специальное+высшее - 11+2+5=18 лет): </label><br>
+                    <input class="form-control"        id="yearsOfEducationInput" name="userYearsOfEducation" type="number" min="1" max="40" required><!-- Длительность образования в годах (например, школа+среднее специальное+высшее - 11+2+5=18 лет) -->
+                  </div>
 
-              <div class="form-check">
-                <label for="userPerceptionRadio">Есть ли у вас какие-то проблемы со зрением или слухом?:</label> <!-- radio: Есть ли у вас какие-то проблемы со зрением или слухом?: нет/да(какие) -->
-                <div id="userPerceptionRadio">
-                  <div class="form-check">
-                    <label class="form-check-label" for="noPerceptionDisorder">
-                      <input type="radio" class="form-check-input"          name="userPerception" value="no" id="noPerceptionDisorder" required>
-                      нет</label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label" for="perceptionDisorder">
-                        <input type="radio" class="form-check-input"          name="userPerception" value="" id="perceptionDisorder" required>
-                        да (укажите какие):
-                        <input type="text" class="form-control"                   name="userPerception">
-                      </label>
-                    </div>
+                  <div>
+                    <label for="professionInput">Область профессиональной деятельности: </label><br>
+                    <input type="text" class="form-control"        id="userProfessionInput" name="userProfession"           required><br> <!-- Область профессиональной деятельности -->
                   </div>
                 </div>
-                <div class="help-block"> &nbsp </div>
-                <button type="submit" class="btn btn-primary">Готово</button><div class="control-group"> &nbsp </div>
+              </div>
+
+              <div class="form-group">
+                <label for="languageInput">Родной язык: </label><br>
+                <input type="text" class="form-control"         id="userLanguageInput" name="userLanguage"           required><!-- Родной язык -->
+              </div>
+
+              <div class="form-group">
+                <label for="userHandSelect">Ведущая рука: </label>
+                <select class="form-control" id="userHandSelect" name="userHand">
+                  <option value="right">правша</option>
+                  <option value="left">левша</option>
+                  <option value="ambi">амбидекстер</option>
+                  <option value="right to left">переученный левша</option>
+                </select>
+              </div>
+
+              <label for="userDisordersRadio"><p>Имеются ли у вас неврологические/психиатрические  расстройства?</p><!-- radio: Имеются ли у вас неврологические/психиатрические  расстройства?: нет/да(какие) -->
+                <div class="form-group" id="userDisordersRadio">
+                  <div class="form-check">
+                    <label  class="form-check-label" for="noDisorders">
+                      <input type="radio" class="form-check-input"          name="userDisorders" value="no" id="noDisorders" required>
+                      нет</label>
+                    </div>
+
+                    <div class="form-check">
+                      <label class="form-check-label" for="disorders">
+                        <input type="radio" class="form-check-input"          name="userDisorders" value="" id="disorders" required>
+                        <p>да (укажите какие):</p>
+                        <input type="text" class="form-control"                   name="userDisorders">
+                      </label>
+                    </div>
+
+                  </div>
+                </label>
+
+                <div class="form-group" id="userMedicationRadio">
+                  <label for="userMedicationRadio">Принимаете ли вы какие медицинские препараты, которые могут повлиять на концентрацию внимания и время реакции?</label> <!-- radio: Принимаете ли вы какие медицинские препараты, которые могут повлиять на концентрацию внимания и время реакции?: нет/да(какие) -->
+                  <div class="form-check">
+                    <label class="form-check-label" for="noMedication">
+                      <input type="radio" class="form-check-input"          name="userMedication" value="no" id="noMedication" required>
+                      нет
+                    </label>
+                  </div>
+
+                  <div class="form-check">
+                    <label class="form-check-label" for="Medication">
+                      <input type="radio" class="form-check-input"          name="userMedication" value="" id="Medication" required>
+                      да (укажите какие):
+                      <input type="text" class="form-control"                   name="userMedication">
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-check">
+                  <label for="userPerceptionRadio">Есть ли у вас какие-то проблемы со зрением или слухом?:</label> <!-- radio: Есть ли у вас какие-то проблемы со зрением или слухом?: нет/да(какие) -->
+                  <div id="userPerceptionRadio">
+                    <div class="form-check">
+                      <label class="form-check-label" for="noPerceptionDisorder">
+                        <input type="radio" class="form-check-input"          name="userPerception" value="no" id="noPerceptionDisorder" required>
+                        нет</label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label" for="perceptionDisorder">
+                          <input type="radio" class="form-check-input"          name="userPerception" value="" id="perceptionDisorder" required>
+                          да (укажите какие):
+                          <input type="text" class="form-control"                   name="userPerception">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="help-block"> &nbsp </div>
+                  <button type="submit" class="btn btn-primary">Готово</button><div class="control-group"> &nbsp </div>
+                </form>
+              </div>
+              <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
+            </div>
+          </div>
+          <div id="instructionPage" class="card border-dark mb-3" style="display:none">
+            <div class="card-header">Инструкция</div>
+            <div class="card-body">
+              <h2>Пожалуйста, внимательно прочитайте инструкцию.</h2>
+              <p>В эксперименте Вам по нажатию на Play будут предъявляться на слух части слов. Если вам кажется что вы знаете проигрываемое слово — введите его в текстовое поле. Если вы не знаете слова, снова нажмите на Play и будет проиграна немного бо́льшая часть слова. После того, как вы угадаете слово, по нажатию на Play, Вам будет предъявлено следующее слово. Если вы не угадаете слово, следующее слово начнёт проигрываться автоматически.<br>
+                Среди предъявляемых слов могут быть слова во множественном числе, не в именительном падеже и жаргонные слова. Все слова — существительные. Ваша задача — угадать звучащее слово, которое является продолжением для "Там был(-а,-о) ... / Я заметил(а)...". <br>
+              </p>
+              <p>Сейчас будет проиграно несколько тренировочных слов. Если вы не сможете ответить правильно, вы автоматически попадёте на эту страницу.</p>
+              <form id="instructionForm" class="form-group">
+                <button id="instructionCheck" type="foo" class="btn btn-primary" >Я понял инструкцию</button> <!-- кнопочочка подтверждения понимания инструкции -->
               </form>
+              <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
             </div>
-            <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
           </div>
-        </div>
-        <div id="instructionPage" class="card border-dark mb-3" style="display:none">
-          <div class="card-header">Инструкция</div>
-          <div class="card-body">
-            <h2>Пожалуйста, внимательно прочитайте инструкцию.</h2>
-            <p>В эксперименте Вам по нажатию на Play будут предъявляться на слух части слов. Если вам кажется что вы знаете проигрываемое слово — введите его в текстовое поле. Если вы не знаете слова, снова нажмите на Play и будет проиграна немного бо́льшая часть слова. После того, как вы угадаете слово, по нажатию на Play, Вам будет предъявлено следующее слово. Если вы не угадаете слово, следующее слово начнёт проигрываться автоматически.<br>
-              Среди предъявляемых слов могут быть слова во множественном числе, не в именительном падеже и жаргонные слова. Все слова — существительные. Ваша задача — угадать звучащее слово, которое является продолжением для "Там был(-а,-о) ... / Я заметил(а)...". <br>
-            </p>
-            <p>Сейчас будет проиграно несколько тренировочных слов. Если вы не сможете ответить правильно, вы автоматически попадёте на эту страницу.</p>
-            <form id="instructionForm" class="form-group">
-              <button id="instructionCheck" type="foo" class="btn btn-primary" >Я понял инструкцию</button> <!-- кнопочочка подтверждения понимания инструкции -->
-              <!-- <button id="another" class="btn btn-success" >yay!</button> -->
-
-            </form>
-
-            <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
-          </div>
-        </div>
-        <div id="trainingPage" class="card border-alert mb-3" style="display:none">
-          <div class="card-header">Тренировочное задание</div>
-                    <div class="card-body">
-                      <button id="trainingButton" href="#" class="btn btn-primary" onclick="playBtnClicked()">Play</button> <!-- кнопка Play -->
-            <div id="trainingTextCue"><p>Для проигрывания слова нажмите на Play.</p></div>
-                      <div id="trainingWordsLeftCounterText"> <!-- текстовый блок - сколько слов ещё нужно прослушать в тренировочном задании. -->
-              Здесь будет выводиться, сколько слов вам ещё нужно прослушать в тренировочном задании.
-            </div>
-            <form id="trainingForm" class="form-group"> <!-- Форма с инпутом для глаголов-->
-              <div id="trainingInputDiv"> <!-- невидимый блок с инпутом и кнопкой go -->
-                <input type="text" class="form-control"         id="trainingInput"           name="in" value=""/>
-                <button type="submit" class="btn btn-primary" style="display: none">Go</button>
-                <!-- Submitting triggers jquery onSubmit from td.js. it might call nextPage eventually. -->
+          <div id="trainingPage" class="card border-alert mb-3" style="display:none">
+            <div class="card-header">Тренировочное задание</div>
+            <div class="card-body">
+              <button id="trainingButton" href="#" class="btn btn-primary" onclick="playBtnClicked()">Play</button> <!-- кнопка Play -->
+              <div id="trainingTextCue"><p>Для проигрывания слова нажмите на Play.</p></div>
+              <div id="trainingWordsLeftCounterText"> <!-- текстовый блок - сколько слов ещё нужно прослушать в тренировочном задании. -->
+                Здесь будет выводиться, сколько слов вам ещё нужно прослушать в тренировочном задании.
               </div>
-            </form>
-            <button id="prevPage_from_training_btn" class="btn btn-sm btn-outline-primary" onclick="prevPage()">покажите инструкцию</button>
-            <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
-          </div>
-        </div>
-        <div id="consentPage" class="card border-alert mb-3" style="display:none">
-          <div class="card-header">
-            <div id="consentText">
-              Тренировка окончена. Пожалуйста, прочтите заявление об информированном согласии на участие в эксперименте: <br>
-
-              Я заявляю о добровольном участии в лингвистическом исследовании «Исследование скорости узнавания предъявляемых на слух слов», проводимом лабораторией нейролингвистики НИУ «Высшая школа экономики». Я согласен с тем, что данные, полученные от меня в ходе исследования (личные данные, результаты теста), могут быть опубликованы и использованы в научных целях при условии, что моё имя останется в тайне. <br>
-
-              Я проинформирован о процедуре исследования, которая заключается в выполнении речевого задания на компьютере (узнавание слов, предъявленных на слух по частям). Я также проинформирован, что могу прекратить участие в исследовании в любое время. <br>
-
-              Я также подтверждаю, что на момент исследования: <br>
-
-              1. Не имею нескорректированных проблем со слухом и зрением; <br>
-              2. Не принимаю медицинские препараты, влияющие на концентрацию внимания и время реакции, или указал название принимаемых мною препаратов; <br>
-              3. Не нахожусь под воздействием алкоголя и иных психотропных веществ. <br>
+              <form id="trainingForm" class="form-group"> <!-- Форма с инпутом для глаголов-->
+                <div id="trainingInputDiv"> <!-- невидимый блок с инпутом и кнопкой go -->
+                  <input type="text" class="form-control"         id="trainingInput"           name="in" value=""/>
+                  <button type="submit" class="btn btn-primary" style="display: none">Go</button>
+                  <!-- Submitting triggers jquery onSubmit from td.js. it might call nextPage eventually. -->
+                </div>
+              </form>
+              <button id="prevPage_from_training_btn" class="btn btn-sm btn-outline-primary" onclick="prevPage()">покажите инструкцию</button>
+              <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
             </div>
-            <form id="consentForm" class="form-group">
-              <button id="consentSubmitButton" type="submit" class="btn btn-primary">Согласен</button> <!-- кнопочка согласия -->
-            </form>
-
           </div>
-          <div class="card-body">
-            <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
-          </div>
-        </div>
+          <div id="consentPage" class="card border-alert mb-3" style="display:none">
+            <div class="card-header">
+              <div id="consentText">
+                Тренировка окончена. Пожалуйста, прочтите заявление об информированном согласии на участие в эксперименте: <br>
 
-        <div id="experimentPage" class="card border-dark mb-3" style="display:none">
-          <div class="card-header">Эксперимент</div>
-          <div class="card-body">
-            <button id="playButton" class="btn btn-primary" onclick="playBtnClicked()">Play</button>
+                Я заявляю о добровольном участии в лингвистическом исследовании «Исследование скорости узнавания предъявляемых на слух слов», проводимом лабораторией нейролингвистики НИУ «Высшая школа экономики». Я согласен с тем, что данные, полученные от меня в ходе исследования (личные данные, результаты теста), могут быть опубликованы и использованы в научных целях при условии, что моё имя останется в тайне. <br>
 
-            <div id="experimentTextCue"><p>
-              Для проигрывания слова нажмите на Play.
-            </p></div>
+                Я проинформирован о процедуре исследования, которая заключается в выполнении речевого задания на компьютере (узнавание слов, предъявленных на слух по частям). Я также проинформирован, что могу прекратить участие в исследовании в любое время. <br>
 
-            <div id="wordsLeftCounterText"> <!-- текстовый блок - сколько слов ещё нужно прослушать -->
-              Здесь будет выводиться, сколько слов вам ещё нужно прослушать.
-            </div>
+                Я также подтверждаю, что на момент исследования: <br>
 
-            <form id="verbForm" class="form-group"> <!-- Форма с инпутом для глаголов-->
-              <div id="wordInputDiv"> <!-- невидимый блок с инпутом и кнопкой go -->
-                <input type="text" class="form-control"         id="experimentInput"           name="in" value=""/>
-                <br />
-                <button type="submit" class="btn btn-primary" style="display: none">Go</button>
+                1. Не имею нескорректированных проблем со слухом и зрением; <br>
+                2. Не принимаю медицинские препараты, влияющие на концентрацию внимания и время реакции, или указал название принимаемых мною препаратов; <br>
+                3. Не нахожусь под воздействием алкоголя и иных психотропных веществ. <br>
               </div>
-            </form>
+              <form id="consentForm" class="form-group">
+                <button id="consentSubmitButton" type="submit" class="btn btn-primary">Согласен</button> <!-- кнопочка согласия -->
+              </form>
 
-            <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
+            </div>
+            <div class="card-body">
+              <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
+            </div>
           </div>
-        </div>
 
-        <div id="endPage" class="card border-primary mb-3" style="display:none">
-          <div class="card-header">
-            <a href="#" onclick="document.getElementById('CategoryTheoryCat').style.cssText='display:block'">Конец!</a>
-            <div style="display:none" id="CategoryTheoryCat"><img src="http://www.math.jhu.edu/~mmerling/img/IMG_1101.jpg"><img src="http://i.pinimg.com/736x/b6/01/dd/b601dd077f03326303c8628314355a33.jpg"></div>
+          <div id="experimentPage" class="card border-dark mb-3" style="display:none">
+            <div class="card-header">Эксперимент</div>
+            <div class="card-body">
+              <button id="playButton" class="btn btn-primary" onclick="playBtnClicked()">Play</button>
+
+              <div id="experimentTextCue"><p>
+                Для проигрывания слова нажмите на Play.
+              </p></div>
+
+              <div id="wordsLeftCounterText"> <!-- текстовый блок - сколько слов ещё нужно прослушать -->
+                Здесь будет выводиться, сколько слов вам ещё нужно прослушать.
+              </div>
+
+              <form id="verbForm" class="form-group"> <!-- Форма с инпутом для глаголов-->
+                <div id="wordInputDiv"> <!-- невидимый блок с инпутом и кнопкой go -->
+                  <input type="text" class="form-control"         id="experimentInput"           name="in" value=""/>
+                  <br />
+                  <button type="submit" class="btn btn-primary" style="display: none">Go</button>
+                </div>
+              </form>
+
+              <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()">→</button>
+            </div>
           </div>
-          <div class="card-body">
-            <p>Эксперимент окончен, спасибо за участие! Пожалуйста, не рассказывайте никому о содержании эксперимента до его завершения.</p>
-            <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()" disabled>→</button>
-            <!-- <button class="btn btn-sm btn-outline-primary" onclick='$("#topLevelContainer").fireworks()'>Yay!</button> -->
+
+          <div id="endPage" class="card border-primary mb-3" style="display:none">
+            <div class="card-header">
+              <a href="#" onclick="document.getElementById('CategoryTheoryCat').style.cssText='display:block'">Конец!</a>
+              <div style="display:none" id="CategoryTheoryCat"><img src="http://www.math.jhu.edu/~mmerling/img/IMG_1101.jpg"><img src="http://i.pinimg.com/736x/b6/01/dd/b601dd077f03326303c8628314355a33.jpg"></div>
+            </div>
+            <div class="card-body">
+              <p>Эксперимент окончен, спасибо за участие! Пожалуйста, не рассказывайте никому о содержании эксперимента до его завершения.</p>
+              <button class="btn btn-sm btn-outline-primary btn-next" style="display:none" onclick="nextPage()" disabled>→</button>
+              <!-- <button class="btn btn-sm btn-outline-primary" onclick='$("#topLevelContainer").fireworks()'>Yay!</button> -->
+            </div>
           </div>
-        </div>
-      </div><!--  topLevelContainer closes here-->
-    <!-- <div id = "qunit"></div> -->
-    <!-- <div id = "qunit-fixture"></div> -->
-  </body>
-  </html>
+        </div><!--  topLevelContainer closes here-->
+        <!-- <div id = "qunit"></div> -->
+        <!-- <div id = "qunit-fixture"></div> -->
+      </body>
+      </html>
