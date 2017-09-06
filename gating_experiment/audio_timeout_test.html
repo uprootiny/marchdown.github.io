@@ -1,0 +1,297 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
+
+	<script type="text/javascript" src="howler_helper_funcs.js"></script>
+
+
+
+<script> /* html5 audio demo */
+
+var audio;
+var currentLength = .250;
+  setInterval(function () { /* остановить аудио по нужному времени */
+  if (currentLength && (document.getElementById('clip').currentTime >= currentLength)) { /* если есть максимальная длина и она меньше текущей длины */
+    document.getElementById('clip').pause(); /* остановить аудио */
+    audio.currentTime = 0;
+
+  };
+}, 30); /* проверять условие каждые 30ms */
+
+
+  function load() {
+    console.log("load event detected!");
+    audio = document.getElementById('clip');
+    displayCurrentDuration();
+    displayTotalDuration();
+
+
+  }
+  window.onload = load;
+// нельзя сохранить элемент незагрузившейся страницы в переменную, надо подождать
+
+</script>
+
+<script> // простой пример использования обёртки
+var howlObj;
+howlObj = new Howl({
+     src: ['https://flying-bear.github.io/gating_disc/sound/9_3_молокосос.mp3'],
+     sprite: {
+      clip: [0, currentLength*1000] // начало и продолжительность в миллисекундах
+    },
+      autoplay: false
+   });
+  // howlObj.play('clip');
+</script>
+
+
+
+<script>
+var timeoutID;
+var _;
+
+function delayedAlert() {
+  timeoutID = window.setTimeout(slowAlert, 2000);
+}
+function delayedPlay() {
+  timeoutID = window.setTimeout(audio.play(), 2000);
+}
+
+function slowAlert() {
+  alert('That was really slow!');
+}
+
+function clearAlert() {
+  window.clearTimeout(timeoutID);
+}
+
+
+/* вывод параметров */
+
+
+function displayCurrentDuration() {
+  document.getElementById('clip_duration').innerText=howlObj._sprite.clip[1];
+}
+function displayTotalDuration(){
+  (document.getElementById('total_sample_duration').innerText=howlObj.duration() * 1000).toFixed(2); ;
+}
+function displayCurrentSampleName() {
+  document.getElementById('sample_name').innerText=howlObj._src;
+}
+function displayWordsRemaining() {
+  document.getElementById('words_remaining').innerText=howls.length-howls_index;
+}
+// function incrementCurrentLength() {
+//   currentLength += .050
+//
+//   document.getElementById('duration').innerText=howlObj._sprite.clip[1];
+// }
+function displayEndFlag(){
+  document.getElementById('end_flag').style.cssText="display: block";
+}
+
+function displayFlag(flag){
+  document.getElementById(flag).style.cssText="display:block";
+}
+function hideFlag(flag){
+  document.getElementById(flag).style.cssText="display:none";
+}
+
+
+</script>
+
+
+<script type="text/javascript" src="training filenames list.js"></script>
+
+<script type="text/javascript" src="experiment filenames list.js"></script>
+<script>
+var howls = [];
+var howls_index = 0;
+var training_howls = [];
+var experiment_howls = [];
+fileTrainingSrcArray.map(function(x) {
+    training_howls.push(new Howl({src: [x],  autoplay: false, sprite: {clip: [0,250]}}));
+  })
+
+fileSrcArray.map(function(x) {
+      experiment_howls.push(new Howl({src: [x],  autoplay: false, sprite: {clip: [0,250]}}));
+  })
+
+var howls_lists = [experiment_howls, training_howls];
+
+</script>
+
+
+<script>
+  var howls_index = 0; /* указатель на слово в массиве */
+  var howls = [
+    //new Howl({src: ['gating_disc/training/0_1_художник.mp3'], autoplay: false, sprite: {clip: [0,250]}}),
+    new Howl({src: ['gating_disc/training/0_2_пациент.mp3'],  autoplay: false, sprite: {clip: [0,250]}}),
+    new Howl({src: ['gating_disc/training/0_3_громила.mp3'],  autoplay: false, sprite: {clip: [0,250]}}),
+    new Howl({src: ['gating_disc/training/0_4_школота.mp3'],  autoplay: false, sprite: {clip: [0,250]}}),
+    new Howl({src: ['gating_sem/training/0_1_сахар.mp3'],     autoplay: false, sprite: {clip: [0,250]}})
+    ];
+
+
+
+    function howl_rotate_clip(){ /* дайте следущее слово */
+      if (howls.length < 1){
+        alert("слова кончились"); /* FIXME: заранее, снаружи этой функции, заметить, что слова закончились и не надо просить следующее, а надо завершить эксперимент. */
+      }
+      else {
+        //howlObj = howls.pop();
+
+        howls_index = (howls_index+1) % howls.length; /* ходить по массиво бесконечно */
+        howlObj = howls[howls_index];
+      }
+    }
+/* Обертки вокруг примитивных операций:
+
+- воспроизвести (кусок заданной продолжительности из текущего слова)
+- нарастить продолжительность на 50 ms
+- сбросить продолжительность на 250 ms
+- перейти к следующему слову (и сбросить продолжительность)
+
+*/
+function howlPlay(){ /* дайте следущее слово */
+    hideFlag("end_flag");
+    hideFlag("clip_end_flag");
+
+    howlObj.play('clip');
+    //    howlObj.on("end", displayEndFlag()); /* срабатывает в конце _клипа_, а не всего слова*/
+
+    howlObj.on("end",
+
+      function() {
+      if (howlObj._sprite.clip[1] >= 1000*howlObj.duration()){
+        //alert(howlObj._sprite.clip[1] + " >= 1000*"+ howlObj.duration());
+        displayFlag("end_flag");
+      }
+      else {
+        displayFlag("clip_end_flag");
+      }}
+    );
+
+}
+function howlGrow(){ /* дайте следущее слово */
+    howlObj._sprite.clip[1] += 50;
+
+
+    // if (document.getElementById(duration))   //
+    // {                                        //
+      displayCurrentDuration();              //
+      displayTotalDuration();
+    // }                                        //
+}
+function howlReset(){ /* дайте следущее слово */
+    howlObj._sprite.clip[1] = 250;
+    displayCurrentDuration();
+    displayTotalDuration();
+
+}
+function howlNext(){ /* дайте следущее слово */
+    howl_rotate_clip();
+    howlReset();
+    displayCurrentSampleName();
+    displayWordsRemaining();
+    hideFlag("end_flag");
+    hideFlag("clip_end_flag");
+}
+
+function howlNextList(){
+  if(howls_lists.length < 1){
+    alert("нет больше списков слов");
+  } else {
+    howls = howls_lists.pop();
+  }
+  //howlOjb = howls.pop();
+  hideFlag("end_flag");
+  hideFlag("clip_end_flag");
+}
+
+</script>
+
+
+
+
+</head>
+<body>
+  <div class="container">
+
+
+
+
+<a onclick="this.firstChild.play()"><audio src="https://flying-bear.github.io/gating_disc/sound/9_3_молокосос.mp3" id="clip"></audio>Play</a>
+
+<div id="HowlerControls">
+
+   <div id="indicator_panel" class="card border-dark mb-3" style="max-width: 60rem;">
+     <div class="card-header">
+       <h2 class="card-title">Howler controls</h2>
+       <button class="btn" onclick="howlPlay()">Play</button>
+       <button class="btn" onclick="howlObj.pause()">Pause</button>
+       <!-- <button class="btn" onclick="howlObj._sprite.clip[1]+= 050">добавить 50 ms</button> -->
+       <button class="btn" onclick="howlGrow()">добавить 50 ms</button>
+
+
+       <button class="btn" onclick="howlReset()">сбросить на 250 ms</button>
+       <button class="btn" onclick="howlObj.mute()">Mute/ Unmute</button>
+       <button class="btn" onclick="howlNext()">следующее слово</button>
+       <button class="btn" onclick="howlNextList()">следующий массив слов</button>
+
+
+
+     </div>
+     <div class="card-body">
+
+       <h4 class="card-title">состояние</h4>
+       <div class="badge badge-secondary">  текущая длительность:  <span id="clip_duration"></span> мc </div>
+       <div class="badge badge-secondary">  длительность всей записи: <span id="total_sample_duration"> </span>   </div>
+       <div class="badge badge-secondary">  текущая запись: </span>        <span id="sample_name"></span>              </div>
+       <!-- <div class="badge badge-warning" >    мы ещё не умеем проверять, закончилось ли слово </span>        <span id="not_done"></span>              </div> -->
+       <div class="badge badge-danger" id="end_flag" style="display:none">  слово проиграно до конца </span>        <span ></span>              </div>
+       <div class="badge badge-success" id="clip_end_flag" style="display:none">  отрывок проигран </span>        <span ></span>              </div>
+
+       <!-- <div class="badge badge-success">    слово закончилось </span>        <span id="done"></span>              </div> -->
+       <div class="badge badge-secondary">  сколько осталось слов в списке:  <span id="words_remaining"></span> </div>
+
+       <p class="card-text"></p>
+     </div>
+   </div>
+
+
+</div>
+
+<br/>
+<div>
+  <h2>html5 audio</h2>
+   <button class="btn" onclick="audio.play()">Play</button>
+   <button class="btn" onclick="audio.pause()">Pause</button>
+   <button class="btn" onclick="currentLength += .050">добавить 50 ms</button>
+   <button class="btn" onclick="currentLength = .250">сбросить на 250 ms</button>
+   <button class="btn" onclick="audio.muted=!document.getElementById('clip').muted">Mute/ Unmute</button>
+</div>
+
+
+</br>
+<h2>Well</h2>
+<div class="well">
+  <div>
+  <p>Примеры использования window.setTimeout и того, как плохо они со звуком работают</p>
+  <button class="btn" onclick="delayedAlert();">Show an alert box after two seconds</button>
+  <button class="btn" onclick="delayedPlay();">play a sound after two seconds</button>
+  <!-- <button class="btn" onclick="play_and_pause_after_a_delay();">play a sound and pause it after currentLength</button> -->
+
+
+  <p></p>
+  <button class="btn" onclick="clearAlert();">Cancel alert before it happens</button>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
