@@ -17,6 +17,16 @@ var inputArray = []; /* сюда складываются массивы отв�
 //var usersInput; /* username испытуемого */
 var userData; /* анкетные данные испытуемого */
 var fileText = ""; /* текст файла с результатами */
+userData = {userName:"anonymous", /* умолчания */
+            userAge:"0",
+            userSex:"female",
+            userEducation:"graduate",
+            userProfession:"",
+            userLanguage:"русский",
+            userHand:"right",
+            userDisorders:"no",
+            userMedication:"no",
+            userPerception:"no" };
 
 function normalizeAnswer(s){
           return(s.trim().toLowerCase().replace(/ё/gi, "е"));
