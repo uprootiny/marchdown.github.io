@@ -37,6 +37,7 @@ function nextPage() {
   }
   showPage(pages[pi]);
   if(pages[pi]=="consentPage")  document.getElementById("consentSubmitButton").focus();
+  if(pages[pi]=="experimentPage")  document.getElementById("playButton").focus();
 }
 function prevPage() { // training → instruction
   hidePage(pages[pi]);
