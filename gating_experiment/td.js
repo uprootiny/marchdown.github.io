@@ -47,7 +47,11 @@ function nextPage() {
   }
   showPage(pages[pi]);
   if(pages[pi]=="consentPage")  document.getElementById("consentSubmitButton").focus();
-  if(pages[pi]=="experimentPage")  document.getElementById("playButton").focus();
+  if(pages[pi]=="experimentPage") {
+    document.getElementById("playButton").focus();
+    //document.getElementById("consentSubmitButton").style.cssText+="disabled";
+    // alert(document.activeElement);
+  }
 }
 function prevPage() { // training → instruction
   hidePage(pages[pi]);
