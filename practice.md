@@ -22,3 +22,4 @@
    + <http://cs231n.stanford.edu>
    + <http://cs224d.stanford.edu/syllabus.html>
    + <Stochastic calculus>
+   + <http://learn.edx.org/mit-python/>
