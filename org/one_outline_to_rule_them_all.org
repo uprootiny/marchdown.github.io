@@ -1,0 +1,24 @@
+* Checklists
+** Settling into Org mode
+** TODO command to create a child node with a timestamp
+** 
+** <2018-03-20 Tue>
+I'm living in the future now. 
+
+There are flying cars, laser dolphins, men on Mars, and a cybernetic global economy.
+
+There's still firewood to be collected and water to be pumped. 
+*** Sharpening the saw
+
+**** Wishlist
+ - ALL of undergraduate math, some graduate: category theory and crypto.
+ - A modern assembly and good GUI-building stack.
+ - Debugger, profiler, linter toolchain.
+**** Apocrypha
+ - Tao of Unix
+ - 
+**** Actual materials to go through
+ - Python Essential Reference
+**** Emacs
+ [ ] git. 
+* 

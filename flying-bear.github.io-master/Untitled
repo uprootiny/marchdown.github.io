@@ -1,0 +1,6 @@
+QUnit.test( "howlGrow increments duration", function( assert ) {
+  var duration_before = howlObj.duration();
+  howlGrow();
+  var duration_after = howlObj.duration();
+  assert.equal( duration_before+50, duration_after, "howlGrowl should increment duration by 50 ms" );
+});

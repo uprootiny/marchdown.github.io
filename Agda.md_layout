@@ -1,0 +1,7 @@
+# What I had to do to install Agda
+```
+cabal update
+cabal install Agda-executable
+agda-mode setup
+```
+

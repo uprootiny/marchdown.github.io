@@ -1,0 +1,18 @@
+* List of lists
+https://github.com/papers-we-love/papers-we-love
+** HoTT
+*** https://www.math.ias.edu/vladimir/lectures
+*** TODO https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/2014_09_Bernays_1%20presentation.pdf
+*** TODO https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/2014_09_Bernays_2%20presentation.pdf
+** Probability
+*** Monte Carlo
+https://www.naftaliharris.com/blog/mc-graph/
+** Type theory
+
+*** TODO Hindley and Milner papers
+** Complexity theory
+*** Sedgewick textbook 
+    (look for more!)
+** Data Science
+** Grind
+** 

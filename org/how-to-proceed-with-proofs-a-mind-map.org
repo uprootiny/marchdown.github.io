@@ -1,0 +1,14 @@
+* Watch tutorials for proof assistants.
+** TODO Collect tutorials
+ [ ] https://www.youtube.com/watch?v=9-mtbn2MjKc
+ [ ]
+** TODO Collect and do the exercises for proof assistants
+** Draw a map of propositions that people demonstrate proving with each of them
+** go through research articles using proof assistant
+** Go back in time to Mizar and decypher it
+* Pick a book with nice, clear proofs, lots of them
+** Proofs from the book
+** TODO Find more books with good proofs
+** Any rigorous book on logic or analysis
+* TODO make a dependency tree of what's presented in the book and try and climb it with a proof assistant
+

@@ -24,9 +24,11 @@ https://www.reddit.com/r/math/comments/24ejh2/why_category_theory_matters/
 *** TODO Complete Coq Tutorial
 
 ** Algorithms
-*** Keep up with the Coursera class /this time over/
+*** TODO Keep up with the Coursera class /this time over/
+  /Users/serratus/code/programming-languages
+  there's even a git repo
 *** Keep a notebook with questions and deltas
-
+    
 ** Applied probability
 ** Programming Languages
 ** 
@@ -71,3 +73,82 @@ https://www.math.ias.edu/vladimir/publications
 ** linguistics
 
 ** construction
+
+* <2017-09-24 Sun>
+
+** Diary entry
+I'm working through [the Programming Languages class on coursera](https://www.coursera.org/learn/programming-languages/lecture/mYYPe/course-motivation-introduction)
+and I have a lot of ideas popping up. Mostly things that seem like too much effort to actually implement, but hey may be cool to revisit, so I'll note them down here.
+
+*** Do a music player in Elm
+
+*** Do a stack of languages from assembly to something Haskellish
+
+*** An overview of compiler paradigms
+
+*** Birds-eye view on problems like LaTeX not having inline macros bindings
+
+*** Doing algorithmic problems in functional-style C with function pointers.
+
+*** Doing an LISP, compilers, or write-you-a-haskell tutorial
+
+*** Digging deep into Haskell internals
+
+*** Working with dependent typles
+
+*** Doing a parser from the ground up, then another fifty.
+
+*** Do HDCP
+
+*** Do Fast.ai, fast.ai is good.
+
+** <2017-09-25 Mon 06:18>
+I'm doing streams. I wonder if I could do them in Haskell, Python, C....
+
+Also also Racket works differently in Geiser than in DrRacket.
+it does not like #lang directive
+and the stream definition is wonky
+
+** TODO work through the delay/force examples 
+ideally coding as I go and staying one step ahead of the videos
+
+** TODO redo the memoization example with immutable datastructures passing env as an argument.
+
+** Complete the homework,
+
+*** 9. 
+
+*** 10. 
+
+*** 11, challenge problem.
+
+** 
+** do an immutable memoized fibonacci in C
+
+** What's this thing with hygienic macros
+
+*** Variable renaming
+** Have an assembly environment
+Build it up from the *very* basics. MOV-machine?
+I'm thinking some usable assembly, ARM probably, then LLVM, then... something a little on top of that. Then C. Then something haskell-ish.
+** 
+* <2018-04-04 Wed 11:11> Online Classes
+ - https://academy.microsoft.com/en-us/professional-program/tracks/artificial-intelligence/
+ - https://aischool.microsoft.com/learning-paths
+ - https://www.theverge.com/2018/2/28/17063780/google-ai-machine-learning-hub-crash-course-free
+
+* <2018-07-16 Mon> lecture series and academic calendars:
+
+** TAU
+http://www.cs.tau.ac.il/~zwick/CS277.html
+https://en-econ.tau.ac.il/events/lectures-new
+https://en-cenlib.tau.ac.il/Wiener
+https://rector.tau.ac.il/Courses-taught-in-English-available-for-exchange-students
+https://english.tau.ac.il/neuroscience
+
+
+
+
+
+
+

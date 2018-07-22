@@ -1,0 +1,100 @@
+* TODO META: Integrate various maps and todos together. Mostly for the links
+** Find a workable workflow
+   - track different projects
+     - immediate next action
+     - accountability: a log of done todos
+     - keep links inline
+     - cross-link
+     - render the big picture (org-agenda? Complice?)
+     - have a someday/maybe list of educational materials and project ideas
+
+
+* Get a job
+** Respond to Salaryo people
+*** TODO Set two hours aside and research scraping https://github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition
+
+https://docs.google.com/document/d/1Ni813EzbLo2qfMkc7Rjfhex2fOM6bi7dP4EYzieUuKE/edit
+
+*** make myself presentable
+**** TODO Clean up my GitHub Account
+***** TODO Remove or merge old repos
+***** TODO Brainstorm portfolio ideas 
+
+* Sharpen the saw
+** TODO Do http://learngitbranching.js.org
+** TODO Review Coursera classes
+** TODO solve a problem on HackerRank
+** Read up on http://blog.complice.co/
+
+* Stay sane, happy and productive
+** Go through with the assimilation process
+   [x] call misrad haklita and ask for a representative
+   [ ] register with misrad hapnim
+   [ ] open a bank account
+** Find a job
+*** How I imagine it work in the ideal world: 
+    There are things I do that people want and I'm happy to provide.
+**** What are some of those things that I could develop
+     - music
+     - proofreading
+     - code
+     - ideas
+     - negotiation
+     - design
+     
+** A place to live
+** A creative outlet
+*** That musician on the street. Ask him.
+*** Keep a Tumblr.
+** Connect with people, work through my social anxiety.
+*** The identity issue, find bits of identity that could bear the load and those that need help.
+    
+*** Find danse classes
+** Decide what's important and focus there. Disengage from most of the rest.
+
+* Write a book. In russian. 
+* Study Hebrew.
+* Study all the languages I'm fascinated with.
+ - Chinese
+ - Yiddish
+
+* Fundamental math, Logic and Programming
+
+** Philosophy and History of math
+
+*** TODO Seek out that old Coursera class on philosophy of math
+
+*** TODO make a reading list
+** Formal proofs
+*** TODO Bibliography 
+*** Coq
+**** Official Tutorials
+***** Coq in a Hurry
+https://duckduckgo.com/?q=Coq+in+a+hurry&t=osx&ia=web
+https://cel.archives-ouvertes.fr/file/index/docid/459139/filename/coq-hurry.pdf
+***** https://www.cs.princeton.edu/courses/archive/fall10/cos441/sf/Logic.html
+***** https://www.cs.princeton.edu/courses/archive/spring15/cos510/sf/MoreLogic.html
+https://news.ycombinator.com/item?id=13177116
+**** TODO Hoare Logic paper
+https://softwarefoundations.cis.upenn.edu/current/HoareAsLogic.html
+**** Software Foundations
+https://softwarefoundations.cis.upenn.edu/current/deps.html
+**** http://adam.chlipala.net/cpdt/
+
+*** TLAPS
+*** Agda
+*** LEAN
+https://leanprover.github.io/publications/
+
+
+** Practical languages
+*** Python
+*** C, C++, Go, Assembly
+**** https://learn-anything.xyz/programming/programming-languages/go
+*** Clojure
+*** Haskell, Idris, Agda
+
+** Algorithms
+*** algs4
+*** HackerRank problemset on algorithms.
+* 
