@@ -1,0 +1,38 @@
+#+BEGIN_HTML
+---
+layout: page
+title: { { {title} } }
+permalink: /org/academic_calendars
+tagline: pasting code from the internet is stupid
+categories: computers
+tags: web org-mode emacs org blog github bitbucket git
+---
+#+END_HTML
+this page: https://marchdown.github.io/org/academic_calendars
+the other page: https://marchdown.github.io/IsraeliUniversities
+* venues
+** Techion 
+https://www.technion.ac.il/en/events-2/
+** HUJI
+ - https://mathematics.huji.ac.il/calendar/upcoming/calendar/eventss/conferences
+ - https://mathematics.huji.ac.il/calendar/upcoming/eventss/events-seminars
+ - http://ap.huji.ac.il/videolist
+ - http://new.huji.ac.il/en/MOOC
+ - https://www.coursera.org/huji
+ - https://www.coursera.org/learn/synapses
+ - https://www.coursera.org/learn/introduction-to-math
+ - https://www.coursera.org/learn/israel#creators
+ - https://sites.google.com/view/ggroxford2018/home
+
+
+** Weizmann
+
+
+** HAIFA U
+** Arieli
+** TAU
+** Univerzita Ptucha
+** Academic Colledge Tel Aviv Yafo
+** Makamit
+** Other music colledges
+** Other institutions
