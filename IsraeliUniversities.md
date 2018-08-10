@@ -1,20 +1,17 @@
-# Israeli academics
-
-## seminars, conferences, labs, research centers to keep an eye on
 ### Tel Aviv
-[http://acg.cs.tau.ac.il/cg-seminar](Computational Geometry)
-Events: https://en.cs.tau.ac.il/computer/events_main
+[Events in TAU Math & CS department] (https://en.cs.tau.ac.il/computer/events_main)
+
+[Computational Geometry](http://acg.cs.tau.ac.il/cg-seminar)
+
 neuro-something
 logic seminar
-### Jerusalem
-#### [http://new.huji.ac.il](HUJI)
-##### [http://www.math.huji.ac.il/seminar.html](Einstein institute)
+# Jerusalem
+## [HUJI](http://new.huji.ac.il)
+### [Math dept Seminars](http://www.math.huji.ac.il/seminar.html)
+[all seminars](http://www.math.huji.ac.il/seminars.html)
+[google calendar](http://www.math.huji.ac.il/upcoming.htm)
 
-[http://www.math.huji.ac.il/seminars.html](all seminars)
-[http://www.math.huji.ac.il/upcoming.htm](google calendar)
-[](Basic notions)
-### Rechovot
-#### [http://www.weizmann.ac.il](Weizmann institute)
+# (http://www.weizmann.ac.il)[Weizmann institute] in Rechovot
 [Math seminars](https://www.weizmann.ac.il/math/upcoming-seminars)
 ## People
 
