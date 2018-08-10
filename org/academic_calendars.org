@@ -2,7 +2,7 @@
 ---
 layout: page
 title: { { {title} } }
-permalink: /org/academic_calendars
+permalink: /academic_calendars
 tagline: pasting code from the internet is stupid
 categories: computers
 tags: web org-mode emacs org blog github bitbucket git
