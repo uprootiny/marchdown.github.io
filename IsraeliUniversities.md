@@ -3,6 +3,7 @@
 ## seminars, conferences, labs, research centers to keep an eye on
 ### Tel Aviv
 [http://acg.cs.tau.ac.il/cg-seminar](Computational Geometry)
+Events: https://en.cs.tau.ac.il/computer/events_main
 neuro-something
 logic seminar
 ### Jerusalem
@@ -14,6 +15,7 @@ logic seminar
 [](Basic notions)
 ### Rechovot
 #### [http://www.weizmann.ac.il](Weizmann institute)
+[Math seminars](https://www.weizmann.ac.il/math/upcoming-seminars)
 ## People
 
 [http://www.tau.ac.il/~tsirel/]
