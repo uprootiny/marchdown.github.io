@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="80" fill="#6f42c1" />
+  <circle cx="70" cy="80" r="10" fill="#fff" />
+  <circle cx="130" cy="80" r="10" fill="#fff" />
+  <path d="M90 120 c20 0 40 0 20 30 c-20 -30 0 -30 20 -30" fill="#fff" />
+  <path d="M110 120 c-20 0 -40 0 -20 30 c20 -30 0 -30 -20 -30" fill="#fff" />
+  <animateTransform 
+    attributeName="transform" 
+    attributeType="XML" 
+    type="translate" 
+    values="0 -5;0 5;0 -5" 
+    dur="0.5s" 
+    repeatCount="indefinite" 
+  />
+</svg>
