@@ -1,0 +1,21 @@
+<svg width="600" height="600" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <g class="rotate" transform="translate(150, 150)">
+      <g transform="skewX(20) skewY(20)">
+        <circle class="mandala" cx="0" cy="0" r="125" fill="#f06" />
+      </g>
+      <g transform="scale(0.8)">
+        <polygon class="mandala" points="0,-100 86.6025,50 -86.6025,50" fill="#09f" />
+        <polygon class="mandala" points="0,-100 86.6025,50 -86.6025,50" fill="#09f" transform="rotate(90)" />
+        <polygon class="mandala" points="0,-100 86.6025,50 -86.6025,50" fill="#09f" transform="rotate(180)" />
+        <polygon class="mandala" points="0,-100 86.6025,50 -86.6025,50" fill="#09f" transform="rotate(270)" />
+      </g>
+      <g transform="scale(0.6)">
+        <circle class="mandala" cx="0" cy="0" r="125" fill="#0f9" />
+      </g>
+      <g transform="scale(0.4)">
+        <circle class="mandala clip scale" cx="0" cy="-100" r="25" fill="#0f9" />
+        <circle class="mandala clip scale" cx="86.6025" cy="50" r="25" fill="#0f9" />
+        <circle class="mandala clip scale" cx="-86.6025" cy="50" r="25" fill="#0f9" />
+      </g>
+    </g>
+  </svg>
