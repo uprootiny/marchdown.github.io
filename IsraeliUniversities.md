@@ -1,7 +1,7 @@
 ---
 title: Academic Calendars
 subtitle: all in one place
-layout: post
+# layout: post
 ---
 
 
